@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="This article is about: {{ description }}"
+    />
+    <link rel="stylesheet" href="/bundle.css" />
+    <title>{{ title }}</title>
+  </head>
+  <body>
+    <h1>{{ title }}</h1>
+    <i>Published by {{ author }} on {{ date | dateDisplay }}</i>
+
+    <p>This article has following tags: {%- for post in collections.posts -%}
+      {{ post.data.tags }}
+      {%- endfor -%}
+    <p>This article is about: {{ description }}</p>
+    <hr />
+    {{ content | safe }}
+  </body>
+</html>
