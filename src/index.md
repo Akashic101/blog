@@ -9,7 +9,7 @@ description: How I created my own small blog, what I am planning on doing with i
 # David's blog
 <i> You can't downvote me here</i>
 
-There are {{collections.posts.length }} articles on this blog
+There are 1 {{collections.posts.length }} articles on this blog
 
 {% for post in collections.posts %}
 ## {{ post.data.title }}
