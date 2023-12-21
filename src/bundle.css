@@ -1,0 +1,9 @@
+@font-face {
+	font-family: Atkinson;
+	src: url("assets/fonts/font.woff2") format('woff2');
+	font-display: swap;
+}
+
+body {
+	font-family: 'Atkinson';
+}
