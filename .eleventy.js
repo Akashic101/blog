@@ -39,6 +39,15 @@ module.exports = function (eleventyConfig) {
     return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat("LLLL d, yyyy");
   });
 
+  eleventyConfig.addCollection("lastThreeArticles", function(collectionApi) {
+    return collectionApi.getAll().slice(1, 4);
+  });
+
+  eleventyConfig.addCollection("randomArticle", function(collectionApi) {
+	let items = collectionApi.getAll()
+    return items[Math.floor(Math.random()*items.length)];
+  });
+
   return {
     dir: {
       input: "src",

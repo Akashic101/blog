@@ -130,3 +130,13 @@ This website was hugely inspired by LOW←TECH MAGAZINE who are powering all the
 Similar to LOW←TECH MAGAZINE's solution I want to keep a small footprint and run this website on the bare minimum needed. My current plan is to run this website on a Raspberry Pi Zero W connected to the back of my router, though I haven't gotten that far yet to test this. If the Zero W is not powerful enough I have a Pi 3 and Pi 4 that are gathering dust which I could also use to power this blog. As for how to open this website to the web, I am using <h href="https://www.cloudflare.com/products/tunnel/">Cloudflare Tunnel</a> though I am looking for a better option that does not require the help of another company. Selfhost all the way.
 
 Eventuell I do want to run on solar and battery as well but that is far into the future, though if I do manage it I will make sure to share my way to that achievement here as well.
+
+<hr>
+
+Now that I covered how I am planning to run this blog I want to extend on what content I will share here:
+
+<em>I don't know yet</em>
+
+I will share here whatever is on my mind, jumping from topic to topic. There will almost never be articles released after each over covering the same topic or even the same area. I will share links I find interesting, talk about my projects, my hobbies or just interests, my work, my life, my cats, whatever is on my mind.
+
+I think this is enough for my very first post. Let's see what I come up with next. Thank you for reading if you got this far, and if you didn't, I cannot blame you
