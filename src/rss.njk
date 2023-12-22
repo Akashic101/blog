@@ -1,0 +1,54 @@
+---json
+{
+  "permalink": "feed.xml",
+  "eleventyExcludeFromCollections": true,
+  "metadata": {
+    "title": "David Moll's blog",
+    "subtitle": "I am writing about whatever is on my mind",
+    "language": "en",
+    "url": "https://blog.davidmoll.net",
+    "author": {
+      "name": "David Moll",
+      "url": "david.leander.moll@gmail.com"
+    }
+  }
+}
+---
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xml:base="{{ metadata.url }}" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>{{ metadata.title }}</title>
+    <link>{{ metadata.url }}</link>
+    <atom:link href="{{ permalink | absoluteUrl(metadata.url) }}" rel="self" type="application/rss+xml" />
+    <description>{{ metadata.subtitle }}</description>
+    <language>{{ metadata.language }}</language>
+    <copyright>Copyright 2023, David Moll</copyright>
+    <managingEditor>david.leander.moll@gmail.com (David Moll)</managingEditor>
+    <webMaster>david.leander.moll@gmail.com (David Moll)</webMaster>
+    <pubDate>{{ lastBuildDate }}</pubDate>
+    <lastBuildDate>{{ lastBuildDate }}</lastBuildDate>
+    <category>Blog</category>
+    <generator>11ty</generator>
+    <docs>https://www.rssboard.org/rss-specification</docs>
+    <image>
+      <url>https://blog.davidmoll.net/assets/images/general/rss-image.png</url>
+      <title>David Moll's blog</title>
+      <link>https://blog.davidmoll.net</link>
+    </image>
+    {%- for post in collections.posts | reverse %}
+    {%- set absolutePostUrl = post.url | absoluteUrl(metadata.url) %}
+     <item>
+      <title>{{ post.data.title }}</title>
+      <link>{{ absolutePostUrl }}</link>
+      <description>
+      <![CDATA[<img align="left" hspace="5" src="{{metadata.url }}/assets/images/{{post.data.folderName}}/cover.png"/>
+        {{ post.data.description }}]]>
+      </description>
+      <author>{{ metadata.author.url }} ({{ metadata.author.name }})</author>
+      <pubDate>{{ post.date | dateToRfc822 }}</pubDate>
+      <guid>{{ absolutePostUrl }}</guid>
+      <source url="{{ metadata.url }}">{{ metadata.title }}</source>
+    </item>
+    {%- endfor %}
+  </channel>
+</rss>

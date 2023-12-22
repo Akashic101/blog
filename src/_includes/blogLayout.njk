@@ -10,21 +10,32 @@
     <link rel="stylesheet" href="/bundle.css" />
     <title>{{ title }}</title>
   </head>
+
   <body>
-    <a href="https://blog.davidmoll.net">Home</a>
-    <a href="https://blog.davidmoll.net/archive">Archive</a>
-    <a href="https://blog.davidmoll.net/about">About me</a>
+    <header>
+      <a href="https://blog.davidmoll.net">Home</a>
+      <a href="https://blog.davidmoll.net/archive">Archive</a>
+      <a href="https://blog.davidmoll.net/about-me">About me</a>
 
-    <h1>{{ title }}</h1>
-    <i>Published by {{ author }} on {{ date | dateDisplay }}</i>
+      <h1>{{ title }}</h1>
+      <i>Published by {{ author }} on {{ date | dateDisplay }}</i>
+      <p>This article has following tags: {{ tags | joinedTags }}</p>
+      <p>This article is about: {{ description }}</p>
+      <hr />
+    </header>
 
-    <br />
-    This article has following tags: {% for tag in tags %}
-    <p class="pill">{{ tag }}</p>
-    {% endfor %}
+    <main>{{ content | safe }}</main>
 
-    <p>This article is about: {{ description }}</p>
-    <hr />
-    {{ content | safe }}
+    <footer>
+      <p>&copy; 2023 David Moll. All rights reserved.</p>
+      <p><a href="/feed.xml" class="rss-button">Subscribe to RSS</a></p>
+      <a
+        href="https://www.rssboard.org/rss-validator/check.cgi?url=https%3A//blog.davidmoll.net/feed.xml"
+        ><img
+          src="../../assets/images/general/valid-rss-rogers.png"
+          alt="[Valid RSS]"
+          title="Validate my RSS feed"
+      /></a>
+    </footer>
   </body>
 </html>

@@ -8,8 +8,10 @@ tags:
 - eleventy
 - accessibility
 description: How I created my own small blog, what I am planning on doing with it and how you can create your own
-coverImage: https://blog.davidmoll.net/assets/images/2023-12-21-Hello-World/2023-12-22-Hello-World.png
+folderName: 2023-12-21-Hello-World
 ---
+
+![A child sitting in front of a PC with a CRT-monitor](../../assets/images/2023-12-21-Hello-World/cover.png)
 
 I have been wanting to create my own blog for a while. Inspired by other creators such as Jeff Geerling, LOW←TECH MAGAZINE, Pluralistic and others just to name a few I thought how difficult can it be to create your own. 
 

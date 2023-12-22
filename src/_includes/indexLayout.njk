@@ -7,16 +7,32 @@
       name="description"
       content="My personal blog powered by 11ty where I talk about whatever I want"
     />
+    <link rel="alternate" type="application/rss+xml" title="David Moll's RSS Feed" href="/feed.xml">
+    <link rel="alternate" type="application/atom+xml" title="David Moll's Atom Feed" href="/feed.atom">
     <link rel="stylesheet" href="/bundle.css" />
     <title>{{ title }}</title>
   </head>
   <body>
-  <h1>David Moll's blog</h1>
-  <i> You can't downvote me here</i>
-  <p>There are {{collections.posts.length }} articles on this blog</p>
-  <a href="https://blog.davidmoll.net">Home</a>
-  <a href="https://blog.davidmoll.net/archive">Archive</a>
-  <a href="https://blog.davidmoll.net/about">About me</a>
-    {{ content | safe }}
+    <header>
+      <h1>David Moll's blog</h1>
+      <i> You can't downvote me here</i>
+      <p>There are {{collections.all.length }} articles on this blog</p>
+      <a href="https://blog.davidmoll.net">Home</a>
+      <a href="https://blog.davidmoll.net/archive">Archive</a>
+      <a href="https://blog.davidmoll.net/about-me">About me</a>
+    </header>
+    <main>{{ content | safe }}</main>
+    <footer>
+      <p>&copy; 2023 David Moll. All rights reserved.</p>
+      <p><a href="/feed.xml" class="rss-button">Subscribe to RSS</a></p>
+      <a
+        href="https://www.rssboard.org/rss-validator/check.cgi?url=https%3A//blog.davidmoll.net/feed.xml"
+        ><img
+          src="../../assets/images/general/valid-rss-rogers.png"
+          alt="[Valid RSS]"
+          title="Validate my RSS feed"
+      /></a>
+    </footer>
   </body>
 </html>
+

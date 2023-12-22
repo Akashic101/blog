@@ -7,13 +7,38 @@
 body {
 	font-family: 'Atkinson';
 	width: 80%;
+	padding-top: 2rem;
 	margin: 0 auto;
 }
 
-.pill {
-	background-color: #ddd;
-	color: black;
-	padding: 5px;
-	display: inline-block;
-	border-radius: 10px;
+.flex-container {
+	display: flex;
+	justify-content: flex-start;
+	gap: 1.5rem; /* Adjust the gap as needed */
+	max-width: 1000px; /* Adjust the max-width as needed */
+	margin: 2rem auto;
+  }
+  
+  .main-title {
+	margin: 0;
+	font-size: 2.25rem; /* Adjust the font size as needed */
+	font-weight: bold;
+  }
+  
+  .date {
+	margin: 0;
+	font-size: 0.875rem; /* Adjust the font size as needed */
+  }
+  
+  .description {
+	font-size: 1.125rem; /* Adjust the font size as needed */
+  }
+  
+  .read-more-link {
+	color: #4299e1; /* Adjust the color as needed */
+	text-decoration: none;
+  }
+  
+  .read-more-link:hover {
+	text-decoration: underline;
   }

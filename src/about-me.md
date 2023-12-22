@@ -6,5 +6,13 @@ author: David Moll
 date: 2023-12-22
 tags:
 - About me
+- posts
 description: Who I am and what I do
+folderName: 2023-12-22-about-me
 ---
+
+![A child sitting in front of a PC with a CRT-monitor](../../assets/images/2023-12-22-about-me/cover.png)
+
+<p>I'm David Moll, a frontend-engineer UI/UX and content-creator working for <a href="https://xapling.de/">xapling GmbH</a> in Germany.</p>
+
+<p>I like to talk about loads of things, for example FOSS, right-to-repaiur 
