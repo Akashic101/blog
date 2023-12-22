@@ -11,12 +11,18 @@
     <title>{{ title }}</title>
   </head>
   <body>
+    <a href="https://blog.davidmoll.net">Home</a>
+    <a href="https://blog.davidmoll.net/archive">Archive</a>
+    <a href="https://blog.davidmoll.net/about">About me</a>
+
     <h1>{{ title }}</h1>
     <i>Published by {{ author }} on {{ date | dateDisplay }}</i>
 
-    <p>This article has following tags: {%- for post in collections.posts -%}
-      {{ post.data.tags }}
-      {%- endfor -%}
+    <br />
+    This article has following tags: {% for tag in tags %}
+    <p class="pill">{{ tag }}</p>
+    {% endfor %}
+
     <p>This article is about: {{ description }}</p>
     <hr />
     {{ content | safe }}
