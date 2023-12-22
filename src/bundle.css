@@ -14,31 +14,37 @@ body {
 .flex-container {
 	display: flex;
 	justify-content: flex-start;
-	gap: 1.5rem; /* Adjust the gap as needed */
-	max-width: 1000px; /* Adjust the max-width as needed */
-	margin: 2rem auto;
-  }
-  
-  .main-title {
+	gap: 1.5rem;
+	/* Adjust the gap as needed */
+	max-width: 800px;
+	/* Adjust the max-width as needed */
+	margin-bottom: 1rem;
+}
+
+.main-title {
 	margin: 0;
-	font-size: 2.25rem; /* Adjust the font size as needed */
+	font-size: 2.25rem;
+	/* Adjust the font size as needed */
 	font-weight: bold;
-  }
-  
-  .date {
+}
+
+.date {
 	margin: 0;
-	font-size: 0.875rem; /* Adjust the font size as needed */
-  }
-  
-  .description {
-	font-size: 1.125rem; /* Adjust the font size as needed */
-  }
-  
-  .read-more-link {
-	color: #4299e1; /* Adjust the color as needed */
+	font-size: 0.875rem;
+	/* Adjust the font size as needed */
+}
+
+.description {
+	font-size: 1.125rem;
+	/* Adjust the font size as needed */
+}
+
+.read-more-link {
+	color: #4299e1;
+	/* Adjust the color as needed */
 	text-decoration: none;
-  }
-  
-  .read-more-link:hover {
+}
+
+.read-more-link:hover {
 	text-decoration: underline;
-  }
+}

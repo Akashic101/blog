@@ -14,13 +14,7 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addFilter("dateDisplay", (dateObj) => {
 		return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat("LLLL d, y");
 	});
-
-	eleventyConfig.addFilter("excludeFromRSS", function(content) {
-		// Modify this function to exclude specific elements from the content
-		// For example, removing elements with a certain class name
-		return content.replace(/<div class="exclude-from-rss">.*?<\/div>/g, '');
-	  });
-
+	
 	eleventyConfig.addAsyncFilter("joinedTags", async function (tagsObj) { return tagsObj.join(", "); });
 
 	eleventyConfig.addCollection("lastThreeArticles", function (collectionApi) {
