@@ -39,12 +39,6 @@ body {
 	/* Adjust the font size as needed */
 }
 
-.read-more-link {
-	color: #4299e1;
-	/* Adjust the color as needed */
-	text-decoration: none;
-}
-
 .read-more-link:hover {
 	text-decoration: underline;
 }

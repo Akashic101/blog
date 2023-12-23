@@ -19,7 +19,7 @@ eleventyExcludeFromCollections: true
         <h1 class="main-title">{{ post.data.title }}</h1>
         <p class="date">{{post.date | dateDisplay}}</p>
         <p class="description">{{post.data.description}}</p>
-        <a class="read-more-link" href="{{ post.url }}">Read More</a>
+        <a class="read-more-link" href="{{ post.url }}">Read the article</a>
     </div>
 </div>
 {% endfor %}
@@ -37,7 +37,7 @@ eleventyExcludeFromCollections: true
         <h1 class="main-title">{{ collections.randomArticle.data.title }}</h1>
         <p class="date">{{ collections.randomArticle.data.date | dateDisplay }}</p>
         <p class="description">{{ collections.randomArticle.data.description }}</p>
-        <a class="read-more-link" href="{{collections.randomArticle.url}}">Read More</a>
+        <a class="read-more-link" href="{{collections.randomArticle.url}}">Read the article</a>
     </div>
 </div>
 <hr>
