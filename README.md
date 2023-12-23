@@ -7,7 +7,7 @@ This is the repo of my personal blog powered by 11ty. You can access it under ht
 ## How It Works
 
 1. Each article gets written in Markdown
-2. 11ty converts all files into HTML upon launch of the project into a `_site`
+2. 11ty converts all files into HTML upon launch of the project into a folder called `_site`
 3. The website is accessible from my server via Cloudflare Tunnel 
 
 ## Patch Notes
@@ -19,7 +19,7 @@ This is the repo of my personal blog powered by 11ty. You can access it under ht
 - Added first articles
 
 ## Roadmap
-- Full coverage of WCAG 2.0 and eventually WCAG 3.0
+- Full coverage of WCAG 2.2 and eventually WCAG 3.0
 - Better design
 - Improved hosting similar to [LOW←TECH MAGAZINE](https://solar.lowtechmagazine.com/about/the-solar-website/)
 
