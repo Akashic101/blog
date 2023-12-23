@@ -1,0 +1,28 @@
+---
+layout: blogLayout.njk
+title: Archive
+permalink: /archive/index.html
+author: David Moll
+date: 2023-12-23
+tags:
+- archive
+description: All articles on one page
+folderName: 2023-12-23-archive
+eleventyExcludeFromCollections: true
+---
+
+{% for post in collections.all %}
+
+<div class="flex-container">
+    <div class="image-container">
+        <img src="../../assets/images/{{post.data.folderName}}/cover.png" alt="{{ post.data.description }}" class="image" width="200" height="200">
+    </div>
+    <div class="text-container">
+        <h1 class="main-title">{{ post.data.title }}</h1>
+        <p class="date">{{post.date | dateDisplay}}</p>
+        <p class="description">{{post.data.description}}</p>
+        <a class="read-more-link" href="{{ post.url }}">Read More</a>
+    </div>
+</div>
+{% endfor %}
+<hr/>
