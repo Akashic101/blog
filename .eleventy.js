@@ -10,6 +10,7 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addPassthroughCopy("src/bundle.css");
 	eleventyConfig.addPassthroughCopy("src/assets/fonts/");
 	eleventyConfig.addPassthroughCopy("src/assets/images/");
+	eleventyConfig.addPassthroughCopy("src/assets/icons/");
 
 	eleventyConfig.addFilter("dateDisplay", (dateObj) => {
 		return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat("LLLL d, y");
