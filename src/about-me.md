@@ -9,9 +9,11 @@ tags:
 - posts
 description: Who I am and what I do
 folderName: 2023-12-22-about-me
+socialMediaPreviewImage: https://blog.davidmoll.net/assets/images/2023-12-22-about-me/cover.png
+socialMediaPreviewImageAlt: A ragdoll with glasses sitting infront of a laptop
 ---
 
-![A ragdoll with glasses sitting infront of a laptop](../../assets/images/2023-12-22-about-me/cover.png)
+![{{ socialMediaPreviewImageAlt }}]({{ socialMediaPreviewImage }})
 
 I'm David Moll, a frontend-engineer UI/UX and content-creator working for [xapling GmbH](https://xapling.de) in Germany.
 
