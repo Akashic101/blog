@@ -25,4 +25,3 @@ eleventyExcludeFromCollections: true
     </div>
 </div>
 {% endfor %}
-<hr/>
