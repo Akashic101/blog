@@ -16,6 +16,10 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addFilter("dateDisplay", (dateObj) => {
 		return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat("LLLL d, y");
 	});
+
+	eleventyConfig.addFilter("currentYear", () => {
+		return new Date().getFullYear();
+	});
 	
 	eleventyConfig.addAsyncFilter("joinedTags", async function (tagsObj) { return tagsObj.join(", "); });
 

@@ -12,6 +12,12 @@ This is the repo of my personal blog powered by 11ty. You can access it under ht
 
 ## Patch Notes
 
+**Version 0.0.2**
+- Added icons
+- Added support for Open Graph
+- Cleaned up templates
+- Minimized images and build code
+
 **Version 0.0.1**
 - Added index
 - Added about-me
