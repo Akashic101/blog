@@ -1,11 +1,12 @@
 const { DateTime } = require("luxon");
-const cheerio = require('cheerio');
+const eleventyPluginFilesMinifier = require("@sherby/eleventy-plugin-files-minifier");
 
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 
 module.exports = function (eleventyConfig) {
 
 	eleventyConfig.addPlugin(pluginRss);
+	eleventyConfig.addPlugin(eleventyPluginFilesMinifier);
 
 	eleventyConfig.addPassthroughCopy("src/bundle.css");
 	eleventyConfig.addPassthroughCopy("src/assets/fonts/");

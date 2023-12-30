@@ -9,6 +9,7 @@ tags:
 - accessibility
 description: My experience volunteering at the Special Olympics World Games Berlin 2023
 folderName: 2023-12-23-Special-Olympics-Berlin-2023
+socialMediaPreviewImage: https://blog.davidmoll.net/assets/images/2023-12-23-Special-Olympics-Berlin-2023/cover.png
 ---
 
 ![The mascot of the Special Olympics World Games Berlin 2023](../../assets/images/2023-12-23-Special-Olympics-Berlin-2023/cover.png)
