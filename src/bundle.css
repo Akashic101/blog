@@ -6,7 +6,7 @@
 
 body {
 	font-family: 'Atkinson';
-	width: 80%;
+	width: 768px;
 	padding-top: 2rem;
 	margin: 0 auto;
 }
@@ -36,4 +36,11 @@ body {
 
 .read-more-link:hover {
 	text-decoration: underline;
+}
+
+footer{
+    display: table;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
