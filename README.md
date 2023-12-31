@@ -3,6 +3,7 @@
 <img src="./src/assets/icons/android-chrome-512x512.png" alt="Blog's logo" align="right" width="120" height="120">
 
 This is the repo of my personal blog powered by 11ty. You can access it under https://blog.davidmoll.net or via RSS at https://blog.davidmoll.net/feed.xml
+*The website is currently WIP and not being hosted externally. If the website is not accessible I am not actively working on it for the moment*
 
 ## How It Works
 
