@@ -1,4 +1,5 @@
 const { DateTime } = require("luxon");
+const CleanCSS = require("clean-css");
 const eleventyPluginFilesMinifier = require("@sherby/eleventy-plugin-files-minifier");
 
 const pluginRss = require("@11ty/eleventy-plugin-rss");
@@ -12,6 +13,10 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addPassthroughCopy("src/assets/fonts/");
 	eleventyConfig.addPassthroughCopy("src/assets/images/");
 	eleventyConfig.addPassthroughCopy("src/assets/icons/");
+
+	eleventyConfig.addFilter("cssmin", function(code) {
+		return new CleanCSS({}).minify(code).styles;
+	  });
 
 	eleventyConfig.addFilter("dateDisplay", (dateObj) => {
 		return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat("LLLL d, y");

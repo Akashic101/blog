@@ -7,7 +7,6 @@
       name="description"
       content="This article is about: {{ description }}"
     />
-    <link rel="stylesheet" href="/bundle.css" />
     <title>{{ title }} - David Moll's blog</title>
     <link
       rel="alternate"
@@ -44,6 +43,7 @@
       href="/assets/icons/safari-pinned-tab.svg"
       color="#5bbad5"
     />
+    <meta http-equiv="Cache-Control" content="max-age=31536000">
     <meta name="msapplication-TileColor" content="#224679" />
     <meta name="theme-color" content="#ffffff" />
     <meta name="msapplication-TileColor" content="#224679" />
@@ -56,17 +56,23 @@
     <meta property="og:image:alt" content="{{ socialMediaPreviewImageAlt }}" />
     <meta property="og:locale" content="en_GB" />
     <meta property="og:site_name" content="David Moll's blog" />
-    <meta name="generator" content="Eleventy">
+    <meta name="generator" content="Eleventy" />
+    {% set css %} {% include "bundle.css" %} {% endset %}
+    <style>
+      {{ css | cssmin | safe }}
+    </style>
   </head>
   <body>
     {{ content | safe }}
   </body>
   <footer>
-      <p>&copy; {{2023 | currentYear}} David Moll. All rights reserved.</p>
-      <p>
-        <a href="/feed.xml" class="rss-button">Subscribe to RSS</a> |
-        <a href="https://www.github.com/akashic101/blog">Source Code</a> |
-        ⚡<a href ="https://www.11ty.dev/">11ty</a>
-      </p>
-    </footer>
+    <p>&copy; {{2023 | currentYear}} David Moll. All rights reserved.</p>
+    <p>
+      <a href="/feed.xml" class="rss-button">Subscribe to RSS</a> |
+      <a href="https://www.github.com/akashic101/blog">Source Code</a> | ⚡<a
+        href="https://www.11ty.dev/"
+        >11ty</a
+      >
+    </p>
+  </footer>
 </html>
