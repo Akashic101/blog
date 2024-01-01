@@ -2,12 +2,13 @@ const { DateTime } = require("luxon");
 const CleanCSS = require("clean-css");
 const brokenLinksPlugin = require("eleventy-plugin-broken-links");
 const eleventyPluginFilesMinifier = require("@sherby/eleventy-plugin-files-minifier");
-
+const pluginCleanUrls = require("@inframanufaktur/eleventy-plugin-clean-urls");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 
 module.exports = function (eleventyConfig) {
 
 	eleventyConfig.addPlugin(pluginRss);
+	eleventyConfig.addPlugin(pluginCleanUrls);
 	eleventyConfig.addPlugin(eleventyPluginFilesMinifier);
 	eleventyConfig.addPlugin(brokenLinksPlugin, {
 		redirect: "warn",
