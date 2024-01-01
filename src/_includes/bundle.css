@@ -44,3 +44,7 @@ footer{
     margin-left: auto;
     margin-right: auto;
 }
+
+#titleName {
+	margin-bottom: 0;
+}
