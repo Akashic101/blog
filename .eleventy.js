@@ -1,13 +1,15 @@
 const { DateTime } = require("luxon");
 const CleanCSS = require("clean-css");
-const brokenLinksPlugin = require("eleventy-plugin-broken-links");
-const eleventyPluginFilesMinifier = require("@sherby/eleventy-plugin-files-minifier");
-const pluginCleanUrls = require("@inframanufaktur/eleventy-plugin-clean-urls");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
+const brokenLinksPlugin = require("eleventy-plugin-broken-links");
+const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+const pluginCleanUrls = require("@inframanufaktur/eleventy-plugin-clean-urls");
+const eleventyPluginFilesMinifier = require("@sherby/eleventy-plugin-files-minifier");
 
 module.exports = function (eleventyConfig) {
 
 	eleventyConfig.addPlugin(pluginRss);
+	eleventyConfig.addPlugin(syntaxHighlight);
 	eleventyConfig.addPlugin(pluginCleanUrls);
 	eleventyConfig.addPlugin(eleventyPluginFilesMinifier);
 	eleventyConfig.addPlugin(brokenLinksPlugin, {
@@ -24,6 +26,7 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addPassthroughCopy("src/assets/fonts/");
 	eleventyConfig.addPassthroughCopy("src/assets/images/");
 	eleventyConfig.addPassthroughCopy("src/assets/icons/");
+	eleventyConfig.addPassthroughCopy("/Atkinson-Hyperlegible-Regular-102a.woff2");
 
 	eleventyConfig.addFilter("cssmin", function (code) {
 		return new CleanCSS({}).minify(code).styles;
