@@ -11,6 +11,12 @@ body {
 	width: 768px;
 	padding-top: 2rem;
 	margin: 0 auto;
+	background-color: #181a1b;
+	color: whitesmoke;
+}
+
+a {
+	color: #7eb6c9;
 }
 
 .flex-container {
