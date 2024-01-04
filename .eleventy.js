@@ -15,7 +15,7 @@ module.exports = function (eleventyConfig) {
 		broken: "error",
 		cacheDuration: "1d",
 		loggingLevel: 2,
-		excludeUrls: [],
+		excludeUrls: ["https://blog.davidmoll.net*", "https://github.com/Akashic101/*"],
 		excludeInputs: [],
 		callback: null,
 	});
