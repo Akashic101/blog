@@ -22,10 +22,10 @@
     <atom:link href="{{ permalink | absoluteUrl(metadata.url) }}" rel="self" type="application/rss+xml" />
     <description>{{ metadata.subtitle }}</description>
     <language>{{ metadata.language }}</language>
-    <copyright>Copyright 2023, David Moll</copyright>
+    <copyright>Copyright 2024, David Moll</copyright>
     <managingEditor>david.leander.moll@gmail.com (David Moll)</managingEditor>
     <webMaster>david.leander.moll@gmail.com (David Moll)</webMaster>
-    <pubDate>{{ lastBuildDate }}</pubDate>
+    <pubDate>{{ collections.posts.slice(-1)[0].date | dateToRfc822 }}</pubDate>
     <lastBuildDate>{{ lastBuildDate }}</lastBuildDate>
     <category>Blog</category>
     <generator>11ty</generator>
