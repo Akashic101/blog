@@ -15,6 +15,8 @@ socialMediaPreviewImageAlt: The mascot of the Special Olympics World Games Berli
 
 ![{{ socialMediaPreviewImageAlt }}]({{ socialMediaPreviewImage }})
 
+**This article is WIP**
+
 The Special Olympics are an event similar to the Olympics and Paralympics but only specifically for people with mental disabilities. Despite sharing a name with those two events they are not organized by the International Olympics Committee (IOC) but instead the movement was founded in 1968 by Eunice Kennedy-Shriver, a sister of US President John F. Kennedy. In this blog I want to talk about my experience volunteering at the Special Olympics World Games Berlin 2023.
 
 ## The way to the games
