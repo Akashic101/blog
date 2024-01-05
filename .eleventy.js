@@ -4,12 +4,23 @@ const pluginRss = require("@11ty/eleventy-plugin-rss");
 const brokenLinksPlugin = require("eleventy-plugin-broken-links");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const pluginCleanUrls = require("@inframanufaktur/eleventy-plugin-clean-urls");
+const directoryOutputPlugin = require("@11ty/eleventy-plugin-directory-output");
 const eleventyPluginFilesMinifier = require("@sherby/eleventy-plugin-files-minifier");
 const { fortawesomeBrandsPlugin } = require('@vidhill/fortawesome-brands-11ty-shortcode');
 const { fortawesomeFreeRegularPlugin } = require('@vidhill/fortawesome-free-regular-11ty-shortcode');
 
 module.exports = function (eleventyConfig) {
 
+	eleventyConfig.setQuietMode(true);
+
+	eleventyConfig.addPlugin(directoryOutputPlugin, {
+		// Customize columns
+		columns: {
+			filesize: true,
+			benchmark: true,
+		},
+		warningFileSize: 25 * 1000,
+	});
 	eleventyConfig.addPlugin(pluginRss);
 	eleventyConfig.addPlugin(syntaxHighlight);
 	eleventyConfig.addPlugin(pluginCleanUrls);
@@ -20,7 +31,7 @@ module.exports = function (eleventyConfig) {
 		redirect: "warn",
 		broken: "error",
 		cacheDuration: "1d",
-		loggingLevel: 2,
+		loggingLevel: 1,
 		excludeUrls: ["https://blog.davidmoll.net*", "https://github.com/Akashic101/*"],
 		excludeInputs: [],
 		callback: null,

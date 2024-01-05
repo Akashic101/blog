@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "@11ty/eleventy-img": "^3.1.8",
+    "@11ty/eleventy-plugin-directory-output": "^1.0.1",
     "@11ty/eleventy-plugin-webc": "^0.11.2",
     "@inframanufaktur/eleventy-plugin-clean-urls": "^1.0.2",
     "cheerio": "^1.0.0-rc.12",
