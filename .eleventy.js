@@ -5,13 +5,17 @@ const brokenLinksPlugin = require("eleventy-plugin-broken-links");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const pluginCleanUrls = require("@inframanufaktur/eleventy-plugin-clean-urls");
 const eleventyPluginFilesMinifier = require("@sherby/eleventy-plugin-files-minifier");
+const { fortawesomeBrandsPlugin } = require('@vidhill/fortawesome-brands-11ty-shortcode');
+const { fortawesomeFreeRegularPlugin } = require('@vidhill/fortawesome-free-regular-11ty-shortcode');
 
 module.exports = function (eleventyConfig) {
 
 	eleventyConfig.addPlugin(pluginRss);
 	eleventyConfig.addPlugin(syntaxHighlight);
 	eleventyConfig.addPlugin(pluginCleanUrls);
+	eleventyConfig.addPlugin(fortawesomeBrandsPlugin);
 	eleventyConfig.addPlugin(eleventyPluginFilesMinifier);
+	eleventyConfig.addPlugin(fortawesomeFreeRegularPlugin);
 	eleventyConfig.addPlugin(brokenLinksPlugin, {
 		redirect: "warn",
 		broken: "error",

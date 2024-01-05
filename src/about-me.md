@@ -15,9 +15,9 @@ socialMediaPreviewImageAlt: A ragdoll with glasses sitting infront of a laptop
 
 ![{{ socialMediaPreviewImageAlt }}]({{ socialMediaPreviewImage }})
 
-<a href="https://github.com/akashic101/"><i class="fa-brands fa-github fa-2x" style="color: white; margin-right: 1rem;"></i></a>
-<a href="https://www.linkedin.com/in/david-moll-3371511a1/"><i class="fa-brands fa-linkedin fa-2x" style="color: white; margin-right: 1rem;"></i></a>
-<a href="mailto:david.leander.moll@gmail.com"><i class="fa-solid fa-envelope fa-2x" style="color: white; margin-right: 1rem;"></i></a>
+<a href="https://github.com/akashic101/">{% fortawesomeBrand 'github', 'svg_size' %}</a>
+<a href="https://www.linkedin.com/in/david-moll-3371511a1/">{% fortawesomeBrand 'linkedin', 'svg_size' %}</a>
+<a href="mailto:david.leander.moll@gmail.com">{% fortawesomeRegular 'envelope', 'svg_size' %}</a>
 
 I'm David Moll, a frontend-engineer UI/UX and content-creator working for [xapling GmbH](https://xapling.de) in Germany.
 
@@ -28,11 +28,10 @@ Outside of work I enjoy simracing, binging shows, travelling and biking.
 
 ## Skills
 
-<i class="fa-brands fa-react fa-2x" style="margin-right: 1rem;"></i>
-<i class="fa-brands fa-angular fa-2x" style="margin-right: 1rem;"></i>
-<i class="fa-brands fa-js fa-2x" style="margin-right: 0.5rem;"></i>
-<i class="fa-brands fa-ts fa-2x" style="margin-right: 0.5rem;"></i>
-<i class="fa-brands fa-git fa-2x" style="margin-right: 1rem;"></i>
-<i class="fa-brands fa-linux fa-2x" style="margin-right: 1rem;"></i>
+{% fortawesomeBrand 'react', 'svg_size' %}
+{% fortawesomeBrand 'angular', 'svg_size' %}
+{% fortawesomeBrand 'js', 'svg_size' %}
+{% fortawesomeBrand 'ts', 'svg_size' %}{% fortawesomeBrand 'git', 'svg_size' %}
+{% fortawesomeBrand 'linux', 'svg_size' %}
 
 [and more...](https://github.com/akashic101/)
