@@ -47,6 +47,18 @@ module.exports = function (eleventyConfig) {
 		return new CleanCSS({}).minify(code).styles;
 	});
 
+	eleventyConfig.addFilter("getAllTags", collection => {
+		let tagSet = new Set();
+		for(let item of collection) {
+			(item.data.tags || []).forEach(tag => tagSet.add(tag));
+		}
+		return Array.from(tagSet);
+	});
+
+	eleventyConfig.addFilter("slugify", (tagToEncode) => {
+		return encodeURIComponent(tagToEncode)
+	});
+	
 	eleventyConfig.addFilter("dateDisplay", (dateObj) => {
 		return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat("LLLL d, y");
 	});
