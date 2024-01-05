@@ -11,5 +11,18 @@ layout: generalLayout.njk
       <a href="https://blog.davidmoll.net/about-me">About me</a>
     </header>
     <main>{{ content | safe }}</main>
+    <footer>
+    <a href="https://github.com/Akashic101/blog/blob/main/{{ page.inputPath }}"
+      >Edit this page on GitHub</a
+    >
+    <p>&copy; {{2023 | currentYear}} David Moll. All rights reserved.</p>
+    <p>
+      <a href="/feed.xml" class="rss-button">Subscribe to RSS</a> |
+      <a href="https://www.github.com/akashic101/blog">Source Code</a> | ⚡<a
+        href="https://www.11ty.dev/"
+        >11ty</a
+      >
+    </p>
+  </footer>
   </body>
 </html>
