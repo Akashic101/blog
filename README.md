@@ -13,6 +13,10 @@ This is the repo of my personal blog powered by 11ty. You can access it under ht
 
 ## Patch Notes
 
+**Version 0.2.0**
+- Added tags and tags-collection
+- Modularized code
+
 **Version 0.1.0**
 - Added comments
 - Made website dark-mode by default
