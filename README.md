@@ -16,6 +16,7 @@ This is the repo of my personal blog powered by 11ty. You can access it under ht
 **Version 0.2.0**
 - Added tags and tags-collection
 - Modularized code
+- Added filesize-info per post
 
 **Version 0.1.0**
 - Added comments

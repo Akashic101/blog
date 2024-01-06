@@ -64,6 +64,22 @@ No matter where you view the website, you will see an optimized icon everytime. 
 
 This website uses a few benchmarks to test its performance. Firstly it is registered in the [Eleventy Leaderboards](https://www.11ty.dev/speedlify/) which shows its lighthouse-value and performance over time. On my side I am using a plugin called [eleventy-plugin-directory-output](https://www.11ty.dev/docs/plugins/directory-output/) which benchmarks my website during build and shows the size of all files plus additional warnings if any file is too big.
 
+## Filesize
+
+Every site shows how big the HTML-file is that the user is reading the article on. This is done with a plugin I wrote:
+
+```js
+{% raw %}module.exports = function (eleventyConfig) {
+  eleventyConfig.addTransform("addFileSize", async (content, outputPath) => {
+    if (outputPath.endsWith(".html") && content.includes('FILESIZE')) {
+      const fileSize = Buffer.from(content).length;
+      return content.replace('FILESIZE', Math.round((fileSize / 1024) * 100) / 100);
+    }
+    return content;
+  });
+};{% endraw %}
+```
+
 ## Font-Awesome
 
 On my [about-me](https://blog.davidmoll.net/about-me/) page I am using Font-Awesome to display a few SVG's of a few skills I have and ways to reach me. To minimize the size of the icons and remove icons I do not need I am using two plugins, [fortawesome-brands-11ty-shortcode](https://github.com/vidhill/fortawesome-brands-svg-11ty-shortcode) and [fortawesome-regular-svg-11ty-shortcode](https://github.com/vidhill/fortawesome-regular-svg-11ty-shortcode)
