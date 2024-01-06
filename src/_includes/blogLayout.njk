@@ -1,6 +1,12 @@
 ---
 layout: generalLayout.njk
 ---
+<head>
+{% set css %} {% include "prism-vsc-dark-plus.css" %} {% endset %}
+    <style>
+      {{ css | cssmin | safe }}
+    </style>
+</head
 <body>
   <header>
     <a href="https://blog.davidmoll.net">Home</a>

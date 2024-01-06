@@ -38,6 +38,7 @@ module.exports = function (eleventyConfig) {
 	});
 
 	eleventyConfig.addPassthroughCopy("src/bundle.css");
+	eleventyConfig.addPassthroughCopy("src/prism-vsc-dark-plus.css");
 	eleventyConfig.addPassthroughCopy("src/assets/fonts/");
 	eleventyConfig.addPassthroughCopy("src/assets/images/");
 	eleventyConfig.addPassthroughCopy("src/assets/icons/");
