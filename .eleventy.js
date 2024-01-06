@@ -1,5 +1,3 @@
-const { DateTime } = require("luxon");
-const CleanCSS = require("clean-css");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const brokenLinksPlugin = require("eleventy-plugin-broken-links");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
@@ -11,10 +9,7 @@ const { fortawesomeFreeRegularPlugin } = require('@vidhill/fortawesome-free-regu
 
 module.exports = function (eleventyConfig) {
 
-	eleventyConfig.setQuietMode(true);
-
 	eleventyConfig.addPlugin(directoryOutputPlugin, {
-		// Customize columns
 		columns: {
 			filesize: true,
 			benchmark: true,
@@ -39,44 +34,17 @@ module.exports = function (eleventyConfig) {
 
 	eleventyConfig.addPassthroughCopy("src/bundle.css");
 	eleventyConfig.addPassthroughCopy("src/prism-vsc-dark-plus.css");
-	eleventyConfig.addPassthroughCopy("src/assets/fonts/");
-	eleventyConfig.addPassthroughCopy("src/assets/images/");
-	eleventyConfig.addPassthroughCopy("src/assets/icons/");
+	eleventyConfig.addPassthroughCopy("src/assets/")
 
-	eleventyConfig.addFilter("cssmin", function (code) {
-		return new CleanCSS({}).minify(code).styles;
-	});
+	eleventyConfig.addFilter("cssmin", require("./src/_filters/cssmin.js") );
+	eleventyConfig.addFilter("slugify", require("./src/_filters/slugify.js") );
+	eleventyConfig.addFilter("joinedTags", require("./src/_filters/joinedTags.js") );
+	eleventyConfig.addFilter("getAllTags", require("./src/_filters/getAllTags.js") );
+	eleventyConfig.addFilter("currentYear", require("./src/_filters/currentYear.js") );
+	eleventyConfig.addFilter("dateDisplay", require("./src/_filters/dateDisplay.js") );
 
-	eleventyConfig.addFilter("getAllTags", collection => {
-		let tagSet = new Set();
-		for(let item of collection) {
-			(item.data.tags || []).forEach(tag => tagSet.add(tag));
-		}
-		return Array.from(tagSet);
-	});
-
-	eleventyConfig.addFilter("slugify", (tagToEncode) => {
-		return encodeURIComponent(tagToEncode)
-	});
-	
-	eleventyConfig.addFilter("dateDisplay", (dateObj) => {
-		return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat("LLLL d, y");
-	});
-
-	eleventyConfig.addFilter("currentYear", () => {
-		return new Date().getFullYear();
-	});
-
-	eleventyConfig.addAsyncFilter("joinedTags", async function (tagsObj) { return tagsObj.join(", "); });
-
-	eleventyConfig.addCollection("lastThreeArticles", function (collectionApi) {
-		return collectionApi.getAll().slice(0, 2);
-	});
-
-	eleventyConfig.addCollection("randomArticle", function (collectionApi) {
-		let items = collectionApi.getAll()
-		return items[Math.floor(Math.random() * items.length)];
-	})
+	eleventyConfig.addCollection("randomArticle", require("./src/_collections/randomArticle.js"));
+	eleventyConfig.addCollection("lastThreeArticles", require("./src/_collections/lastThreeArticles.js"));
 
 	eleventyConfig.addGlobalData('lastBuildDate', () => {
 		return (new Date).toUTCString();

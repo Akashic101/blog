@@ -3,6 +3,10 @@ pagination:
   data: collections
   size: 1
   alias: tag
+  filter:
+    - lastThreeArticles
+    - randomArticle
+    - posts
 permalink: /tags/{{ tag }}/
 layout: generalLayout.njk
 eleventyExcludeFromCollections: true
