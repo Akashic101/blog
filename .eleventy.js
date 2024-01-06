@@ -1,11 +1,13 @@
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const brokenLinksPlugin = require("eleventy-plugin-broken-links");
+const fileSizePlugin = require("./src/_transforms/addFileSize.js");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const pluginCleanUrls = require("@inframanufaktur/eleventy-plugin-clean-urls");
 const directoryOutputPlugin = require("@11ty/eleventy-plugin-directory-output");
 const eleventyPluginFilesMinifier = require("@sherby/eleventy-plugin-files-minifier");
 const { fortawesomeBrandsPlugin } = require('@vidhill/fortawesome-brands-11ty-shortcode');
 const { fortawesomeFreeRegularPlugin } = require('@vidhill/fortawesome-free-regular-11ty-shortcode');
+
 
 module.exports = function (eleventyConfig) {
 
@@ -16,7 +18,9 @@ module.exports = function (eleventyConfig) {
 		},
 		warningFileSize: 25 * 1000,
 	});
+	
 	eleventyConfig.addPlugin(pluginRss);
+	eleventyConfig.addPlugin(fileSizePlugin);
 	eleventyConfig.addPlugin(syntaxHighlight);
 	eleventyConfig.addPlugin(pluginCleanUrls);
 	eleventyConfig.addPlugin(fortawesomeBrandsPlugin);
@@ -49,6 +53,8 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addGlobalData('lastBuildDate', () => {
 		return (new Date).toUTCString();
 	})
+
+	eleventyConfig.addTransform('addFileSize', require("./src/_transforms/addFileSize.js"))
 
 	return {
 		dir: {
