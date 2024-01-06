@@ -34,7 +34,7 @@ Every post has multiple tags describing the content of itself. If you want a lis
 
 ## Auomatic external link checker
 
-To not give link rot any chance I am running a plugin called (eleventy-plugin-broken-links)[https://www.npmjs.com/package/eleventy-plugin-broken-links] that checks every link on my website during the build-process and automatically warns me if any website is no longer reachable.
+To not give link rot any chance I am running a plugin called [eleventy-plugin-broken-links](https://www.npmjs.com/package/eleventy-plugin-broken-links) that checks every link on my website during the build-process and automatically warns me if any website is no longer reachable.
 
 ## Open Graph Images
 
