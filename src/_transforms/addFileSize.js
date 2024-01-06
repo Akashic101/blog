@@ -9,7 +9,6 @@
  * @async
  */
 const htmlmin = require("html-minifier");
-var CleanCSS = require('clean-css');
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addTransform("addFileSize", async (content, outputPath) => {

@@ -1,4 +1,5 @@
 const pluginRss = require("@11ty/eleventy-plugin-rss");
+const readingTime = require('eleventy-plugin-reading-time');
 const brokenLinksPlugin = require("eleventy-plugin-broken-links");
 const fileSizePlugin = require("./src/_transforms/addFileSize.js");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
@@ -7,7 +8,6 @@ const directoryOutputPlugin = require("@11ty/eleventy-plugin-directory-output");
 const eleventyPluginFilesMinifier = require("@sherby/eleventy-plugin-files-minifier");
 const { fortawesomeBrandsPlugin } = require('@vidhill/fortawesome-brands-11ty-shortcode');
 const { fortawesomeFreeRegularPlugin } = require('@vidhill/fortawesome-free-regular-11ty-shortcode');
-
 
 module.exports = function (eleventyConfig) {
 
@@ -20,6 +20,7 @@ module.exports = function (eleventyConfig) {
 	});
 	
 	eleventyConfig.addPlugin(pluginRss);
+	eleventyConfig.addPlugin(readingTime);
 	eleventyConfig.addPlugin(fileSizePlugin);
 	eleventyConfig.addPlugin(syntaxHighlight);
 	eleventyConfig.addPlugin(pluginCleanUrls);
@@ -42,6 +43,7 @@ module.exports = function (eleventyConfig) {
 
 	eleventyConfig.addFilter("cssmin", require("./src/_filters/cssmin.js") );
 	eleventyConfig.addFilter("slugify", require("./src/_filters/slugify.js") );
+	eleventyConfig.addFilter("readtime", require("./src/_filters/readtime.js") );
 	eleventyConfig.addFilter("joinedTags", require("./src/_filters/joinedTags.js") );
 	eleventyConfig.addFilter("getAllTags", require("./src/_filters/getAllTags.js") );
 	eleventyConfig.addFilter("currentYear", require("./src/_filters/currentYear.js") );
