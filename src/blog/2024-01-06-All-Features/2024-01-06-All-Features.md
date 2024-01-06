@@ -16,7 +16,7 @@ socialMediaPreviewImageAlt: A list placed on a clipboard laying on a table
 ![{{ socialMediaPreviewImageAlt }}]({{ socialMediaPreviewImage }})
 
 
-*Notice: This blog is part of a series called "100%" in which I describe the steps I took to cover all cases a website can face and get the maximum out of what a feature can offer*
+*Notice: This blog is part of a series called "100%" in which I describe the steps I took to cover all cases a website can face and get the maximum out of what a feature can offer. You can find all articles in this series [under the 100%-tag](https://blog.davidmoll.net/tags/100%25/)*
 
 Over time this blog has aquired quite the list of features. If you want to create your own blog using eleventy, or already have one and are looking for stuff to include, this list is perfect to use as an inspiration.
 
