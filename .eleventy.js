@@ -42,7 +42,6 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addPassthroughCopy("src/assets/fonts/");
 	eleventyConfig.addPassthroughCopy("src/assets/images/");
 	eleventyConfig.addPassthroughCopy("src/assets/icons/");
-	eleventyConfig.addPassthroughCopy("/Atkinson-Hyperlegible-Regular-102a.woff2");
 
 	eleventyConfig.addFilter("cssmin", function (code) {
 		return new CleanCSS({}).minify(code).styles;
