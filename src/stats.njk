@@ -8,3 +8,4 @@ eleventyExcludeFromCollections: true
 <p>This blog has {{ collections.posts.length }} articles with a combined length of {{ collections.posts | readtime }} minutes of content</p>
 <p>There are a total of <a href="https://blog.davidmoll.net/tags/">{{ collections.posts | getAllTags | length }} tags</a></p>
 <p>The first post was on {{ collections.posts[0].date | dateDisplay }}, the last on {{ collections.posts.slice(-1)[0].date | dateDisplay }}
+<hr>
