@@ -1,17 +1,27 @@
 ---
 layout: generalLayout.njk
 ---
+
 <head>
-{% set css %} {% include "prism-vsc-dark-plus.css" %} {% endset %}
-    <style>
-      {{ css | cssmin | safe }}
-    </style>
+{% if hasCode %}
+  {% set css %} {% include "prism-vsc-dark-plus.css" %} {% endset %}
+  <style>
+    {{ css | cssmin | safe }}
+  </style>
+{% endif %}
+
+  {% set css %} {% include "blogCSS.css" %} {% endset %}
+  <style>
+    {{ css | cssmin | safe }}
+  </style>
 </head>
 <body>
   <header>
     <a href="https://blog.davidmoll.net">Home</a>
     <a href="https://blog.davidmoll.net/archive">Archive</a>
     <a href="https://blog.davidmoll.net/about-me">About me</a>
+    <a href="https://blog.davidmoll.net/tags">Tags</a>
+    <a href="https://blog.davidmoll.net/stats">Stats</a>
 
     <h1>{{ title }}</h1>
     <i>Published by {{ author }} on {{ date | dateDisplay }}</i>
@@ -23,7 +33,7 @@ layout: generalLayout.njk
   <main>{{ content | safe }}</main>
   <hr />
   <footer>
-  <script
+    <script
       src="https://giscus.app/client.js"
       data-repo="akashic101/blog"
       data-repo-id="R_kgDOK8ZtIw"
@@ -35,5 +45,5 @@ layout: generalLayout.njk
       crossorigin="anonymous"
       async
     ></script>
-    </footer>
+  </footer>
 </body>

@@ -11,7 +11,7 @@ folderName: 2023-12-23-archive
 eleventyExcludeFromCollections: true
 ---
 
-{% for post in collections.all %}
+{% for post in collections.all | reverse %}
 
 <div class="flex-container">
     <div class="image-container">

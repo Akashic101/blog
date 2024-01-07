@@ -16,13 +16,13 @@ body {
 	color: whitesmoke;
 }
 
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: end;
+.index {
+	display: flex;
+	justify-content: space-between;
+	align-items: end;
 }
 
-header > div > a {
+.right_div {
 	margin: 0px 3px;
 }
 
@@ -71,4 +71,39 @@ footer {
 	width: 2rem;
 	color: white;
 	margin-right: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+	body {
+		width: 95%;
+		padding-top: 0;
+		margin-top: 0;
+	}
+
+	.index {
+		display: flex;
+		flex-wrap: wrap;
+		align-content: center;
+	}
+
+	.index > * {
+		margin: 0.5rem 0;
+	}
+
+	.flex-container {
+		padding-top: 2rem;
+	}
+
+	.image-container > img {
+		max-height: 150px;
+		max-width: 150px;
+	}
+
+	.text-container>h1 {
+		font-size: large;
+	}
+
+	.text-container>p {
+		font-size: medium;
+	}
 }
