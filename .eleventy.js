@@ -1,5 +1,6 @@
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const readingTime = require('eleventy-plugin-reading-time');
+const EleventyUnifiedPlugin = require("eleventy-plugin-unified");
 const brokenLinksPlugin = require("eleventy-plugin-broken-links");
 const fileSizePlugin = require("./src/_transforms/addFileSize.js");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
@@ -18,7 +19,7 @@ module.exports = function (eleventyConfig) {
 		},
 		warningFileSize: 25 * 1000,
 	});
-	
+
 	eleventyConfig.addPlugin(pluginRss);
 	eleventyConfig.addPlugin(readingTime);
 	eleventyConfig.addPlugin(fileSizePlugin);
@@ -27,6 +28,9 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addPlugin(fortawesomeBrandsPlugin);
 	eleventyConfig.addPlugin(eleventyPluginFilesMinifier);
 	eleventyConfig.addPlugin(fortawesomeFreeRegularPlugin);
+	eleventyConfig.addPlugin(EleventyUnifiedPlugin, {
+		markdownTransforms: ["remark-toc"],
+	});
 	eleventyConfig.addPlugin(brokenLinksPlugin, {
 		redirect: "warn",
 		broken: "error",
@@ -41,13 +45,13 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addPassthroughCopy("src/prism-vsc-dark-plus.css");
 	eleventyConfig.addPassthroughCopy("src/assets/")
 
-	eleventyConfig.addFilter("cssmin", require("./src/_filters/cssmin.js") );
-	eleventyConfig.addFilter("slugify", require("./src/_filters/slugify.js") );
-	eleventyConfig.addFilter("readtime", require("./src/_filters/readtime.js") );
-	eleventyConfig.addFilter("joinedTags", require("./src/_filters/joinedTags.js") );
-	eleventyConfig.addFilter("getAllTags", require("./src/_filters/getAllTags.js") );
-	eleventyConfig.addFilter("currentYear", require("./src/_filters/currentYear.js") );
-	eleventyConfig.addFilter("dateDisplay", require("./src/_filters/dateDisplay.js") );
+	eleventyConfig.addFilter("cssmin", require("./src/_filters/cssmin.js"));
+	eleventyConfig.addFilter("slugify", require("./src/_filters/slugify.js"));
+	eleventyConfig.addFilter("readtime", require("./src/_filters/readtime.js"));
+	eleventyConfig.addFilter("joinedTags", require("./src/_filters/joinedTags.js"));
+	eleventyConfig.addFilter("getAllTags", require("./src/_filters/getAllTags.js"));
+	eleventyConfig.addFilter("currentYear", require("./src/_filters/currentYear.js"));
+	eleventyConfig.addFilter("dateDisplay", require("./src/_filters/dateDisplay.js"));
 
 	eleventyConfig.addCollection("randomArticle", require("./src/_collections/randomArticle.js"));
 	eleventyConfig.addCollection("lastThreeArticles", require("./src/_collections/lastThreeArticles.js"));
@@ -57,7 +61,6 @@ module.exports = function (eleventyConfig) {
 	})
 
 	eleventyConfig.addTransform('addFileSize', require("./src/_transforms/addFileSize.js"))
-
 	return {
 		dir: {
 			input: "src",

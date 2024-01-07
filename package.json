@@ -21,7 +21,9 @@
     "@vidhill/fortawesome-free-regular-11ty-shortcode": "^1.0.3",
     "eleventy-plugin-broken-links": "^2.0.3",
     "eleventy-plugin-reading-time": "^0.0.1",
-    "html-minifier": "^4.0.0"
+    "eleventy-plugin-unified": "^2.0.0",
+    "html-minifier": "^4.0.0",
+    "remark-toc": "^9.0.0"
   },
   "dependencies": {
     "@11ty/eleventy-img": "^3.1.8",
