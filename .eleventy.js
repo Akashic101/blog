@@ -33,7 +33,7 @@ const renderPermalink = (slug, opts, state, idx) => {
 				["href", opts.permalinkHref(slug, state)],
 			],
 		}),
-		Object.assign(new state.Token("html_block", "", -1), {
+		Object.assign(new state.Token("html_block", "", 0), {
 			content: `<span class="permalink">#</span>`,
 		}),
 		new state.Token("link_close", "a", -1),

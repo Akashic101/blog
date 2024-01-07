@@ -67,7 +67,7 @@ This website uses a few benchmarks to test its performance. Firstly it is regist
 
 ## Anchors and table-of-content
 
-Using [markdown-it-anchors](https://github.com/valeriangalliat/markdown-it-anchor) and [eleventy-plugin-toc](https://github.com/jdsteinbach/eleventy-plugin-toc) each site automatically generates a table of content and adds permalinks to every header on the website.
+Using [markdown-it-anchors](https://github.com/valeriangalliat/markdown-it-anchor) and [eleventy-plugin-toc](https://github.com/jdsteinbach/eleventy-plugin-toc) each site automatically generates a table of content and adds permalinks to every header on the website that is also visible when hovering the heading. Special thanks to [Rhian van Esch](https://rhianvanesch.com/posts/2021/02/09/adding-heading-anchor-links-to-an-eleventy-site/) for showing me how to do this.
 
 ## Filesize
 
