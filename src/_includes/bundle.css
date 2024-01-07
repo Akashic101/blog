@@ -16,6 +16,16 @@ body {
 	color: whitesmoke;
 }
 
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+
+header > div > a {
+	margin: 0px 3px;
+}
+
 a {
 	color: #7eb6c9;
 }
@@ -47,10 +57,10 @@ a {
 	text-decoration: underline;
 }
 
-footer{
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
+footer {
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 #titleName {
