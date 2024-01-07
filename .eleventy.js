@@ -1,5 +1,5 @@
 const markdownit = require("markdown-it");
-const anchor = require("markdown-it-anchor");
+const markdownItAnchor = require("markdown-it-anchor");
 const tocPlugin = require("eleventy-plugin-toc");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const pluginStats = require('eleventy-plugin-post-stats');
@@ -13,6 +13,40 @@ const eleventyPluginFilesMinifier = require("@sherby/eleventy-plugin-files-minif
 const { fortawesomeBrandsPlugin } = require('@vidhill/fortawesome-brands-11ty-shortcode');
 const { fortawesomeFreeRegularPlugin } = require('@vidhill/fortawesome-free-regular-11ty-shortcode');
 
+const markdownIt = require("markdown-it")
+
+const position = {
+	false: "push",
+	true: "unshift",
+}
+
+const renderPermalink = (slug, opts, state, idx) => {
+	const space = () =>
+		Object.assign(new state.Token("text", "", 0), {
+			content: " ",
+		})
+
+	const linkTokens = [
+		Object.assign(new state.Token("link_open", "a", 1), {
+			attrs: [
+				["class", opts.permalinkClass],
+				["href", opts.permalinkHref(slug, state)],
+			],
+		}),
+		Object.assign(new state.Token("html_block", "", -1), {
+			content: `<span class="permalink">#</span>`,
+		}),
+		new state.Token("link_close", "a", -1),
+	]
+
+	if (opts.permalinkSpace) {
+		linkTokens[position[!opts.permalinkBefore]](space())
+	}
+	state.tokens[idx + 1].children[position[opts.permalinkBefore]](
+		...linkTokens
+	)
+}
+
 module.exports = function (eleventyConfig) {
 
 	eleventyConfig.addPlugin(directoryOutputPlugin, {
@@ -22,7 +56,7 @@ module.exports = function (eleventyConfig) {
 		},
 		warningFileSize: 25 * 1000,
 	});
-	
+
 	eleventyConfig.addPlugin(pluginRss);
 	eleventyConfig.addPlugin(pluginStats, { tags: ['posts'] });
 	eleventyConfig.addPlugin(readingTime);
@@ -62,7 +96,20 @@ module.exports = function (eleventyConfig) {
 		return (new Date).toUTCString();
 	})
 
-	eleventyConfig.setLibrary("md", markdownit().use(anchor));
+	const markdownItOptions = {
+		html: true,
+	}
+
+	const markdownItAnchorOptions = {
+		permalink: true,
+		renderPermalink,
+	}
+
+	const markdownLib = markdownIt(markdownItOptions).use(
+		markdownItAnchor,
+		markdownItAnchorOptions
+	)
+	eleventyConfig.setLibrary("md", markdownLib)
 
 	eleventyConfig.addTransform('addFileSize', require("./src/_transforms/addFileSize.js"))
 	return {

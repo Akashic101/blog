@@ -73,6 +73,21 @@ footer {
 	margin-right: 1rem;
 }
 
+.permalink {
+    display: none;
+}
+
+.header-anchor {
+	text-decoration: none;
+}
+
+h1:hover .permalink,
+h2:hover .permalink,
+h3:hover .permalink {
+	color: #6592a2;
+    display: inline;
+}
+
 @media screen and (max-width: 768px) {
 	body {
 		width: 95%;
@@ -86,7 +101,7 @@ footer {
 		align-content: center;
 	}
 
-	.index > * {
+	.index>* {
 		margin: 0.5rem 0;
 	}
 
@@ -94,7 +109,7 @@ footer {
 		padding-top: 2rem;
 	}
 
-	.image-container > img {
+	.image-container>img {
 		max-height: 150px;
 		max-width: 150px;
 	}
