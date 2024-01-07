@@ -1,11 +1,47 @@
 ---
 permalink: /stats
-layout: generalLayout.njk
+layout: statsLayout.njk
 eleventyExcludeFromCollections: true
 ---
+
 <h1>Stats</h1>
 
-<p>This blog has {{ collections.posts.length }} articles with a combined length of {{ collections.posts | readtime }} minutes of content</p>
-<p>There are a total of <a href="https://blog.davidmoll.net/tags/">{{ collections.posts | getAllTags | length }} tags</a></p>
-<p>The first post was on {{ collections.posts[0].date | dateDisplay }}, the last on {{ collections.posts.slice(-1)[0].date | dateDisplay }}
-<hr>
+<ul>
+  <li>
+    <strong>First post:</strong>
+    {{ collections.postStats.firstPostDate | dateDisplay }}
+  </li>
+  <li>
+    <strong>Last post:</strong>
+    {{ collections.postStats.lastPostDate | dateDisplay }}
+  </li>
+  <li>
+    <strong>Post count:</strong>
+    {{ collections.postStats.postCount }} with a combined length of {{
+    collections.posts | readtime }} minutes of content
+  </li>
+  <li>
+    <strong>Tag count:</strong>
+    <a href="https://blog.davidmoll.net/tags/"
+      >{{ collections.posts | getAllTags | length }} tags</a
+    >
+  </li>
+  <li>
+    <strong>Average days between posts:</strong>
+    {{ collections.postStats.avgDays }}
+  </li>
+  <li>
+    <strong>Average characters per post:</strong>
+    {{ collections.postStats.avgCharacterCount }}
+  </li>
+  <li>
+    <strong>Average words per post:</strong>
+    {{ collections.postStats.avgWordCount}}
+  </li>
+  {%- if collections.postStats.avgCodeBlockCount > 0 -%}
+  <li>
+    <strong>Average code blocks per post:</strong>
+    {{ collections.postStats.avgCodeBlockCount }}
+  </li>
+  {% endif %}
+</ul>

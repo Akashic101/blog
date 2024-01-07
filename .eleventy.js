@@ -2,6 +2,7 @@ const markdownit = require("markdown-it");
 const anchor = require("markdown-it-anchor");
 const tocPlugin = require("eleventy-plugin-toc");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
+const pluginStats = require('eleventy-plugin-post-stats');
 const readingTime = require('eleventy-plugin-reading-time');
 const brokenLinksPlugin = require("eleventy-plugin-broken-links");
 const fileSizePlugin = require("./src/_transforms/addFileSize.js");
@@ -21,8 +22,9 @@ module.exports = function (eleventyConfig) {
 		},
 		warningFileSize: 25 * 1000,
 	});
-	eleventyConfig.addPlugin(tocPlugin, { tags: ["h1", "h2", "h3"] });
+	
 	eleventyConfig.addPlugin(pluginRss);
+	eleventyConfig.addPlugin(pluginStats, { tags: ['posts'] });
 	eleventyConfig.addPlugin(readingTime);
 	eleventyConfig.addPlugin(fileSizePlugin);
 	eleventyConfig.addPlugin(syntaxHighlight);
@@ -30,7 +32,7 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addPlugin(fortawesomeBrandsPlugin);
 	eleventyConfig.addPlugin(eleventyPluginFilesMinifier);
 	eleventyConfig.addPlugin(fortawesomeFreeRegularPlugin);
-
+	eleventyConfig.addPlugin(tocPlugin, { tags: ["h1", "h2", "h3"] });
 	eleventyConfig.addPlugin(brokenLinksPlugin, {
 		redirect: "warn",
 		broken: "error",
