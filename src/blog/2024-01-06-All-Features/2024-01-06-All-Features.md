@@ -65,6 +65,10 @@ No matter where you view the website, you will see an optimized icon everytime. 
 
 This website uses a few benchmarks to test its performance. Firstly it is registered in the [Eleventy Leaderboards](https://www.11ty.dev/speedlify/) which shows its lighthouse-value and performance over time. On my side I am using a plugin called [eleventy-plugin-directory-output](https://www.11ty.dev/docs/plugins/directory-output/) which benchmarks my website during build and shows the size of all files plus additional warnings if any file is too big.
 
+## Anchors and table-of-content
+
+Using [markdown-it-anchors](https://github.com/valeriangalliat/markdown-it-anchor) and [eleventy-plugin-toc](https://github.com/jdsteinbach/eleventy-plugin-toc) each site automatically generates a table of content and adds permalinks to every header on the website.
+
 ## Filesize
 
 Every site shows how big the HTML-file is that the user is reading the article on. This is done with a plugin I wrote:
