@@ -30,6 +30,7 @@ layout: generalLayout.njk
     <p>This article is about: {{ description }}</p>
     <hr />
   </header>
+  <aside>{{ content | toc | safe }}</aside>
   <main>{{ content | safe }}</main>
   <hr />
   <footer>

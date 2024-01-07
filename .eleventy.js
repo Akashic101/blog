@@ -1,6 +1,8 @@
+const markdownit = require("markdown-it");
+const anchor = require("markdown-it-anchor");
+const tocPlugin = require("eleventy-plugin-toc");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const readingTime = require('eleventy-plugin-reading-time');
-const EleventyUnifiedPlugin = require("eleventy-plugin-unified");
 const brokenLinksPlugin = require("eleventy-plugin-broken-links");
 const fileSizePlugin = require("./src/_transforms/addFileSize.js");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
@@ -19,7 +21,7 @@ module.exports = function (eleventyConfig) {
 		},
 		warningFileSize: 25 * 1000,
 	});
-
+	eleventyConfig.addPlugin(tocPlugin, { tags: ["h1", "h2", "h3"] });
 	eleventyConfig.addPlugin(pluginRss);
 	eleventyConfig.addPlugin(readingTime);
 	eleventyConfig.addPlugin(fileSizePlugin);
@@ -28,9 +30,7 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addPlugin(fortawesomeBrandsPlugin);
 	eleventyConfig.addPlugin(eleventyPluginFilesMinifier);
 	eleventyConfig.addPlugin(fortawesomeFreeRegularPlugin);
-	eleventyConfig.addPlugin(EleventyUnifiedPlugin, {
-		markdownTransforms: ["remark-toc"],
-	});
+
 	eleventyConfig.addPlugin(brokenLinksPlugin, {
 		redirect: "warn",
 		broken: "error",
@@ -60,6 +60,8 @@ module.exports = function (eleventyConfig) {
 		return (new Date).toUTCString();
 	})
 
+	eleventyConfig.setLibrary("md", markdownit().use(anchor));
+
 	eleventyConfig.addTransform('addFileSize', require("./src/_transforms/addFileSize.js"))
 	return {
 		dir: {
@@ -68,6 +70,3 @@ module.exports = function (eleventyConfig) {
 		},
 	};
 };
-
-
-
