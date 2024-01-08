@@ -1,3 +1,5 @@
 /node_modules
 /_site
+/._drafts
 /.cache/
+/src/_drafts
