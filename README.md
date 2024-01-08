@@ -13,6 +13,10 @@ This is the repo of my personal blog powered by 11ty. You can access it under ht
 
 ## Patch Notes
 
+**Version 0.2.1**
+- Added support for footnotes
+- Added support for anchors
+
 **Version 0.2.0**
 - Added tags and tags-collection
 - Modularized code
