@@ -69,6 +69,10 @@ This website uses a few benchmarks to test its performance. Firstly it is regist
 
 Using [markdown-it-anchors](https://github.com/valeriangalliat/markdown-it-anchor) and [eleventy-plugin-toc](https://github.com/jdsteinbach/eleventy-plugin-toc) each site automatically generates a table of content and adds permalinks to every header on the website that is also visible when hovering the heading. Special thanks to [Rhian van Esch](https://rhianvanesch.com/posts/2021/02/09/adding-heading-anchor-links-to-an-eleventy-site/) for showing me how to do this.
 
+## Footnotes
+
+Using [markdown-it-footnote](https://github.com/markdown-it/markdown-it-footnote#readme) I can write footnotes like this[^1] in shortform or and in longform like this[^longnote]  
+
 ## Filesize
 
 Every site shows how big the HTML-file is that the user is reading the article on. This is done with a plugin I wrote:
@@ -92,3 +96,14 @@ On my [about-me](https://blog.davidmoll.net/about-me/) page I am using Font-Awes
 ---
 
 This website is continuesly beeing worked on and there will always be new features and additions that make this blog even better. If you have any tips and tricks I should use feel free to share them with me and the community.
+
+---
+
+### Footnotes
+
+[^1]: Here is the footnote.
+
+[^longnote]: Here's one with multiple blocks.
+
+    Subsequent paragraphs are indented to show that they
+belong to the previous footnote.

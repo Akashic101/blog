@@ -27,6 +27,7 @@
     "eleventy-plugin-unified": "^2.0.0",
     "html-minifier": "^4.0.0",
     "markdown-it-anchor": "^8.6.7",
+    "markdown-it-footnote": "^4.0.0",
     "remark-toc": "^9.0.0"
   },
   "dependencies": {

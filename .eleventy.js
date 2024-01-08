@@ -3,6 +3,7 @@ const markdownItAnchor = require("markdown-it-anchor");
 const tocPlugin = require("eleventy-plugin-toc");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const pluginStats = require('eleventy-plugin-post-stats');
+const markdownItFootnote = require("markdown-it-footnote");
 const readingTime = require('eleventy-plugin-reading-time');
 const brokenLinksPlugin = require("eleventy-plugin-broken-links");
 const fileSizePlugin = require("./src/_transforms/addFileSize.js");
@@ -110,7 +111,8 @@ module.exports = function (eleventyConfig) {
 		markdownItAnchorOptions
 	)
 	eleventyConfig.setLibrary("md", markdownLib)
-
+	eleventyConfig.amendLibrary("md", mdLib => mdLib.use(markdownItFootnote));
+	
 	eleventyConfig.addTransform('addFileSize', require("./src/_transforms/addFileSize.js"))
 	return {
 		dir: {
