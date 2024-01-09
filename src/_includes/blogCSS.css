@@ -6,9 +6,14 @@ img {
     max-width: 100%;
 }
 
+summary h2 {
+    display: inline;
+    font-size: 1em;
+}
+
 table {
     width: 100%;
-  }
+}
 
 th {
     display: none;

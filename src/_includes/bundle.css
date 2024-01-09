@@ -88,6 +88,22 @@ h3:hover .permalink {
     display: inline;
 }
 
+table {
+    width: 100%;
+}
+
+th {
+    display: none;
+}
+
+td {
+    border-bottom: 1px dashed;
+}
+
+tr td:nth-child(2n) {
+    text-align: right;
+}
+
 @media screen and (max-width: 768px) {
 	body {
 		width: 95%;

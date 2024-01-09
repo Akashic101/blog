@@ -21,38 +21,45 @@ layout: generalLayout.njk
         <a href="https://blog.davidmoll.net/stats">Stats</a>
 
         <h1>{{ title }}</h1>
-        <h4>Metadata</h4>
 
-        <table>
-            <thead>
-                <tr>
-                    <th>Thing</th>
-                    <th>Value</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Author</td>
-                    <td>{{ author }}</td>
-                </tr>
-                <tr>
-                    <td>Published</td>
-                    <td>{{ date | dateDisplay }}</td>
-                </tr>
-                <tr>
-                    <td>Tags</td>
-                    <td>{{ tags | joinedTags }}</td>
-                </tr>
-                <tr>
-                    <td>Size</td>
-                    <td>FILESIZE KB</td>
-                </tr>
-                <tr>
-                    <td>Description</td>
-                    <td>{{ description }}</td>
-                </tr>
+
+<details>
+    <summary>
+    <h2>Metadata</h2>
+  </summary>
+    <table>
+        <thead>
+            <tr>
+                <th>Thing</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Author</td>
+                <td>{{ author }}</td>
+            </tr>
+            <tr>
+                <td>Published</td>
+                <td>{{ date | dateDisplay }}</td>
+            </tr>
+            <tr>
+                <td>Tags</td>
+                <td>{{ tags | joinedTags }}</td>
+            </tr>
+            <tr>
+                <td>Size</td>
+                <td>FILESIZE KB</td>
+            </tr>
+            <tr>
+                <td>Description</td>
+                <td>{{ description }}</td>
+            </tr>
             </tbody>
         </table>
+</details>
+
+        
     </header>
     <aside>{{ content | toc | safe }}</aside>
     <main>{{ content | safe }}</main>
