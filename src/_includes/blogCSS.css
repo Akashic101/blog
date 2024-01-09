@@ -5,3 +5,19 @@ body {
 img {
     max-width: 100%;
 }
+
+table {
+    width: 100%;
+  }
+
+th {
+    display: none;
+}
+
+td {
+    border-bottom: 1px dashed;
+}
+
+tr td:nth-child(2n) {
+    text-align: right;
+}
