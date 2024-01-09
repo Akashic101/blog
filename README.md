@@ -16,6 +16,7 @@ This is the repo of my personal blog powered by 11ty. You can access it under ht
 **Version 0.2.1**
 - Added support for footnotes
 - Added support for anchors
+- Added metadata-table for each blog-post
 
 **Version 0.2.0**
 - Added tags and tags-collection
