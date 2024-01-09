@@ -1,4 +1,6 @@
-const markdownit = require("markdown-it");
+const fs = require('fs');
+const path = require('path');
+const markdownIt = require("markdown-it")
 const markdownItAnchor = require("markdown-it-anchor");
 const tocPlugin = require("eleventy-plugin-toc");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
@@ -14,7 +16,7 @@ const eleventyPluginFilesMinifier = require("@sherby/eleventy-plugin-files-minif
 const { fortawesomeBrandsPlugin } = require('@vidhill/fortawesome-brands-11ty-shortcode');
 const { fortawesomeFreeRegularPlugin } = require('@vidhill/fortawesome-free-regular-11ty-shortcode');
 
-const markdownIt = require("markdown-it")
+
 
 const position = {
 	false: "push",
@@ -48,6 +50,28 @@ const renderPermalink = (slug, opts, state, idx) => {
 	)
 }
 
+function getFolderSize(folderPath) {
+	let totalSize = 0;
+
+	function traverseDirectory(currentPath) {
+		const files = fs.readdirSync(currentPath);
+
+		files.forEach((file) => {
+			const filePath = path.join(currentPath, file);
+			const stats = fs.statSync(filePath);
+
+			if (stats.isDirectory()) {
+				traverseDirectory(filePath);
+			} else {
+				totalSize += stats.size;
+			}
+		});
+	}
+
+	traverseDirectory(folderPath);
+	return totalSize;
+}
+
 module.exports = function (eleventyConfig) {
 
 	eleventyConfig.addPlugin(directoryOutputPlugin, {
@@ -67,7 +91,7 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addPlugin(fortawesomeBrandsPlugin);
 	eleventyConfig.addPlugin(eleventyPluginFilesMinifier);
 	eleventyConfig.addPlugin(fortawesomeFreeRegularPlugin);
-	eleventyConfig.addPlugin(tocPlugin, { tags: ["h1", "h2", "h3"] });
+	eleventyConfig.addPlugin(tocPlugin, { tags: ["h2", "h3"] });
 	eleventyConfig.addPlugin(brokenLinksPlugin, {
 		redirect: "warn",
 		broken: "error",
@@ -112,7 +136,22 @@ module.exports = function (eleventyConfig) {
 	)
 	eleventyConfig.setLibrary("md", markdownLib)
 	eleventyConfig.amendLibrary("md", mdLib => mdLib.use(markdownItFootnote));
-	
+
+	eleventyConfig.on('eleventy.after', async ({ dir, results }) => {
+		const folderPath = dir.output;
+		const sizeInBytes = getFolderSize(folderPath);
+		const filePath = `${dir.output}/stats.html`;
+
+		for (let i = 0; i < results.length; i++) {
+			if (results[i].content.includes('TOTALBUILDSIZE')) {
+				results[i].content = results[i].content.replace('TOTALBUILDSIZE', Math.round((sizeInBytes / 1024) * 100) / 100);
+				fs.writeFileSync(filePath, results[i].content);
+			}
+		}
+
+       
+	});
+
 	eleventyConfig.addTransform('addFileSize', require("./src/_transforms/addFileSize.js"))
 	return {
 		dir: {

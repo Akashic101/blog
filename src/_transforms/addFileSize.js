@@ -1,13 +1,3 @@
-/**
- * Eleventy transform function to add file size information to HTML content.
- *
- * @param {Object} eleventyConfig - The Eleventy configuration object.
- * @param {string} eleventyConfig.addTransform - Method to add a transformation to the build process.
- * @param {string} content - The content of the file being processed.
- * @param {string} outputPath - The output path of the file being processed.
- * @returns {Promise<string>} - A Promise that resolves to the transformed content.
- * @async
- */
 const htmlmin = require("html-minifier");
 
 module.exports = function (eleventyConfig) {

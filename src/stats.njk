@@ -1,47 +1,59 @@
 ---
-permalink: /stats
+permalink: /stats.html
 layout: statsLayout.njk
 eleventyExcludeFromCollections: true
 ---
 
 <h1>Stats</h1>
 
-<ul>
-  <li>
-    <strong>First post:</strong>
-    {{ collections.postStats.firstPostDate | dateDisplay }}
-  </li>
-  <li>
-    <strong>Last post:</strong>
-    {{ collections.postStats.lastPostDate | dateDisplay }}
-  </li>
-  <li>
-    <strong>Post count:</strong>
-    {{ collections.postStats.postCount }} with a combined length of {{
-    collections.posts | readtime }} minutes of content
-  </li>
-  <li>
-    <strong>Tag count:</strong>
-    <a href="https://blog.davidmoll.net/tags/"
-      >{{ collections.posts | getAllTags | length }} tags</a
-    >
-  </li>
-  <li>
-    <strong>Average days between posts:</strong>
-    {{ collections.postStats.avgDays }}
-  </li>
-  <li>
-    <strong>Average characters per post:</strong>
-    {{ collections.postStats.avgCharacterCount }}
-  </li>
-  <li>
-    <strong>Average words per post:</strong>
-    {{ collections.postStats.avgWordCount}}
-  </li>
-  {%- if collections.postStats.avgCodeBlockCount > 0 -%}
-  <li>
-    <strong>Average code blocks per post:</strong>
-    {{ collections.postStats.avgCodeBlockCount }}
-  </li>
-  {% endif %}
-</ul>
+<table>
+  <thead>
+    <tr>
+      <th>Thing</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>First post</td>
+      <td>{{ collections.postStats.firstPostDate | dateDisplay }}</td>
+    </tr>
+    <tr>
+      <td>Last post</td>
+      <td>{{ collections.postStats.lastPostDate | dateDisplay }}</td>
+    </tr>
+    <tr>
+      <td>Post count</td>
+      <td>{{ collections.postStats.postCount }}</td>
+    </tr>
+    <tr>
+      <td>Tag count</td>
+      <td>
+        {{ collections.posts | getAllTags | length }}
+        <a href="https://blog.davidmoll.net/tags/">(View all)</a>
+      </td>
+    </tr>
+    <tr>
+      <td>Average days between posts</td>
+      <td>{{ collections.postStats.avgDays }}</td>
+    </tr>
+    <tr>
+      <td>Average characters per post</td>
+      <td>{{ collections.postStats.avgCharacterCount }}</td>
+    </tr>
+    <tr>
+      <td>Average words per post</td>
+      <td>{{ collections.postStats.avgWordCount}}</td>
+    </tr>
+    <tr>
+      <td>Total build-size</td>
+      <td>TOTALBUILDSIZE KB</td>
+    </tr>
+    {%- if collections.postStats.avgCodeBlockCount > 0 -%}
+    <tr>
+      <td>Average code blocks per post</td>
+      <td>{{ collections.postStats.avgCodeBlockCount }}</td>
+    </tr>
+    {% endif %}
+  </tbody>
+</table>
