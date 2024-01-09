@@ -89,6 +89,8 @@ Every site shows how big the HTML-file is that the user is reading the article o
 };{% endraw %}
 ```
 
+Additional the size of the entire build is shown at [https://blog.davidmoll.net/stats](https://blog.davidmoll.net/stats)
+
 ## Font-Awesome
 
 On my [about-me](https://blog.davidmoll.net/about-me/) page I am using Font-Awesome to display a few SVG's of a few skills I have and ways to reach me. To minimize the size of the icons and remove icons I do not need I am using two plugins, [fortawesome-brands-11ty-shortcode](https://github.com/vidhill/fortawesome-brands-svg-11ty-shortcode) and [fortawesome-regular-svg-11ty-shortcode](https://github.com/vidhill/fortawesome-regular-svg-11ty-shortcode)

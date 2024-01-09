@@ -16,8 +16,6 @@ const eleventyPluginFilesMinifier = require("@sherby/eleventy-plugin-files-minif
 const { fortawesomeBrandsPlugin } = require('@vidhill/fortawesome-brands-11ty-shortcode');
 const { fortawesomeFreeRegularPlugin } = require('@vidhill/fortawesome-free-regular-11ty-shortcode');
 
-
-
 const position = {
 	false: "push",
 	true: "unshift",
@@ -149,7 +147,7 @@ module.exports = function (eleventyConfig) {
 			}
 		}
 
-       
+
 	});
 
 	eleventyConfig.addTransform('addFileSize', require("./src/_transforms/addFileSize.js"))
