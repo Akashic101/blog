@@ -55,5 +55,13 @@ eleventyExcludeFromCollections: true
       <td>{{ collections.postStats.avgCodeBlockCount }}</td>
     </tr>
     {% endif %}
+    <tr>
+      <td>Last build time</td>
+      <td>{{ buildInfo.time.formatted }}</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>{{ pkg.version }}</td>
+    </tr>
   </tbody>
 </table>

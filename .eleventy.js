@@ -1,8 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 const markdownIt = require("markdown-it")
-const markdownItAnchor = require("markdown-it-anchor");
 const tocPlugin = require("eleventy-plugin-toc");
+const markdownItAnchor = require("markdown-it-anchor");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const pluginStats = require('eleventy-plugin-post-stats');
 const markdownItFootnote = require("markdown-it-footnote");
@@ -103,6 +103,7 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addPassthroughCopy("src/bundle.css");
 	eleventyConfig.addPassthroughCopy("src/prism-vsc-dark-plus.css");
 	eleventyConfig.addPassthroughCopy("src/assets/")
+	eleventyConfig.addPassthroughCopy("src/_data/")
 
 	eleventyConfig.addFilter("cssmin", require("./src/_filters/cssmin.js"));
 	eleventyConfig.addFilter("slugify", require("./src/_filters/slugify.js"));
