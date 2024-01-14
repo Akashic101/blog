@@ -8,7 +8,7 @@ tags:
 - selfhosting
 description: How I am hosting my blog on a Raspberry Pi for almost no money
 folderName: 2024-01-14-How-to-host-a-blog
-socialMediaPreviewImage: https://blog.davidmoll.net/assets/images/How-to-host-a-blog/cover.png
+socialMediaPreviewImage: https://blog.davidmoll.net/assets/images/2024-01-14-How-to-host-a-blog/cover.png
 socialMediaPreviewImageAlt: A cat looking at a motherboard
 hasCode: true
 ---
