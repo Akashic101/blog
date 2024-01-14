@@ -112,6 +112,7 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addFilter("getAllTags", require("./src/_filters/getAllTags.js"));
 	eleventyConfig.addFilter("currentYear", require("./src/_filters/currentYear.js"));
 	eleventyConfig.addFilter("dateDisplay", require("./src/_filters/dateDisplay.js"));
+	eleventyConfig.addFilter("webmentionsByUrl", require("./src/_filters/webmentionsbyurl.js"));
 
 	eleventyConfig.addCollection("randomArticle", require("./src/_collections/randomArticle.js"));
 	eleventyConfig.addCollection("lastThreeArticles", require("./src/_collections/lastThreeArticles.js"));
