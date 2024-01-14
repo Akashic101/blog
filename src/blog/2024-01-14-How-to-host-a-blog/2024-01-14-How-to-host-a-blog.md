@@ -15,8 +15,6 @@ hasCode: true
 
 ![{{ socialMediaPreviewImageAlt }}]({{ socialMediaPreviewImage }})
 
----
-
 Starting now my blog has reached version 1.0.0 with it now being hosted on my Raspberry Pi 4B, hopefully with no down-time. In the following post I will explain how I achieved this with minimal costs and how you can do it too.
 
 ## Hardware
