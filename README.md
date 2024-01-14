@@ -13,6 +13,9 @@ This is the repo of my personal blog powered by 11ty. You can access it under ht
 
 ## Patch Notes
 
+**Version 1.0.0**
+- Moved hosting to Raspberry Pi 4B
+
 **Version 0.2.1**
 - Added support for footnotes
 - Added support for anchors
