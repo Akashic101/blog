@@ -14,6 +14,7 @@
   "license": "ISC",
   "devDependencies": {
     "@11ty/eleventy": "^2.0.1",
+    "@11ty/eleventy-cache-assets": "^2.3.0",
     "@11ty/eleventy-fetch": "^4.0.0",
     "@11ty/eleventy-plugin-rss": "^1.2.0",
     "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
@@ -21,6 +22,7 @@
     "@sherby/eleventy-plugin-files-minifier": "^1.1.1",
     "@vidhill/fortawesome-brands-11ty-shortcode": "^1.0.2",
     "@vidhill/fortawesome-free-regular-11ty-shortcode": "^1.0.3",
+    "dotenv": "^16.3.1",
     "eleventy-plugin-broken-links": "^2.0.3",
     "eleventy-plugin-phosphoricons": "^1.0.2",
     "eleventy-plugin-post-stats": "^0.2.4",
