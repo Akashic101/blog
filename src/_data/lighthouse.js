@@ -20,19 +20,8 @@ module.exports = async function () {
 
   data = data.lighthouseResult.categories;
 
-  const getGrade = function (score) {
-    if (score < 0.5) {
-      return 'bad';
-    }
-    if (score < 0.9) {
-      return 'ok';
-    }
-    return 'good';
-  };
-
   Object.keys(data).map(function (key) {
-    data[key].score = (data[key].score * 100).toFixed();
-    data[key].grade = getGrade(data[key].score);
+    data[key].score = Math.min(Math.max((data[key].score * 100).toFixed(), 0), 100)
   });
 
   return {
