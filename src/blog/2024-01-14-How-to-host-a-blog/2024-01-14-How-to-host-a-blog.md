@@ -146,7 +146,7 @@ in the Terminal. This will reload all services, start eleventy and enable it to 
 
 ### Updates
 
-To update your blog with new content you can update the repo by navigating into it and entering `git pull` followed by `sudo systemctl start eleventy`. That command will build the static files with the new files and start the daemon again.
+To update your blog with new content you can update the repo by navigating into it and entering `git pull` followed by `npx @11ty/eleventy`. That command will build the static files with the new files and start the daemon again.
 
 ---
 
