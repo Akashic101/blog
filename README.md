@@ -15,6 +15,7 @@ This is the repo of my personal blog powered by 11ty. You can access it under ht
 
 **Version 1.0.1**
 - Added lighthouse scores to stats
+- Added post-graphs to stats
 
 **Version 1.0.0**
 - Moved hosting to Raspberry Pi 4B

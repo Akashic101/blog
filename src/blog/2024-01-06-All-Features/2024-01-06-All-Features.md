@@ -73,6 +73,10 @@ Using [markdown-it-anchors](https://github.com/valeriangalliat/markdown-it-ancho
 
 Using [markdown-it-footnote](https://github.com/markdown-it/markdown-it-footnote#readme) I can write footnotes like this[^1] in shortform or and in longform like this[^longnote]  
 
+## Stats
+
+Under my [stats-page](/stats) you can find all kind of information gathered with multiple plugins. For the graphs displaying the activity of this blog I am using [eleventy-plugin-post-graph](https://www.npmjs.com/package/@rknightuk/eleventy-plugin-post-graph), for (some of) the stats I am using [eleventy-plugin-post-stats](https://www.npmjs.com/package/eleventy-plugin-post-stats) to display stats like the average word-count or amount of code-blocks per post. Lastly to display the lighthouse-score I am using this neat little computed data I shamelessly stole from [Phil Wolstenholme](https://dev.to/philw_/show-off-your-lighthouse-scores-in-eleventy-with-the-pagespeed-insights-api-1cpp).
+
 ## Filesize
 
 Every site shows how big the HTML-file is that the user is reading the article on. This is done with a plugin I wrote:

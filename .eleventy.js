@@ -9,6 +9,7 @@ const markdownItFootnote = require("markdown-it-footnote");
 const readingTime = require('eleventy-plugin-reading-time');
 const brokenLinksPlugin = require("eleventy-plugin-broken-links");
 const fileSizePlugin = require("./src/_transforms/addFileSize.js");
+const postGraph = require('@rknightuk/eleventy-plugin-post-graph')
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const pluginCleanUrls = require("@inframanufaktur/eleventy-plugin-clean-urls");
 const directoryOutputPlugin = require("@11ty/eleventy-plugin-directory-output");
@@ -80,6 +81,7 @@ module.exports = function (eleventyConfig) {
 		warningFileSize: 25 * 1000,
 	});
 
+	eleventyConfig.addPlugin(postGraph, { only: [2024] });
 	eleventyConfig.addPlugin(pluginRss);
 	eleventyConfig.addPlugin(pluginStats, { tags: ['posts'] });
 	eleventyConfig.addPlugin(readingTime);
