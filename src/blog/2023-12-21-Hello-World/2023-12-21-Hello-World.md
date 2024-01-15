@@ -72,7 +72,7 @@ While I will probably never write >4000 articles in my life it still is nice to 
 ## Alternative Web-Feeds
 Call me old-school, but RSS-feeds are a great piece of technology that too many websites choose to eliminate, or flat-out not include from the start. For a company it makes sense. You cannot track the user, you cannot show any third-party ads and the user doesn't even enter your website to be able to navigate to other articles. I however am in the lucky position that none of those things are something that I have to be concerned about. I am running this blog at a loss and I am fine with that. Not everything has to be min-maxed or be turned into profit.
 Luckily 11ty has a plugin for [Alternative Web-Feeds](https://www.11ty.dev/docs/plugins/rss/) that is pretty straight-foward to set up. All you need are three steps -install, import, template- and you have a fully functional RSS/Atom-Feed for your blog. Keep in mind that this works by using the tags you give posts, so make sure that is all working, I stumbled over this part for a while: [Collections (Using Tags)](https://www.11ty.dev/docs/collections)
-You can add the RSS-Feed to your reader with the following link: [https://blog.davidmoll.net/feed.xml](https://blog.davidmoll.net/feed.xml). Also if you are looking for a good RSS feed reader on Android I heavily recommend [Feeder](https://f-droid.org/en/packages/com.nononsenseapps.feeder/) on F-Droid
+You can add the RSS-Feed to your reader with the following link: [https://blog.davidmoll.net/feed.xml](/feed.xml). Also if you are looking for a good RSS feed reader on Android I heavily recommend [Feeder](https://f-droid.org/en/packages/com.nononsenseapps.feeder/) on F-Droid
 
 ## 100% Accessibility
 

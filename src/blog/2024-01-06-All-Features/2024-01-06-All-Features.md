@@ -17,13 +17,13 @@ hasCode: true
 ![{{ socialMediaPreviewImageAlt }}]({{ socialMediaPreviewImage }})
 
 
-*Notice: This blog is part of a series called "100%" in which I describe the steps I took to cover all cases a website can face and get the maximum out of what a feature can offer. You can find all articles in this series [under the 100%-tag](https://blog.davidmoll.net/tags/100%25/)*
+*Notice: This blog is part of a series called "100%" in which I describe the steps I took to cover all cases a website can face and get the maximum out of what a feature can offer. You can find all articles in this series [under the 100%-tag](/tags/100%25/)*
 
 Over time this blog has aquired quite the list of features. If you want to create your own blog using eleventy, or already have one and are looking for stuff to include, this list is perfect to use as an inspiration.
 
 ## RSS
 
-You can recieve updates of all my posts automatically using RSS, this is done with the [Eleventy-RSS-plugin](https://github.com/11ty/eleventy-plugin-rss). You can read more on how I set up RSS [in this post](http://blog.davidmoll.net/blog/2024-01-05-100-RSS)
+You can recieve updates of all my posts automatically using RSS, this is done with the [Eleventy-RSS-plugin](https://github.com/11ty/eleventy-plugin-rss). You can read more on how I set up RSS [in this post](/blog/2024-01-05-100-RSS)
 
 ## Comments
 
@@ -31,7 +31,7 @@ You can leave a comment under any post on this blog using [https://github.com/gi
 
 ## Tags
 
-Every post has multiple tags describing the content of itself. If you want a list of all tags you can visit [https://blog.davidmoll.net/tags](https://blog.davidmoll.net/tags) to see a list of all of them and from there also see all articles that include a specific tag. You can for example see all posts about my 100%-series under [https://blog.davidmoll.net/tags/100%25/](https://blog.davidmoll.net/tags/100%25/)
+Every post has multiple tags describing the content of itself. If you want a list of all tags you can visit [https://blog.davidmoll.net/tags](/tags) to see a list of all of them and from there also see all articles that include a specific tag. You can for example see all posts about my 100%-series under [https://blog.davidmoll.net/tags/100%25/](/tags/100%25/)
 
 ## Auomatic external link checker
 
@@ -93,11 +93,11 @@ Every site shows how big the HTML-file is that the user is reading the article o
 };{% endraw %}
 ```
 
-Additional the size of the entire build is shown at [https://blog.davidmoll.net/stats](https://blog.davidmoll.net/stats)
+Additional the size of the entire build is shown at [https://blog.davidmoll.net/stats](/stats)
 
 ## Font-Awesome
 
-On my [about-me](https://blog.davidmoll.net/about-me/) page I am using Font-Awesome to display a few SVG's of a few skills I have and ways to reach me. To minimize the size of the icons and remove icons I do not need I am using two plugins, [fortawesome-brands-11ty-shortcode](https://github.com/vidhill/fortawesome-brands-svg-11ty-shortcode) and [fortawesome-regular-svg-11ty-shortcode](https://github.com/vidhill/fortawesome-regular-svg-11ty-shortcode)
+On my [about-me](/about-me/) page I am using Font-Awesome to display a few SVG's of a few skills I have and ways to reach me. To minimize the size of the icons and remove icons I do not need I am using two plugins, [fortawesome-brands-11ty-shortcode](https://github.com/vidhill/fortawesome-brands-svg-11ty-shortcode) and [fortawesome-regular-svg-11ty-shortcode](https://github.com/vidhill/fortawesome-regular-svg-11ty-shortcode)
 
 ---
 
