@@ -62,7 +62,7 @@ First step is to use the [Raspberry Pi Imager](https://www.raspberrypi.com/softw
 
 **Tipp:** With Raspberry Pi Imager open press Ctrl+Shift+X to open the settings. There I enabled SSH, setup a password and disabled telemetry.
 
-After inserting the Micro-SD Card into the Pi and booting it up by connecting the POE-Ethernet cable to the port I used [Advanced IP Scanner](https://www.advanced-ip-scanner.com/) to find out the assigned internal IP of my Pi. Then I used [Cyberduck](https://cyberduck.io/) to connect to the Pi using SSH. I chose Cyberduck speficially since its [completely Open-Source](https://github.com/iterate-ch/cyberduck).
+After inserting the Micro-SD Card into the Pi and booting it up by connecting the POE-Ethernet cable to the port I used [Advanced IP Scanner](https://www.advanced-ip-scanner.com/) to find out the assigned internal IP of my Pi. Then I used [PuTTY](https://putty.org/) to connect to the Pi using SSH. I chose Cyberduck speficially since its [completely Open-Source](https://github.com/iterate-ch/cyberduck).
 
 After the connection was established I made sure all software on the Pi is up-to-date using `sudo apt update`, `sudo apt upgrade` followed by a reboot with `sudo reboot`.
 
