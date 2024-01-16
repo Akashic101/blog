@@ -101,7 +101,7 @@ On my [about-me](/about-me/) page I am using Font-Awesome to display a few SVG's
 
 ---
 
-This website is continuesly beeing worked on and there will always be new features and additions that make this blog even better. If you have any tips and tricks I should use feel free to share them with me and the community.
+This website is continuously being worked on and there will always be new features and additions that make this blog even better. If you have any tips and tricks I should use feel free to share them with me and the community.
 
 ---
 
