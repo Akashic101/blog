@@ -133,6 +133,7 @@ fs.mkdirSync(assetsFolderPath, { recursive: true });
 Next up we create the frontmatter-template and fill in all the data that is always given such as the layout and the author. We can also fill in the title, date, folderName, socialMediaPreviewImage and hasCode:
 
 ```js
+{% raw %}
 const frontmatter = `
 ---
 layout: blogLayout.njk
@@ -150,6 +151,7 @@ hasCode: ${includeCode}
 
 ![{{ socialMediaPreviewImageAlt }}]({{ socialMediaPreviewImage }})
 `;
+{% endraw %}
 ```
 
 The last step is creating a markdown-file in the blog-folder with the above defined data in it as a template:
