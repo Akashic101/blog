@@ -3,7 +3,6 @@
 <img src="./src/assets/icons/android-chrome-512x512.png" alt="Blog's logo" align="right" width="120" height="120">
 
 This is the repo of my personal blog powered by 11ty. You can access it under https://blog.davidmoll.net or via RSS at https://blog.davidmoll.net/feed.xml
-*The website is currently WIP and not being hosted externally. If the website is not accessible I am not actively working on it for the moment*
 
 ## How It Works
 
@@ -61,5 +60,6 @@ All icons were generated with [RealFaviconGenerator](https://realfavicongenerato
 - Clone this repo with `git clone https://github.com/akashic101/blog`
 - Navigate into this repo with `cd blog`
 - Install all dependencies with `npm install`
-- Build the site with `npx @11ty/eleventy`
+- Create a `.env` and supply [PAGESPEED_API_KEY](https://developers.google.com/speed/docs/insights/v5/get-started?hl=de)
+- Build the site with `npx @11ty/eleventy` or serve it with `npx @11ty/eleventy --serve`
 - Navigate to http://localhost:8080 to see the website
