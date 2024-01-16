@@ -162,6 +162,7 @@ fs.writeFileSync(path.join(blogFolderPath, `${currentDate}-${folderTitle}.md`), 
 And thats already all that is needed. The complete file looks like this:
 
 ```js
+{% raw %}
 const fs = require('fs');
 const path = require('path');
 const inquirer = require('inquirer');
@@ -234,6 +235,7 @@ hasCode: ${includeCode}
 }
 
 generateFiles();
+{% endraw %}
 ```
 
 If I execute this file with `node .\generateNewBlog.js` and fill in the asked question inquierer automatically creates all the files that I need and I can instantly start writing. As always if you have any notes or questions feel free to post them in the comments.
