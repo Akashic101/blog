@@ -26,7 +26,7 @@ module.exports = async function () {
     data = data.lighthouseResult.categories;
 
     Object.keys(data).map(function (key) {
-      data[key].score = Math.clamp((data[key].score * 100).toFixed(), 0, 100);
+      data[key].score = Math.min(Math.max((data[key].score * 100).toFixed(), 0), 100)
     });
 
     return {
