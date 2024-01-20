@@ -18,7 +18,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>{{ metadata.title }}</title>
   <subtitle>{{ metadata.subtitle }}</subtitle>
-  <link href="{{ metadata.url }}/rss.xml" rel="self" type="application/atom+xml" />
+  <link href="{{ metadata.url }}/feed.atom" rel="self" type="application/atom+xml" />
   <link href="{{ metadata.url }}" />
   <id>{{ metadata.url }}/</id>
   <updated>{{ collections.posts.slice(-1)[0].date | RFC3339 }}</updated>
