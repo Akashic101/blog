@@ -2,8 +2,8 @@ module.exports = async () => {
     const url = 'http://192.168.0.113:8000/uptime';
     const headers = {
         'accept': 'application/json',
-        'Authorization': `Bearer ${process.env.UPTIME_KUMA_API_KEY}`
-    };
+        'Authorization': `Bearer ${process.env.BEARER_TOKEN}`
+    }
 
     try {
         // Use dynamic import for 'node-fetch'
@@ -11,6 +11,8 @@ module.exports = async () => {
 
         const response = await fetch(url, { method: 'GET', headers: headers });
         const data = await response.json();
+
+        console.log(data)
 
         const dayUptime = calculateTotalUptime(data, 24);  // 24 hours for a day
         const monthUptime = calculateTotalUptime(data, 720);  // 720 hours for a month
