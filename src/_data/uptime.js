@@ -2,7 +2,7 @@ module.exports = async () => {
     const url = 'http://192.168.0.113:8000/uptime';
     const headers = {
         'accept': 'application/json',
-        'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3MDY0NjIwMzEsInN1YiI6ImV5SmhiR2NpT2lKSVV6STFOaUlzSW5SNWNDSTZJa3BYVkNKOS5leUoxYzJWeWJtRnRaU0k2SW1GcllYTm9hV01pTENKb0lqb2laRGM1TW1aaFpEbGpaR1psTldZNU1XUmtaRGMzTnpnd09ESmtOamhrTkRBaUxDSnBZWFFpT2pFM01EVTNOekE0TXpGOS5JblBRTlg0V3RsVVdRLUc3WFVrZzVyaHBIVWhsaTBlVUxNSVlPTlBDc0NJIn0.-Zbzk9t4--IaUg08Nbc8WR-lrssxOmGZ6PDHLNba6m8'
+        'Authorization': `Bearer ${process.env.UPTIME_KUMA_API_KEY}`
     };
 
     try {
@@ -14,7 +14,7 @@ module.exports = async () => {
 
         const dayUptime = calculateTotalUptime(data, 24);  // 24 hours for a day
         const monthUptime = calculateTotalUptime(data, 720);  // 720 hours for a month
-        
+
         return {
             uptime: {
                 day: {
