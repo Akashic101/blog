@@ -21,7 +21,7 @@
   <link href="{{ metadata.url }}/rss.xml" rel="self" type="application/atom+xml" />
   <link href="{{ metadata.url }}" />
   <id>{{ metadata.url }}/</id>
-  <updated>{{ collections.posts.slice(-1)[0].date | dateToRfc822 }}</updated>
+  <updated>{{ collections.posts.slice(-1)[0].date | RFC3339 }}</updated>
   <author>
     <name>{{ metadata.author.name }}</name>
     <email>{{ metadata.author.email }}</email>
@@ -32,7 +32,7 @@
     <title>{{ post.data.title }}</title>
     <link href="{{ absolutePostUrl }}" />
     <id>{{ absolutePostUrl }}</id>
-    <updated>{{ post.date | dateToRfc822 }}</updated>
+    <updated>{{ collections.posts.slice(-1)[0].date | RFC3339 }}</updated>
     <summary type="html">
       <![CDATA[<img align="left" hspace="5" src="{{ metadata.url }}/assets/images/{{ post.data.folderName }}/cover.png"/>
         {{ post.data.description | safe }}]]>
