@@ -107,6 +107,7 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addPassthroughCopy("src/assets/")
 	eleventyConfig.addPassthroughCopy("src/_data/")
 
+	eleventyConfig.addFilter("RFC3339", require("./src/_filters/RFC3339.js"));
 	eleventyConfig.addFilter("cssmin", require("./src/_filters/cssmin.js"));
 	eleventyConfig.addFilter("slugify", require("./src/_filters/slugify.js"));
 	eleventyConfig.addFilter("readtime", require("./src/_filters/readtime.js"));
@@ -153,6 +154,14 @@ module.exports = function (eleventyConfig) {
 
 
 	});
+
+	eleventyConfig.on('eleventy.beforeWatch', async (changedFiles) => {
+		// Run me before --watch or --serve re-runs
+	
+		// changedFiles is an array of files that changed
+		// to trigger the watch/serve build
+		console.log(changedFiles)
+	  });
 
 	eleventyConfig.addTransform('addFileSize', require("./src/_transforms/addFileSize.js"))
 	return {
