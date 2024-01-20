@@ -14,27 +14,29 @@ module.exports = async () => {
         const response = await fetch(url, { method: 'GET', headers: headers });
         const data = await response.json();
 
-        console.log(data);
-
         const dayUptime = calculateTotalUptime(data, 24);  // 24 hours for a day
         const monthUptime = calculateTotalUptime(data, 720);  // 720 hours for a month
 
         return {
-            uptime: {
-                day: {
-                    raw: dayUptime,
-                    formatted: (dayUptime * 100).toFixed(2)
-                },
-                month: {
-                    raw: monthUptime,
-                    formatted: (monthUptime * 100).toFixed(2)
-                }
+            day: {
+                raw: dayUptime,
+                formatted: (dayUptime * 100).toFixed(2)
+            },
+            month: {
+                raw: monthUptime,
+                formatted: (monthUptime * 100).toFixed(2)
             }
         };
     } catch (error) {
         console.error('Error:', error.message);
     }
 };
+
+function calculateTotalUptime(data, durationThreshold) {
+    const filteredData = data.filter(record => record.duration === durationThreshold);
+    const totalUptime = filteredData.reduce((sum, record) => sum + record.uptime, 0);
+    return totalUptime;
+}
 
 // Call the function to execute it
 module.exports();
