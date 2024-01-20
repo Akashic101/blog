@@ -1,0 +1,46 @@
+---json
+{
+  "permalink": "feed.atom",
+  "eleventyExcludeFromCollections": true,
+  "metadata": {
+    "title": "David Moll's blog",
+    "subtitle": "I am writing about whatever is on my mind",
+    "language": "en",
+    "url": "https://blog.davidmoll.net",
+    "author": {
+      "name": "David Moll",
+      "email": "david.leander.moll@gmail.com"
+    }
+  }
+}
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>{{ metadata.title }}</title>
+  <subtitle>{{ metadata.subtitle }}</subtitle>
+  <link href="{{ metadata.url }}/rss.xml" rel="self" type="application/atom+xml" />
+  <link href="{{ metadata.url }}" />
+  <id>{{ metadata.url }}/</id>
+  <updated>{{ collections.posts.slice(-1)[0].date | dateToRfc822 }}</updated>
+  <author>
+    <name>{{ metadata.author.name }}</name>
+    <email>{{ metadata.author.email }}</email>
+  </author>
+  {%- for post in collections.posts | reverse %}
+  {%- set absolutePostUrl = post.url | absoluteUrl(metadata.url) %}
+  <entry>
+    <title>{{ post.data.title }}</title>
+    <link href="{{ absolutePostUrl }}" />
+    <id>{{ absolutePostUrl }}</id>
+    <updated>{{ post.date | dateToRfc822 }}</updated>
+    <summary type="html">
+      <![CDATA[<img align="left" hspace="5" src="{{ metadata.url }}/assets/images/{{ post.data.folderName }}/cover.png"/>
+        {{ post.data.description | safe }}]]>
+    </summary>
+    <author>
+      <name>{{ metadata.author.name }}</name>
+      <email>{{ metadata.author.email }}</email>
+    </author>
+  </entry>
+  {%- endfor %}
+</feed>
