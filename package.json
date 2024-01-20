@@ -33,6 +33,7 @@
     "inquirer": "^8.0.0",
     "markdown-it-anchor": "^8.6.7",
     "markdown-it-footnote": "^4.0.0",
+    "node-fetch": "^3.3.2",
     "remark-toc": "^9.0.0",
     "sanitize-html": "^2.11.0"
   },

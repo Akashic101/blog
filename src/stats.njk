@@ -65,8 +65,18 @@ eleventyExcludeFromCollections: true
       <td>Version</td>
       <td>{{ pkg.version }}</td>
     </tr>
+    <tr>
+      <td>Uptime (day)</td>
+      <td>{{ uptime.uptime.day.formatted }}%</td>
+    </tr>
+    <tr>
+      <td>Uptime (month)</td>
+      <td>{{ uptime.uptime.month.formatted }}%</td>
+    </tr>
   </tbody>
 </table>
+
+<i>Uptime is calculated using <a href="https://github.com/louislam/uptime-kuma">Uptime-Kuma</a> and gets recalculated once per day at midnight<i>
 
 <h1>Lighthouse scores</h1>
 
