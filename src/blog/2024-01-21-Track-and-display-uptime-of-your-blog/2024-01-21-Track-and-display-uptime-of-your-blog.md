@@ -143,7 +143,7 @@ function calculateTotalUptime(data, durationThreshold) {
 module.exports();{% endraw %}
 ```
 
-Make sure to also install dotenv with `npm install --save-dev dotenv` since we will safe the authentication-token inside an `.env`-file to keep it save. For this create a file called `.env` in the root of your directoy and write `BEARER_TOKEN=your.authentication-token` in it. Also install `node-fetch` with `npm install --save-dev node-fetch`, we will need this package to send requests to the Web-API.
+Make sure to also install dotenv with `npm install --save-dev dotenv` since we will safe the authentication-token inside an `.env`-file to keep it save. For this create a file called `.env` in the root of your directoy and write `BEARER_TOKEN=your.authentication-token`[^1] in it. Also install `node-fetch` with `npm install --save-dev node-fetch`, we will need this package to send requests to the Web-API.
 
 Now you can access the generated data anywhere, for example I display the uptime for each day and month on my [stats-page](/stats). For this I add following elements to the table:
 
@@ -161,3 +161,7 @@ Now you can access the generated data anywhere, for example I display the uptime
 Now of course since Eleventy generates static websites this data won't change unless we update it by rebuilding the website. To solve this I added `0 0 * * * cd blog && sudo npx @11ty/eleventy` to the crontab on my Pi. With this the website will be rebuild once per day at midnight to show the new data.
 
 And thats it, now your uptime gets accurately tracked and displayed in your blog. The Uptime-Kuma-Web-API also offers endpoints to track for example the average ping of the website you are tracking, planned maintenances and more to display if you want to. I'd love to see your implementation of Uptime Kuma so feel free to share them with me.
+
+## Footnotes
+
+[^1]: The authentication-token will change whenever the monitor changes (and possibly the service restarts). You will have to reauthenticate when this happens and update the token in the `.env`-file. If you have any idea on how to automate this please let me know.
