@@ -5,6 +5,7 @@ author: David Moll
 date: 2024-01-21
 tags: 
 - posts
+- selfhosting
 description: How you can track and display the uptime of your eleventy-page using Uptime Kuma
 folderName: 2024-01-21-Track-and-display-uptime-of-your-blog
 socialMediaPreviewImage: https://blog.davidmoll.net/assets/images/2024-01-21-Track-and-display-uptime-of-your-blog/cover.png
