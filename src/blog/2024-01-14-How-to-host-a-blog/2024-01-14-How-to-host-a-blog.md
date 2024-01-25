@@ -119,7 +119,8 @@ One the Cloudflare Dashboard navigate to Access > Tunnels. There create a new tu
 
 The last step is to create a daemon that will auto-start eleventy even after a shutdown, restart or crash. To do this run `sudo nano /etc/systemd/system/eleventy.service` and enter following text in the file:
 
-```bash
+```bash:eleventy.service
+
 [Unit]
 Description=Eleventy Static Site Generator
 

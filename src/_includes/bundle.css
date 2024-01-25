@@ -74,7 +74,7 @@ footer {
 }
 
 .permalink {
-    display: none;
+	display: none;
 }
 
 .header-anchor {
@@ -85,23 +85,23 @@ h1:hover .permalink,
 h2:hover .permalink,
 h3:hover .permalink {
 	color: #6592a2;
-    display: inline;
+	display: inline;
 }
 
 table {
-    width: 100%;
+	width: 100%;
 }
 
 th {
-    display: none;
+	display: none;
 }
 
 td {
-    border-bottom: 1px dashed;
+	border-bottom: 1px dashed;
 }
 
 tr td:nth-child(2n) {
-    text-align: right;
+	text-align: right;
 }
 
 @media screen and (max-width: 768px) {
@@ -137,4 +137,20 @@ tr td:nth-child(2n) {
 	.text-container>p {
 		font-size: medium;
 	}
+}
+
+.named-fence-block {
+	position: relative;
+	padding-top: 2em;
+}
+
+.named-fence-filename {
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 0 4px;
+	font-weight: bold;
+	color: #000000;
+	background: #c0c0c0;
+	opacity: 0.6;
 }

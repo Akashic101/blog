@@ -41,7 +41,8 @@ Yours can look completely different and thats fine, but my code will probably no
 
 Frontmatter is a way to identify metadata in Markdown files. Metadata can literally be anything you want it to be, but often it's used for data elements your page needs and you don't want to show directly. My frontmatter-data for this specific post you are reading looks like this:
 
-```md
+```md:your-post.md
+
 ---
 layout: blogLayout.njk
 title: How to automatically generate a new boilerplate-post with inquirer
@@ -163,7 +164,7 @@ fs.writeFileSync(path.join(blogFolderPath, `${currentDate}-${folderTitle}.md`), 
 
 And thats already all that is needed. The complete file looks like this:
 
-```js
+```js:generateNewBlog.js
 {% raw %}
 const fs = require('fs');
 const path = require('path');

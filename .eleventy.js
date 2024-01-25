@@ -1,12 +1,12 @@
 const fs = require('fs');
 const path = require('path');
-const markdownIt = require("markdown-it")
 const tocPlugin = require("eleventy-plugin-toc");
 const markdownItAnchor = require("markdown-it-anchor");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const pluginStats = require('eleventy-plugin-post-stats');
 const markdownItFootnote = require("markdown-it-footnote");
 const readingTime = require('eleventy-plugin-reading-time');
+var namedCodeBlocks = require('markdown-it-named-code-blocks');
 const brokenLinksPlugin = require("eleventy-plugin-broken-links");
 const fileSizePlugin = require("./src/_transforms/addFileSize.js");
 const postGraph = require('@rknightuk/eleventy-plugin-post-graph')
@@ -16,38 +16,6 @@ const directoryOutputPlugin = require("@11ty/eleventy-plugin-directory-output");
 const eleventyPluginFilesMinifier = require("@sherby/eleventy-plugin-files-minifier");
 const { fortawesomeBrandsPlugin } = require('@vidhill/fortawesome-brands-11ty-shortcode');
 const { fortawesomeFreeRegularPlugin } = require('@vidhill/fortawesome-free-regular-11ty-shortcode');
-
-const position = {
-	false: "push",
-	true: "unshift",
-}
-
-const renderPermalink = (slug, opts, state, idx) => {
-	const space = () =>
-		Object.assign(new state.Token("text", "", 0), {
-			content: " ",
-		})
-
-	const linkTokens = [
-		Object.assign(new state.Token("link_open", "a", 1), {
-			attrs: [
-				["class", opts.permalinkClass],
-				["href", opts.permalinkHref(slug, state)],
-			],
-		}),
-		Object.assign(new state.Token("html_block", "", 0), {
-			content: `<span class="permalink">#</span>`,
-		}),
-		new state.Token("link_close", "a", -1),
-	]
-
-	if (opts.permalinkSpace) {
-		linkTokens[position[!opts.permalinkBefore]](space())
-	}
-	state.tokens[idx + 1].children[position[opts.permalinkBefore]](
-		...linkTokens
-	)
-}
 
 function getFolderSize(folderPath) {
 	let totalSize = 0;
@@ -72,7 +40,6 @@ function getFolderSize(folderPath) {
 }
 
 module.exports = function (eleventyConfig) {
-
 	eleventyConfig.addPlugin(directoryOutputPlugin, {
 		columns: {
 			filesize: true,
@@ -124,21 +91,13 @@ module.exports = function (eleventyConfig) {
 		return (new Date).toUTCString();
 	})
 
-	const markdownItOptions = {
-		html: true,
-	}
-
-	const markdownItAnchorOptions = {
-		permalink: true,
-		renderPermalink,
-	}
-
-	const markdownLib = markdownIt(markdownItOptions).use(
-		markdownItAnchor,
-		markdownItAnchorOptions
-	)
-	eleventyConfig.setLibrary("md", markdownLib)
 	eleventyConfig.amendLibrary("md", mdLib => mdLib.use(markdownItFootnote));
+	eleventyConfig.amendLibrary("md", mdLib => mdLib.use(namedCodeBlocks));
+	eleventyConfig.amendLibrary("md", mdLib => mdLib.use(markdownItAnchor, {
+		permalink: markdownItAnchor.permalink.ariaHidden({
+			placement: 'after'
+		  })
+	}));
 
 	eleventyConfig.on('eleventy.after', async ({ dir, results }) => {
 		const folderPath = dir.output;
@@ -151,8 +110,6 @@ module.exports = function (eleventyConfig) {
 				fs.writeFileSync(filePath, results[i].content);
 			}
 		}
-
-
 	});
 
 	eleventyConfig.addTransform('addFileSize', require("./src/_transforms/addFileSize.js"))
