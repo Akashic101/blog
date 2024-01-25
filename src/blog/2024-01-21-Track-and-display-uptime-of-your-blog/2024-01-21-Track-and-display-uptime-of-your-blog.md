@@ -25,7 +25,8 @@ Ideally you should host Uptime Kuma on different hardware than your blog. If you
 
 Uptime Kuma is really easy to setup with Docker and Docker-Compose. Installing those two services is different depending on where you are hosting Uptime Kuma, for me I followed the official documentation on the [Docker-Website for Debian](https://docs.docker.com/engine/install/debian/) since I am running Raspberry Pi OS 64bit and [these instructions](https://pi-wiki.com/setup-docker-compose-on-raspberry-pi/) to setup Docker-Compose. The `docker-compose.yml` looks like this:
 
-```yml
+```yml:docker-compose.yml
+
 version: '3'
 
 services:
@@ -52,7 +53,8 @@ At the current date the API for Uptime Kuma doesn't really exist. You can genera
 
 **Important:** You need to first run just Uptime Kuma and create a user and password or else you cannot authenticate yourself with the API
 
-```yml
+```yml:docker-compose.yml
+
 version: '3'
 
 services:
@@ -100,8 +102,9 @@ Click on "execute" and if everything worked you will see in the server-response 
 
 In your `_data`-directory create a new file, I called it `uptime.js`, then paste following code into the file:
 
-```js
-{% raw %}require('dotenv').config();
+```js:uptime.js
+{% raw %}
+require('dotenv').config();
 
 module.exports = async () => {
     const url = 'IP.of.uptime.kuma.web.api:8000/uptime'; //<-- Adjust this to the URL of Uptime-Kuma-Web-Api
@@ -148,7 +151,8 @@ Make sure to also install dotenv with `npm install --save-dev dotenv` since we w
 
 Now you can access the generated data anywhere, for example I display the uptime for each day and month on my [stats-page](/stats). For this I add following elements to the table:
 
-```html{% raw %}
+```html:stats.njk
+{% raw %}
 <tr>
     <td>Uptime (day)</td>
     <td>{{ uptime.day.formatted }}%</td>

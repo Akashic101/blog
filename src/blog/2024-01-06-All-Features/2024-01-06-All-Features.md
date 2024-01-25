@@ -81,8 +81,9 @@ Under my [stats-page](/stats) you can find all kind of information gathered with
 
 Every site shows how big the HTML-file is that the user is reading the article on. This is done with a plugin I wrote:
 
-```js
-{% raw %}module.exports = function (eleventyConfig) {
+```js:addFileSize.js
+{% raw %}
+module.exports = function (eleventyConfig) {
   eleventyConfig.addTransform("addFileSize", async (content, outputPath) => {
     if (outputPath.endsWith(".html") && content.includes('FILESIZE')) {
       const fileSize = Buffer.from(content).length;
@@ -94,6 +95,15 @@ Every site shows how big the HTML-file is that the user is reading the article o
 ```
 
 Additional the size of the entire build is shown at [https://blog.davidmoll.net/stats](/stats)
+
+## Code-Titles
+
+After a long and hard battle I finally figured out how to use Markdown-It plugins. My previous way with how I added anchors broke things so with that reworked I can now import a plugin [like this one](https://www.npmjs.com/package/@speedy-js/code-title) and amend to the Library
+
+```js:Like-this
+
+eleventyConfig.amendLibrary("md", mdLib => mdLib.use(namedCodeBlocks));
+```
 
 ## Font-Awesome
 

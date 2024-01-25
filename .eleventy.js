@@ -17,6 +17,8 @@ const eleventyPluginFilesMinifier = require("@sherby/eleventy-plugin-files-minif
 const { fortawesomeBrandsPlugin } = require('@vidhill/fortawesome-brands-11ty-shortcode');
 const { fortawesomeFreeRegularPlugin } = require('@vidhill/fortawesome-free-regular-11ty-shortcode');
 
+var namedCodeBlocks = require('markdown-it-named-code-blocks');
+
 const position = {
 	false: "push",
 	true: "unshift",
@@ -124,21 +126,8 @@ module.exports = function (eleventyConfig) {
 		return (new Date).toUTCString();
 	})
 
-	const markdownItOptions = {
-		html: true,
-	}
-
-	const markdownItAnchorOptions = {
-		permalink: true,
-		renderPermalink,
-	}
-
-	const markdownLib = markdownIt(markdownItOptions).use(
-		markdownItAnchor,
-		markdownItAnchorOptions
-	)
-	eleventyConfig.setLibrary("md", markdownLib)
 	eleventyConfig.amendLibrary("md", mdLib => mdLib.use(markdownItFootnote));
+	eleventyConfig.amendLibrary("md", mdLib => mdLib.use(namedCodeBlocks));
 
 	eleventyConfig.on('eleventy.after', async ({ dir, results }) => {
 		const folderPath = dir.output;
