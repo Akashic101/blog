@@ -1,8 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="webmention" href="https://webmention.io/blog.davidmoll.net/webmention" />
-    <link rel="pingback" href="https://webmention.io/blog.davidmoll.net/xmlrpc" />
+    <link
+      rel="webmention"
+      href="https://webmention.io/blog.davidmoll.net/webmention"
+    />
+    <link
+      rel="pingback"
+      href="https://webmention.io/blog.davidmoll.net/xmlrpc"
+    />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
@@ -63,11 +69,53 @@
     <style>
       {{ css | cssmin | safe }}
     </style>
+    {% if hasCode %} {% set css %} {% include "prism-vsc-dark-plus.css" %} {%
+    endset %}
+    <style>
+      {{ css | cssmin | safe }}
+    </style>
+    {% endif %} {% set css %} {% include "blogCSS.css" %} {% endset %}
+    <style>
+      {{ css | cssmin | safe }}
+    </style>
   </head>
   <body>
-    {{ content | safe }}
+    <header class="index">
+      <div class="left_div">
+        <h1 id="titleName">David Moll's blog</h1>
+        <i> You can't downvote me here</i>
+      </div>
+      <div class="right_div">
+        <a href="/">Home</a>
+        <a href="/archive">Archive</a>
+        <a href="/about-me">About me</a>
+        <a href="/tags">Tags</a>
+        <a href="/stats">Stats</a>
+      </div>
+    </header>
+    {% block blog %} {% endblock %}
+    <main>
+      <aside>{{ content | toc | safe }}</aside>
+      {{ content | safe }}
+    </main>
+    <hr />
   </body>
   <footer>
+    <script
+      src="https://giscus.app/client.js"
+      data-repo="akashic101/blog"
+      data-repo-id="R_kgDOK8ZtIw"
+      data-category="Announcements"
+      data-category-id="DIC_kwDOK8ZtI84CcNxz"
+      data-mapping="pathname"
+      data-reactions-enabled="1"
+      data-theme="transparent_dark"
+      crossorigin="anonymous"
+      async
+    ></script>
+
+    <hr />
+
     <a href="https://github.com/Akashic101/blog/blob/main/{{ page.inputPath }}"
       >Edit this page on GitHub</a
     >

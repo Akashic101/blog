@@ -1,5 +1,5 @@
 ---
-layout: blogLayout.njk
+layout: blog.njk
 title: All features of this blog
 author: David Moll
 date: 2024-01-06
@@ -55,7 +55,7 @@ Sometimes I have to link to an external website, those sometimes sneak in a smal
 
 ## Syntax Highlighting
 
-Since I often share code-snippets on this website I decided to use PrismJS to highlight the snippets correctly. All of this is powered by [eleventy-plugin-syntaxhighlight](https://www.11ty.dev/docs/plugins/syntaxhighlight/) together with the [prism-vsc-dark-plus theme](https://github.com/PrismJS/prism-themes/blob/master/themes/prism-vsc-dark-plus.css). The best part is, this css-file only gets loaded on blog-posts which need syntax-highlighting, all of that automatically inlined and minimized. Have a look at the [blogLayout.njk](https://github.com/Akashic101/blog/blob/main/src/_includes/blogLayout.njk) template on how this is achieved.
+Since I often share code-snippets on this website I decided to use PrismJS to highlight the snippets correctly. All of this is powered by [eleventy-plugin-syntaxhighlight](https://www.11ty.dev/docs/plugins/syntaxhighlight/) together with the [prism-vsc-dark-plus theme](https://github.com/PrismJS/prism-themes/blob/master/themes/prism-vsc-dark-plus.css). The best part is, this css-file only gets loaded on blog-posts which need syntax-highlighting, all of that automatically inlined and minimized. Have a look at the [blog.njk](https://github.com/Akashic101/blog/blob/main/src/_includes/blog.njk) template on how this is achieved.
 
 ## Icons
 

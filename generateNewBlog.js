@@ -47,7 +47,7 @@ async function generateFiles() {
     fs.mkdirSync(assetsFolderPath, { recursive: true });
 
     const frontmatter = `---
-layout: blogLayout.njk
+layout: blog.njk
 title: ${title}
 author: David Moll
 date: ${currentDate}

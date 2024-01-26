@@ -1,5 +1,5 @@
 ---
-layout: blogLayout.njk
+layout: blog.njk
 title: How to automatically generate a new boilerplate-post with inquirer
 author: David Moll
 date: 2024-01-15
@@ -44,7 +44,7 @@ Frontmatter is a way to identify metadata in Markdown files. Metadata can litera
 ```md:your-post.md
 
 ---
-layout: blogLayout.njk
+layout: blog.njk
 title: How to automatically generate a new boilerplate-post with inquirer
 author: David Moll
 date: 2024-01-15
@@ -137,7 +137,7 @@ Next up we create the frontmatter-template and fill in all the data that is alwa
 {% raw %}
 const frontmatter = `
 ---
-layout: blogLayout.njk
+layout: blog.njk
 title: ${title}
 author: David Moll
 date: ${currentDate}
@@ -215,7 +215,7 @@ async function generateFiles() {
     fs.mkdirSync(assetsFolderPath, { recursive: true });
 
     const frontmatter = `---
-layout: blogLayout.njk
+layout: blog.njk
 title: ${title}
 author: David Moll
 date: ${currentDate}
