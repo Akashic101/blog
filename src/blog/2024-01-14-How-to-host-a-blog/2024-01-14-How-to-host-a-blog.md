@@ -1,5 +1,5 @@
 ---
-layout: blogLayout.njk
+layout: blog.njk
 title: How to host a 11ty-site on a Raspberry Pi
 author: David Moll
 date: 2024-01-14

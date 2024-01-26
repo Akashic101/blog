@@ -1,5 +1,5 @@
 ---
-layout: indexLayout.njk
+layout: base.njk
 title: Archive
 permalink: /archive/index.html
 author: David Moll
@@ -12,7 +12,6 @@ eleventyExcludeFromCollections: true
 ---
 
 <h1>Archive</h1>
-
 
 {% for post in collections.all | reverse %}
 

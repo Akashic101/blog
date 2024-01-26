@@ -1,5 +1,5 @@
 ---
-layout: blogLayout.njk
+layout: blog.njk
 title: default apps
 author: David Moll
 date: 2024-01-19

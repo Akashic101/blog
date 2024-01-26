@@ -1,5 +1,5 @@
 ---
-layout: blogLayout.njk
+layout: blog.njk
 title: Hello World
 author: David Moll
 date: 2023-12-21
