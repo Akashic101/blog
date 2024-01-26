@@ -1,5 +1,5 @@
 ---
-layout: blogLayout.njk
+layout: blog.njk
 title: Special Olympics World Games Berlin 2023
 author: David Moll
 date: 2023-12-23

@@ -1,5 +1,5 @@
 ---
-layout: blogLayout.njk
+layout: blog.njk
 title: Track and display uptime of your blog
 author: David Moll
 date: 2024-01-21

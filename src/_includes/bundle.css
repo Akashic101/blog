@@ -104,6 +104,22 @@ tr td:nth-child(2n) {
 	text-align: right;
 }
 
+.named-fence-block {
+	position: relative;
+	padding-top: 2em;
+}
+
+.named-fence-filename {
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 0 4px;
+	font-weight: bold;
+	color: #000000;
+	background: #c0c0c0;
+	opacity: 0.6;
+}
+
 @media screen and (max-width: 768px) {
 	body {
 		width: 95%;
