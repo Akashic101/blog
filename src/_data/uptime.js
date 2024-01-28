@@ -12,21 +12,26 @@ module.exports = async () => {
         const fetch = (await import('node-fetch')).default;
 
         const response = await fetch(url, { method: 'GET', headers: headers });
-        const data = await response.json();
 
-        const dayUptime = calculateTotalUptime(data, 24);  // 24 hours for a day
-        const monthUptime = calculateTotalUptime(data, 720);  // 720 hours for a month
+        if (response.status === 200) {
+            const data = await response.json();
 
-        return {
-            day: {
-                raw: dayUptime,
-                formatted: (dayUptime * 100).toFixed(2)
-            },
-            month: {
-                raw: monthUptime,
-                formatted: (monthUptime * 100).toFixed(2)
-            }
-        };
+            const dayUptime = calculateTotalUptime(data, 24);  // 24 hours for a day
+            const monthUptime = calculateTotalUptime(data, 720);  // 720 hours for a month
+
+            return {
+                day: {
+                    raw: dayUptime,
+                    formatted: (dayUptime * 100).toFixed(2)
+                },
+                month: {
+                    raw: monthUptime,
+                    formatted: (monthUptime * 100).toFixed(4)
+                }
+            };
+        } else {
+            console.error('Error:', `Received unexpected status code: ${response.status}`);
+        }
     } catch (error) {
         console.error('Error:', error.message);
     }
