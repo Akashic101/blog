@@ -43,4 +43,16 @@ socialMediaPreviewImageAlt: A cat with glasses sitting in front of a laptop
     </div>
 </div>
 <hr>
+
+<h2>Net Nuggets</h2> 
+{% for post in collections['net nuggets'] %}
+<div class="flex-container">
+    <div class="text-container">
+        <h1 class="main-title">{{ post.data.title }}</h1>
+        <p class="date">{{post.date | dateDisplay}}</p>
+        <p class="description">{{post.data.description}}</p>
+        <a class="read-more-link" href="{{ post.url }}">Read the article</a>
+    </div>
+</div>
+{% endfor %}
 <link href="https://github.com/akashic101" rel="me">
