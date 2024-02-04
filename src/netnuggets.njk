@@ -40,10 +40,7 @@
      <item>
       <title>{{ post.data.title }}</title>
       <link>{{ absolutePostUrl }}</link>
-      <description>
-      <![CDATA[<img align="left" hspace="5" src="{{metadata.url }}/assets/images/{{post.data.folderName}}/cover.png"/>
-        {{ post.data.description }}]]>
-      </description>
+      <description>{{ post.data.description }}</description>
       <author>{{ metadata.author.url }} ({{ metadata.author.name }})</author>
       <pubDate>{{ post.date | dateToRfc822 }}</pubDate>
       <guid>{{ absolutePostUrl }}</guid>
