@@ -50,7 +50,7 @@ module.exports = function (eleventyConfig) {
 
 	eleventyConfig.addPlugin(postGraph, { only: [2024] });
 	eleventyConfig.addPlugin(pluginRss);
-	eleventyConfig.addPlugin(pluginStats, { tags: ['posts'] });
+	eleventyConfig.addPlugin(pluginStats, { tags: ['posts', 'net nuggets'] });
 	eleventyConfig.addPlugin(readingTime);
 	eleventyConfig.addPlugin(fileSizePlugin);
 	eleventyConfig.addPlugin(syntaxHighlight);
