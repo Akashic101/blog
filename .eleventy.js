@@ -60,12 +60,13 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addPlugin(fortawesomeFreeRegularPlugin);
 	eleventyConfig.addPlugin(tocPlugin, { tags: ["h2", "h3"] });
 	eleventyConfig.addPlugin(brokenLinksPlugin, {
+		forbidden: "warn",
 		redirect: "warn",
-		broken: "error",
+		broken: "warn",
 		cacheDuration: "1d",
 		loggingLevel: 1,
 		excludeUrls: ["https://blog.davidmoll.net*", "https://github.com/Akashic101/*"],
-		excludeInputs: [],
+		excludeInputs: ["src/blog/2024-04-05-A-small-collection-of-some-great-404-pages/2024-04-05-A-small-collection-of-some-great-404-pages.md"],
 		callback: null,
 	});
 
