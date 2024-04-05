@@ -23,7 +23,7 @@ Ideally you should host Uptime Kuma on different hardware than your blog. If you
 
 ## Docker-Compose
 
-Uptime Kuma is really easy to setup with Docker and Docker-Compose. Installing those two services is different depending on where you are hosting Uptime Kuma, for me I followed the official documentation on the [Docker-Website for Debian](https://docs.docker.com/engine/install/debian/) since I am running Raspberry Pi OS 64bit and [these instructions](https://pi-wiki.com/setup-docker-compose-on-raspberry-pi/) to setup Docker-Compose. The `docker-compose.yml` looks like this:
+Uptime Kuma is really easy to setup with Docker and Docker-Compose. Installing those two services is different depending on where you are hosting Uptime Kuma, for me I followed the official documentation on the [Docker-Website for Debian](https://docs.docker.com/engine/install/debian/) since I am running Raspberry Pi OS 64bit and [these instructions](https://thelinuxcode.com/install-docker-compose-raspberry-pi/) to setup Docker-Compose. The `docker-compose.yml` looks like this:
 
 ```yml:docker-compose.yml
 
