@@ -78,21 +78,6 @@ eleventyExcludeFromCollections: true
 
 <i>Uptime is calculated using <a href="https://github.com/louislam/uptime-kuma">Uptime-Kuma</a> and gets recalculated once per day at midnight<i>
 
-<h1>Lighthouse scores</h1>
+<h1>Speedlify scores</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Category</th>
-      <th>Value</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for key, result in lighthouse.categories %}
-    <tr>
-      <td>{{ result.title }}</td>
-      <td>{{ result.score}}</td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
+<speedlify-score speedlify-url="https://www.11ty.dev/speedlify" hash="4d33473e" score weight rank rank-change></speedlify-score>
