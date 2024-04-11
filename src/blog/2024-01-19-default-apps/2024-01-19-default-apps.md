@@ -19,7 +19,7 @@ There is currently a trend going on where people post a list of their apps and p
 | Service                               | App                                              | Links                                                                                      |
 | ------------------------------------- |--------:| ---------: |
 | Mail Client                           | Mozilla Thunderbird                              | [Website](https://www.thunderbird.net/en-US/)                                              |
-| Notes, To-Do, Bookmarks, Read It Later | Quillpad                                         | [Github](https://github.com/quillpad/quillpad) [F-Droid](https://f-droid.org/packages/io.github.quillpad/) [Play Store](https://play.google.com/store/apps/details?id=io.github.quillpad) |
+| Notes, To-Do, Bookmarks, Read It Later | Joplin                                         | [Joplin](https://joplinapp.org/) [Github](https://github.com/laurent22/joplin/) |
 | Photo Management                      | Photoprism                                       | [Website](https://www.photoprism.app/) [Github](https://github.com/photoprism/photoprism)  |
 | Calendar                              | Etar                                             | [F-Droid](https://f-droid.org/packages/ws.xsoh.etar/)                                      |
 | RSS                                   | Feeder                                           | [F-Droid](https://f-droid.org/en/packages/com.nononsenseapps.feeder/)                      |
