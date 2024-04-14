@@ -3,13 +3,13 @@ layout: blog.njk
 title: Track and display uptime of your blog
 author: David Moll
 date: 2024-01-21
-tags: 
-- posts
-- selfhosting
+tags:
+  - posts
+  - selfhosting
 description: How you can track and display the uptime of your eleventy-page using Uptime Kuma
 folderName: 2024-01-21-Track-and-display-uptime-of-your-blog
 socialMediaPreviewImage: https://blog.davidmoll.net/assets/images/2024-01-21-Track-and-display-uptime-of-your-blog/cover.png
-socialMediaPreviewImageAlt: 
+socialMediaPreviewImageAlt:
 hasCode: true
 ---
 
@@ -49,7 +49,7 @@ volumes:
 
 Now you can nagivate to the website, create a user and add a monitor for your blog. I decided on a simple HTTP(S)-monitor with a heartbeat interval of 30 seconds, but those settings are up to you. One great feature Uptime Kuma also offers is notifications when a service goes down, another reason why you should host Uptime Kuma on different hardware than your blog so you can get notifications if something happens. With that done we can go over to the next step which is setting up the API.
 
-At the current date the API for Uptime Kuma doesn't really exist. You can generate an API-key but not really do anything with it. Luckily the community is already a step ahead and created a [Python-API](https://github.com/lucasheld/uptime-kuma-api) for Uptime Kuma and also a [Web-API](https://github.com/MedAziz11/Uptime-Kuma-Web-API) which we will use to get the data we will need. Setting up the Web-API is pretty straight forward, all we need is to expand the above `docker-compose.yml` a bit. 
+At the current date the API for Uptime Kuma doesn't really exist. You can generate an API-key but not really do anything with it. Luckily the community is already a step ahead and created a [Python-API](https://github.com/lucasheld/uptime-kuma-api) for Uptime Kuma and also a [Web-API](https://github.com/MedAziz11/Uptime-Kuma-Web-API) which we will use to get the data we will need. Setting up the Web-API is pretty straight forward, all we need is to expand the above `docker-compose.yml` a bit.
 
 **Important:** You need to first run just Uptime Kuma and create a user and password or else you cannot authenticate yourself with the API
 
@@ -92,7 +92,7 @@ Change the environment-variables and also the port if needed, then run `docker-c
 
 ### Authentication
 
-Navigate to the Web-API and scroll all the way down to `/login/access-token`. Next click on "try it out" and fill out the username and password. 
+Navigate to the Web-API and scroll all the way down to `/login/access-token`. Next click on "try it out" and fill out the username and password.
 
 **Important:** Your admin-username is always "admin".
 

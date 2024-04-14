@@ -3,10 +3,10 @@ layout: blog.njk
 title: Special Olympics World Games Berlin 2023
 author: David Moll
 date: 2023-12-23
-tags: 
-- posts
-- Special Olympics
-- accessibility
+tags:
+  - posts
+  - Special Olympics
+  - accessibility
 description: My experience volunteering at the Special Olympics World Games Berlin 2023
 folderName: 2023-12-23-Special-Olympics-Berlin-2023
 socialMediaPreviewImage: https://blog.davidmoll.net/assets/images/2023-12-23-Special-Olympics-Berlin-2023/cover.png
@@ -21,9 +21,9 @@ The Special Olympics are an event similar to the Olympics and Paralympics but on
 
 ## The way to the games
 
-I don't specifically remember anymore where I first heard that the Special Olmpyics is looking for volunteers but I knew that I very quickly decided that I want to take part in the event as a volunteer. Signing up as a volunteer was very easy, you fill out a few forms with information about yourself, which languages you speak, if you have any experience working and assisting people with mental disabilities, if you have any physical and/or mental disabilities yourself and which area of the event you can see yourself helping out at. After sending that off the waiting begins where the organizers have a look at all the volunteers that signed up and see where they can help out the best. With 7.000 athletes and 300.000 visitors they asked for 20.000 volunteers for the entire event, so any help was greatly appreciated. 
+I don't specifically remember anymore where I first heard that the Special Olmpyics is looking for volunteers but I knew that I very quickly decided that I want to take part in the event as a volunteer. Signing up as a volunteer was very easy, you fill out a few forms with information about yourself, which languages you speak, if you have any experience working and assisting people with mental disabilities, if you have any physical and/or mental disabilities yourself and which area of the event you can see yourself helping out at. After sending that off the waiting begins where the organizers have a look at all the volunteers that signed up and see where they can help out the best. With 7.000 athletes and 300.000 visitors they asked for 20.000 volunteers for the entire event, so any help was greatly appreciated.
 
-On the 16th November 2022 I got the reply that my application has been accepted, but it wasn't at this point yet decided which kind of work I will do. 
+On the 16th November 2022 I got the reply that my application has been accepted, but it wasn't at this point yet decided which kind of work I will do.
 
 A few weeks later on the 3rd Dezember I got another mail with informations about how I can request special leave from my work, meaning I won't be paid for the week I won't work but it also won't be deducted from my holidays of the year. My boss already knew that I signed up for the event and got accepted and it was already planned in that I won't be working for the week so all that got cleared very quickly as well.
 
@@ -43,7 +43,7 @@ Two months later I got not only my tickets for the opening ceremony (all volunte
 - Durations of shifts (normally from 9-18 with a 1 hour break)
 - Where my shifts start
 
-At this point the Special Olympics where only a month away and we continued to get some more informations. I met some of my colleagues and volunteers in a zoom-call, a WhatsApp group-chat was created (initially it was planned to use Telegram but due to technical difficulties it was decided to switch to WhatsApp) and we also got the option to sign up for more shifts, but since I already had one on every day this wasn't something I had to bother with. 
+At this point the Special Olympics where only a month away and we continued to get some more informations. I met some of my colleagues and volunteers in a zoom-call, a WhatsApp group-chat was created (initially it was planned to use Telegram but due to technical difficulties it was decided to switch to WhatsApp) and we also got the option to sign up for more shifts, but since I already had one on every day this wasn't something I had to bother with.
 
 With the event nearing its beginning I drove to Berlin and only arrived 40 minutes later than planned which must have been a new record for Deutsche Bahn. I was fortunate to have some family in Berlin which allowed me to stay at their place for the week, but I also had the option to stay on-site at the Special Olympics which organized a hall for volunteers to stay in who were not able to find a hotel or place to stay at. The very last thing to do before the first day was to get my accreditation and uniform. Each volunteer got a bag with a shirt, a hoodie and some small things like drinking-bottle, a booklet about the event, a cup, stickers and pins. All of this was done in the Uniform Distribution & Accrediation Center (UDAC) which fortunately was just a few minutes away from the Multi-Media Center (MMC) which was my main place of work.
 
@@ -52,4 +52,3 @@ With all of that done it was finally time to start the event:
 ## The Special Olympics
 
 ### Day 0
-
