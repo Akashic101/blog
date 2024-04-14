@@ -1,28 +1,28 @@
 body {
-    margin-top: 1rem;
+	margin-top: 1rem;
 }
 
 image {
-    max-width: 100%;
+	max-width: 100%;
 }
 
 summary h2 {
-    display: inline;
-    font-size: 1em;
+	display: inline;
+	font-size: 1em;
 }
 
 table {
-    width: 100%;
+	width: 100%;
 }
 
 th {
-    display: none;
+	display: none;
 }
 
 td {
-    border-bottom: 1px dashed;
+	border-bottom: 1px dashed;
 }
 
 tr td:nth-child(2n) {
-    text-align: right;
+	text-align: right;
 }

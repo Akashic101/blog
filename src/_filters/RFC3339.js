@@ -1,3 +1,3 @@
 module.exports = function (dateToEncode) {
-    return dateToEncode.toISOString();
+	return dateToEncode.toISOString();
 };

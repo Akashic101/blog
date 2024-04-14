@@ -3,9 +3,9 @@ layout: blog.njk
 title: How to host a 11ty-site on a Raspberry Pi
 author: David Moll
 date: 2024-01-14
-tags: 
-- posts
-- selfhosting
+tags:
+  - posts
+  - selfhosting
 description: How I am hosting my blog on a Raspberry Pi for almost no money
 folderName: 2024-01-14-How-to-host-a-blog
 socialMediaPreviewImage: https://blog.davidmoll.net/assets/images/2024-01-14-How-to-host-a-blog/cover.png
@@ -44,7 +44,7 @@ As mentioned you are reading this blog on a Raspberry Pi 4B. This website can pr
   </tbody>
 </table>
 
-*All prices are the lowest found for each object using [Geizhals.de](https://geizhals.de/)*
+_All prices are the lowest found for each object using [Geizhals.de](https://geizhals.de/)_
 
 ## Domain
 
@@ -135,7 +135,7 @@ WantedBy=default.target
 
 You can get the full path by navigating into the folder you need the path for and entering `pwd`.
 
-Now to reload systemd and start the service save and close the file and enter 
+Now to reload systemd and start the service save and close the file and enter
 
 ```bash
 sudo systemctl daemon-reload

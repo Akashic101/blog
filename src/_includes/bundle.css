@@ -133,7 +133,7 @@ tr td:nth-child(2n) {
 		align-content: center;
 	}
 
-	.index>* {
+	.index > * {
 		margin: 0.5rem 0;
 	}
 
@@ -141,16 +141,16 @@ tr td:nth-child(2n) {
 		padding-top: 2rem;
 	}
 
-	.image-container>img {
+	.image-container > img {
 		max-height: 150px;
 		max-width: 150px;
 	}
 
-	.text-container>h1 {
+	.text-container > h1 {
 		font-size: large;
 	}
 
-	.text-container>p {
+	.text-container > p {
 		font-size: medium;
 	}
 }
@@ -159,8 +159,7 @@ code {
 	background-color: #1e1e1e;
 	padding: 2px 4px;
 	border-radius: 4px;
-  }
-  
+}
 
 speedlify-score {
 	display: flex;

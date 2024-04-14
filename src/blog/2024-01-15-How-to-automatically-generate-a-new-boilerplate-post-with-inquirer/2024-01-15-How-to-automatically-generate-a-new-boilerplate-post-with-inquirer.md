@@ -3,9 +3,9 @@ layout: blog.njk
 title: How to automatically generate a new boilerplate-post with inquirer
 author: David Moll
 date: 2024-01-15
-tags: 
-- posts
-- eleventy
+tags:
+  - posts
+  - eleventy
 description: How I automated the creation of the boilerplate with frontmatter
 folderName: 2024-01-15-How-to-automatically-generate-a-new-boilerplate-post-with-inquirer
 socialMediaPreviewImage: https://blog.davidmoll.net/assets/images/2024-01-15-How-to-automatically-generate-a-new-boilerplate-post-with-inquirer/cover.png
@@ -26,13 +26,13 @@ One of the best parts of eleventy is that it doesn't force you into a specific l
 ```md
 blog/
 └── src/
-    ├── assets/
-    │   └── images/
-    │       └── 2024-01-15-How-to-automatically-generate-a-new-boilerplate-post-with-inquirer/
-    │           └── cover.png
-    └── blog/
-        └── 2024-01-15-How-to-automatically-generate-a-new-boilerplate-post-with-inquirer/
-            └── 2024-01-15-How-to-automatically-generate-a-new-boilerplate-post-with-inquirer.md
+├── assets/
+│ └── images/
+│ └── 2024-01-15-How-to-automatically-generate-a-new-boilerplate-post-with-inquirer/
+│ └── cover.png
+└── blog/
+└── 2024-01-15-How-to-automatically-generate-a-new-boilerplate-post-with-inquirer/
+└── 2024-01-15-How-to-automatically-generate-a-new-boilerplate-post-with-inquirer.md
 ```
 
 Yours can look completely different and thats fine, but my code will probably not work and will need some tinkering if your structure is different.
@@ -48,7 +48,7 @@ layout: blog.njk
 title: How to automatically generate a new boilerplate-post with inquirer
 author: David Moll
 date: 2024-01-15
-tags: 
+tags:
 - posts
 - eleventy
 description: How I automated the creation of the boilerplate with frontmatter
@@ -65,9 +65,9 @@ This data can then be reused for example in templates and markdown so you don't 
 
 [Inquirer](https://github.com/SBoudrias/Inquirer.js) is an amazing package that allows you to create dynamic command line user interfaces. If you have created a new NPM-project before you probably already experienced this where NPM asks you for certain details to be filled in the `package.json`. We are using the same to automate the creation of our files.
 
-First I created a new file in the root of the directory I am working in and named it `generateNewBlog.js`. 
+First I created a new file in the root of the directory I am working in and named it `generateNewBlog.js`.
 
-I imported the packages that I need 
+I imported the packages that I need
 
 ```js
 const fs = require('fs');
@@ -80,7 +80,7 @@ and wrote a function that checks if an answer the user gives is empty. Since the
 ```js
 // Function to validate non-empty input
 const validateInput = (input) => {
-    return input.trim() !== '' ? true : 'This field is required.';
+	return input.trim() !== '' ? true : 'This field is required.';
 };
 ```
 
@@ -113,7 +113,7 @@ async function generateFiles() {
     ]);
 ```
 
-We then use the data we get back to create the folders we need 
+We then use the data we get back to create the folders we need
 
 ```js
 // Create the variables from the supplied answers
@@ -124,7 +124,13 @@ folderTitle = title.replace(/\s+/g, '-');
 
 // Create the paths for the blog and images
 const blogFolderPath = path.join(__dirname, 'src', 'blog', `${currentDate}-${folderTitle}`);
-const assetsFolderPath = path.join(__dirname, 'src', 'assets', 'images', `${currentDate}-${folderTitle}`);
+const assetsFolderPath = path.join(
+	__dirname,
+	'src',
+	'assets',
+	'images',
+	`${currentDate}-${folderTitle}`,
+);
 
 // Create the folders
 fs.mkdirSync(blogFolderPath, { recursive: true });
@@ -141,12 +147,12 @@ layout: blog.njk
 title: ${title}
 author: David Moll
 date: ${currentDate}
-tags: 
+tags:
 - posts
 description: ${description}
 folderName: ${currentDate}-${folderTitle}
 socialMediaPreviewImage: https://blog.davidmoll.net/assets/images/${currentDate}-${folderTitle}/cover.png
-socialMediaPreviewImageAlt: 
+socialMediaPreviewImageAlt:
 hasCode: ${includeCode}
 ---
 
@@ -219,12 +225,12 @@ layout: blog.njk
 title: ${title}
 author: David Moll
 date: ${currentDate}
-tags: 
+tags:
 - posts
 description: ${description}
 folderName: ${currentDate}-${folderTitle}
 socialMediaPreviewImage: https://blog.davidmoll.net/assets/images/${currentDate}-${folderTitle}/cover.png
-socialMediaPreviewImageAlt: 
+socialMediaPreviewImageAlt:
 hasCode: ${includeCode}
 ---
 

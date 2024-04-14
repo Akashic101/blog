@@ -3,10 +3,10 @@ layout: blog.njk
 title: All features of this blog
 author: David Moll
 date: 2024-01-06
-tags: 
-- posts
-- 100%
-- features
+tags:
+  - posts
+  - 100%
+  - features
 description: All the neat little features this blog has to offer
 folderName: 2024-01-06-All-Features
 socialMediaPreviewImage: https://blog.davidmoll.net/assets/images/2024-01-06-All-Features/cover.png
@@ -16,8 +16,7 @@ hasCode: true
 
 ![{{ socialMediaPreviewImageAlt }}]({{ socialMediaPreviewImage }})
 
-
-*Notice: This blog is part of a series called "100%" in which I describe the steps I took to cover all cases a website can face and get the maximum out of what a feature can offer. You can find all articles in this series [under the 100%-tag](/tags/100%25/)*
+_Notice: This blog is part of a series called "100%" in which I describe the steps I took to cover all cases a website can face and get the maximum out of what a feature can offer. You can find all articles in this series [under the 100%-tag](/tags/100%25/)_
 
 Over time this blog has aquired quite the list of features. If you want to create your own blog using eleventy, or already have one and are looking for stuff to include, this list is perfect to use as an inspiration.
 
@@ -71,7 +70,7 @@ Using [markdown-it-anchors](https://github.com/valeriangalliat/markdown-it-ancho
 
 ## Footnotes
 
-Using [markdown-it-footnote](https://github.com/markdown-it/markdown-it-footnote#readme) I can write footnotes like this[^1] in shortform or and in longform like this[^longnote]  
+Using [markdown-it-footnote](https://github.com/markdown-it/markdown-it-footnote#readme) I can write footnotes like this[^1] in shortform or and in longform like this[^longnote]
 
 ## Stats
 
@@ -118,8 +117,7 @@ This website is continuously being worked on and there will always be new featur
 ### Footnotes
 
 [^1]: Here is the footnote.
-
 [^longnote]: Here's one with multiple blocks.
 
     Subsequent paragraphs are indented to show that they
-belong to the previous footnote.
+    belong to the previous footnote.
