@@ -84,6 +84,9 @@
     <style>
       {{ css | cssmin | safe }}
     </style>
+    {% if stats %}
+    <script src="https://unpkg.com/speedlify-score@1.0.2/speedlify-score.js" type="application/javascript" async defer></script>
+    {% endif %}
   </head>
   <body>
     <header class="index">
