@@ -8,7 +8,7 @@ This is the repo of my personal blog powered by 11ty. You can access it under ht
 
 1. Each article gets written in Markdown
 2. 11ty converts all files into HTML upon launch of the project into a folder called `_site`
-3. The website is accessible from my server via Cloudflare Tunnel
+3. The website is managed by nginx and accessible via Cloudflare Tunnels
 
 ## Patch Notes
 
