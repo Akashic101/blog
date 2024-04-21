@@ -1,10 +1,11 @@
 const { request, gql } = require('graphql-request');
+require('dotenv').config();
 
 // Define your GraphQL endpoint
 const endpoint = 'https://api.cloudflare.com/client/v4/graphql';
 
 // Define your Cloudflare API token
-const token = 'VfMWTumouQXJcdjIBr-90L6G5ZWe2v4F4Met74T_';
+const token = process.env.CLOUDFLARE_TOKEN;
 
 const today = new Date();
 const lastMonth = new Date(today.getFullYear(), today.getMonth() - 1, today.getDate());
