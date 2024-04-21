@@ -7,8 +7,8 @@ tags:
   - posts
   - web-development
 description: how a very badly configured password-field damaged my user-experience
-folderName: 2024-04-21-Things-I-hate-about-password-fields
-socialMediaPreviewImage: https://blog.davidmoll.net/assets/images/2024-04-21-Things-I-hate-about-password-fields/cover.png
+folderName: 2024-04-21-The-worst-password-field-I-have-ever-seen
+socialMediaPreviewImage: https://blog.davidmoll.net/assets/images/2024-04-21-The-worst-password-field-I-have-ever-seen/cover.png
 socialMediaPreviewImageAlt:
 hasCode: true
 ---
