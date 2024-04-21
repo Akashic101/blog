@@ -3,12 +3,12 @@ layout: blog.njk
 title: The worst password-field I have ever seen
 author: David Moll
 date: 2024-04-21
-tags: 
-- posts
+tags:
+  - posts
 description: how a very badly configured password-field damaged my user-experience
 folderName: 2024-04-21-Things-I-hate-about-password-fields
 socialMediaPreviewImage: https://blog.davidmoll.net/assets/images/2024-04-21-Things-I-hate-about-password-fields/cover.png
-socialMediaPreviewImageAlt: 
+socialMediaPreviewImageAlt:
 hasCode: true
 ---
 
@@ -40,7 +40,7 @@ But:
 
 - It only uses the first 64 characters to create the actual password for the account
 
-*Note:* You want to reset your password and the website sends your old passwort to you in plain-text? Congratulations, the website stores your password in plain-text. You better look for alternatives.
+_Note:_ You want to reset your password and the website sends your old passwort to you in plain-text? Congratulations, the website stores your password in plain-text. You better look for alternatives.
 
 Honestly I struggle to even comprehend on how they managed to mess up this badly when creating the website but it wasn't my problem anymore as I instantly closed and deleted my account again.
 
@@ -50,8 +50,8 @@ These are just two examples of bad ways to deal with passwords, and I am sure th
 
 - Minimum length of 16 characters
 - Mimimum amount of letters, numbers and special characters
-- Allow the user to enable 2FA 
+- Allow the user to enable 2FA
 - List all rules for passwords clearly under the password-field and notify the user which rule they did not follow when leaving the field.
-- Properly hash the password, [do not store it in plain-text](https://plaintextoffenders.com/) and use [salt](https://www.wikiwand.com/en/Salt_(cryptography)) and [pepper](https://www.wikiwand.com/en/Pepper_(cryptography))
+- Properly hash the password, [do not store it in plain-text](https://plaintextoffenders.com/) and use [salt](<https://www.wikiwand.com/en/Salt_(cryptography)>) and [pepper](<https://www.wikiwand.com/en/Pepper_(cryptography)>)
 
 With this rules in place you can at least somewhat guarranty the safety of the user. You of course cannot protect against stupid users who re-use passwords, [store them themselve in plain-text](https://mashable.com/article/hawaii-post-it-note-password-photo-missile-false-alarm) or just straight up tell it someone else, but you did what you could.
