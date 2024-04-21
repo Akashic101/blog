@@ -8,7 +8,7 @@ tags:
 description: A list of great examples of entertaining and unique 404-pages
 folderName: 2024-04-04-A-small-collection-of-some-great-404-pages
 socialMediaPreviewImage: https://blog.davidmoll.net/assets/images/2024-04-04-A-small-collection-of-some-great-404-pages/cover.png
-socialMediaPreviewImageAlt:
+socialMediaPreviewImageAlt: A man standing in an empty field looking confused
 hasCode: false
 ---
 
