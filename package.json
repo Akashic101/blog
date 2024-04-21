@@ -23,7 +23,7 @@
 		"@vidhill/fortawesome-free-regular-11ty-shortcode": "1.0.3",
 		"dotenv": "16.4.5",
 		"eleventy-plugin-broken-links": "2.2.1",
-		"eleventy-plugin-phosphoricons": "1.0.2",
+		"eleventy-plugin-phosphoricons": "1.1.0",
 		"eleventy-plugin-post-stats": "0.2.11",
 		"eleventy-plugin-reading-time": "0.0.1",
 		"eleventy-plugin-toc": "1.1.5",
