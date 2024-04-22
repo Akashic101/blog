@@ -20,8 +20,16 @@ module.exports = async () => {
 	try {
 		const fetch = (await import('node-fetch')).default;
 
+		// Function to fetch with timeout
+		const fetchWithTimeout = (url, options, timeout = 2000) => {
+			return Promise.race([
+				fetch(url, options),
+				new Promise((_, reject) => setTimeout(() => reject(new Error('Timeout')), timeout)),
+			]);
+		};
+
 		// Get access token
-		const authResponse = await fetch(authUrl, {
+		const authResponse = await fetchWithTimeout(authUrl, {
 			method: 'POST',
 			headers: headers,
 			body: new URLSearchParams(credentials),
@@ -37,7 +45,10 @@ module.exports = async () => {
 				Authorization: `Bearer ${accessToken}`,
 			};
 
-			const apiResponse = await fetch(apiUrl, { method: 'GET', headers: apiHeaders });
+			const apiResponse = await fetchWithTimeout(apiUrl, {
+				method: 'GET',
+				headers: apiHeaders,
+			});
 
 			if (apiResponse.status === 200) {
 				const data = await apiResponse.json();
