@@ -26,3 +26,71 @@ td {
 tr td:nth-child(2n) {
 	text-align: right;
 }
+
+@media print {
+	body {
+		background-color: #ffffff;
+		background-image: none;
+		color: #000000;
+		margin-top: 0;
+	}
+
+	details,
+	footer,
+	.screenOnly {
+		display: none;
+	}
+
+	a::after {
+		content: ' (' attr(href) ')';
+	}
+
+	table,
+	img,
+	svg {
+		break-inside: avoid;
+	}
+
+	img:first-of-type {
+		display: none;
+	}
+
+	h1 {
+		font-size: 28px;
+	}
+
+	h2 {
+		font-size: 24px;
+	}
+
+	h3 {
+		font-size: 20px;
+	}
+
+	h4 {
+		font-size: 18px;
+	}
+
+	h5 {
+		font-size: 16px;
+	}
+
+	h6 {
+		font-size: 14px;
+	}
+
+	p {
+		font-size: 16px;
+	}
+
+	.epg__box {
+		background-color: red !important;
+	}
+
+	body::after {
+		content: '© David Moll (blog.davidmoll.net)\A Contact: david.leander.moll@gmail.com';
+		display: block;
+		text-align: center;
+		white-space: pre;
+	}
+}
