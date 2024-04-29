@@ -84,7 +84,11 @@ tr td:nth-child(2n) {
 	}
 
 	.epg__box {
-		background-color: red !important;
+		box-shadow: inset 0 0 0 1000px #929292;
+	}
+
+	.epg__hasPost {
+		box-shadow: inset 0 0 0 1000px #181818;
 	}
 
 	body::after {
