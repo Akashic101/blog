@@ -91,6 +91,10 @@ tr td:nth-child(2n) {
 		box-shadow: inset 0 0 0 1000px #181818;
 	}
 
+	.websiteViews {
+		page-break-before: always;
+	}
+
 	body::after {
 		content: '© David Moll (blog.davidmoll.net)\A Contact: david.leander.moll@gmail.com';
 		display: block;
