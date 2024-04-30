@@ -5,6 +5,7 @@ author: David Moll
 date: 2024-04-30
 tags:
   - posts
+  - web-development
 description: Neat little tricks on how to make your website looking better for print
 folderName: 2024-04-30-How-to-optimize-your-website-for-print
 socialMediaPreviewImage: https://blog.davidmoll.net/assets/images/2024-04-30-How-to-optimize-your-website-for-print/cover.png
