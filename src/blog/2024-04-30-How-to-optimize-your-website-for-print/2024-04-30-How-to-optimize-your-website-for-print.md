@@ -3,12 +3,12 @@ layout: blog.njk
 title: How to optimize your website for print
 author: David Moll
 date: 2024-04-30
-tags: 
-- posts
+tags:
+  - posts
 description: Neat little tricks on how to make your website looking better for print
 folderName: 2024-04-30-How-to-optimize-your-website-for-print
 socialMediaPreviewImage: https://blog.davidmoll.net/assets/images/2024-04-30-How-to-optimize-your-website-for-print/cover.png
-socialMediaPreviewImageAlt: 
+socialMediaPreviewImageAlt:
 hasCode: true
 ---
 
@@ -58,7 +58,7 @@ If your content is long enough you run into the problem that some parts of it ma
 
 ### break-after
 
-The `break-after` property specifies whether or not a page break, column break, or region break should occur after the specified element. This means that if you for example have an image with a class that has this styling applied and it would break across pages it will instead move down and start at the second page. 
+The `break-after` property specifies whether or not a page break, column break, or region break should occur after the specified element. This means that if you for example have an image with a class that has this styling applied and it would break across pages it will instead move down and start at the second page.
 
 ```css:bundle.css
 
@@ -77,11 +77,12 @@ h1 {
     break-before: always;
 }
 ```
+
 <div class="avoidBreakInside">
 
 ### break-inside
 
-The last property allows you to simply say to avoid content being split across pages.  It's something very general you can use in multiple places to make your printed website a bit more readable:
+The last property allows you to simply say to avoid content being split across pages. It's something very general you can use in multiple places to make your printed website a bit more readable:
 
 ```css:bundle.css
 
@@ -93,6 +94,7 @@ pre {
 	break-inside: avoid;
 }
 ```
+
 </div>
 ### font-size
 
@@ -128,6 +130,7 @@ p {
 	font-size: 16px;
 }
 ```
+
 <div class="avoidBreakInside">
 
 ## Custom footer
@@ -143,5 +146,6 @@ body::after {
 	white-space: pre;
 }
 ```
+
 </div>
 These are some simple CSS-tricks that will help you to optimize your website a little bit. Did you use any of those? Let me know, I'd love to have a look at your page :)
