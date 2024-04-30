@@ -38,6 +38,7 @@ tr td:nth-child(2n) {
 	details,
 	footer,
 	.screenOnly,
+	.toc > *,
 	h1 > a,
 	h2 > a,
 	h3 > a {
