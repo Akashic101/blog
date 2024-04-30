@@ -83,28 +83,30 @@ stats: true
 
 <speedlify-score speedlify-url="https://www.11ty.dev/speedlify" hash="4d33473e" requests score weight rank rank-change></speedlify-score>
 
-<h1>Website views</h1>
-<i>Data is sourced from Cloudflare using GraphQl</i>
+<div class="breakBefore">
+  <h1>Website views</h1>
+  <i>Data is sourced from Cloudflare using GraphQl</i>
 
-<table>
-  <thead>
-    <tr>
-      <th>Date</th>
-      <th>Unique Page Views</th>
-      <th style="text-align: right;">Requests</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Date</td>
-      <td>Unique Page Views</td>
-      <td style="text-align: right;">Requests</td>
-    {% for item in cloudflare.websiteViews %}
-    <tr>
-      <td>{{ item.dimensions.date }}</td>
-      <td>{{ item.sum.pageViews }}</td>
-      <td style="text-align: right;">{{ item.sum.requests }}</td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
+  <table>
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Unique Page Views</th>
+        <th style="text-align: right;">Requests</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Date</td>
+        <td>Unique Page Views</td>
+        <td style="text-align: right;">Requests</td>
+      {% for item in cloudflare.websiteViews %}
+      <tr>
+        <td>{{ item.dimensions.date }}</td>
+        <td>{{ item.sum.pageViews }}</td>
+        <td style="text-align: right;">{{ item.sum.requests }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>

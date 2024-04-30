@@ -1,6 +1,7 @@
-const fs = require('fs');
-const path = require('path');
-const inquirer = require('inquirer');
+import fs from 'fs';
+import path from 'path';
+import url from 'url';
+import inquirer from 'inquirer';
 
 // Function to validate non-empty input
 const validateInput = (input) => {
@@ -9,6 +10,9 @@ const validateInput = (input) => {
 
 // Function to generate files based on user input
 async function generateFiles() {
+	const currentFileUrl = import.meta.url;
+	const currentDir = path.dirname(url.fileURLToPath(currentFileUrl));
+
 	const currentDate = new Date().toISOString().split('T')[0]; // Get today's date in the format YYYY-MM-DD
 
 	const answers = await inquirer.prompt([
@@ -36,12 +40,12 @@ async function generateFiles() {
 	let { title, description, includeCode } = answers;
 
 	// The title of the folder uses "-" instead of spaces, so we replace them all
-	folderTitle = title.replace(/\s+/g, '-');
+	let folderTitle = title.replace(/\s+/g, '-');
 
 	// Create the paths for the blog and images
-	const blogFolderPath = path.join(__dirname, 'src', 'blog', `${currentDate}-${folderTitle}`);
+	const blogFolderPath = path.join(currentDir, 'src', 'blog', `${currentDate}-${folderTitle}`);
 	const assetsFolderPath = path.join(
-		__dirname,
+		currentDir,
 		'src',
 		'assets',
 		'images',
