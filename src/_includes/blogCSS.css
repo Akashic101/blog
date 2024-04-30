@@ -37,7 +37,10 @@ tr td:nth-child(2n) {
 
 	details,
 	footer,
-	.screenOnly {
+	.screenOnly,
+	h1 > a,
+	h2 > a,
+	h3 > a {
 		display: none;
 	}
 
@@ -45,9 +48,16 @@ tr td:nth-child(2n) {
 		content: ' (' attr(href) ')';
 	}
 
+	h1 > a {
+		display: none;
+	}
+
 	table,
 	img,
-	svg {
+	svg,
+	code,
+	pre,
+	.avoidBreakInside {
 		break-inside: avoid;
 	}
 
