@@ -1,6 +1,6 @@
 # Blog
 
-<img src="./src/assets/icons/android-chrome-512x512.png" alt="Blog's logo" align="right" width="120" height="120">
+<img src="./src/assets/icons/android-chrome-512x512.png" alt="Blog's logo" align="right" width="75" height="75">
 
 This is the repo of my personal blog powered by 11ty. You can access it under https://blog.davidmoll.net or via RSS at https://blog.davidmoll.net/feed.xml
 
