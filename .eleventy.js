@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const htmlNano = require('htmlnano');
 const tocPlugin = require('eleventy-plugin-toc');
 const markdownItAnchor = require('markdown-it-anchor');
 const pluginRss = require('@11ty/eleventy-plugin-rss');
@@ -126,6 +127,20 @@ module.exports = function (eleventyConfig) {
 	});
 
 	eleventyConfig.addTransform('addFileSize', require('./src/_transforms/addFileSize.js'));
+	eleventyConfig.addTransform('htmlnano', async (content, outputPath) => {
+		if (outputPath.endsWith('.html')) {
+			const { html } = await htmlNano.process(content, {
+				collapseBooleanAttributes: true,
+				collapseWhitespace: true,
+				removeComments: true,
+				removeEmptyAttributes: true,
+				removeRedundantAttributes: true,
+			});
+			return html;
+		}
+		return content;
+	});
+
 	return {
 		dir: {
 			input: 'src',
