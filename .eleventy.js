@@ -34,6 +34,7 @@ function getFolderSize(folderPath) {
 				traverseDirectory(filePath);
 			} else {
 				totalSize += stats.size;
+				console.log({totalSize})
 			}
 		});
 	}
@@ -114,6 +115,7 @@ module.exports = function (eleventyConfig) {
 		const folderPath = dir.output;
 		const sizeInBytes = getFolderSize(folderPath);
 		const filePath = `${dir.output}/stats.html`;
+		console.log({sizeInBytes})
 
 		for (let i = 0; i < results.length; i++) {
 			if (results[i].content.includes('TOTALBUILDSIZE')) {
@@ -122,6 +124,7 @@ module.exports = function (eleventyConfig) {
 					Math.round((sizeInBytes / 1024) * 100) / 100,
 				);
 				fs.writeFileSync(filePath, results[i].content);
+				console.log(results[i].content)
 			}
 		}
 	});
