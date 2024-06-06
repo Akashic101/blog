@@ -19,7 +19,7 @@
 		"@chrisburnell/eleventy-cache-webmentions": "2.0.6",
 		"@rknightuk/eleventy-plugin-post-graph": "1.0.7",
 		"@sherby/eleventy-plugin-files-minifier": "1.1.1",
-		"@vidhill/fortawesome-brands-11ty-shortcode": "1.0.2",
+		"@vidhill/fortawesome-brands-11ty-shortcode": "1.1.0",
 		"@vidhill/fortawesome-free-regular-11ty-shortcode": "1.0.3",
 		"cssnano": "^7.0.1",
 		"dotenv": "16.4.5",
