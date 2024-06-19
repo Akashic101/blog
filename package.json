@@ -21,7 +21,7 @@
 		"@sherby/eleventy-plugin-files-minifier": "1.1.1",
 		"@vidhill/fortawesome-brands-11ty-shortcode": "1.1.0",
 		"@vidhill/fortawesome-free-regular-11ty-shortcode": "1.0.3",
-		"cssnano": "7.0.1",
+		"cssnano": "7.0.3",
 		"dotenv": "16.4.5",
 		"eleventy-plugin-broken-links": "2.2.1",
 		"eleventy-plugin-phosphoricons": "1.1.0",
