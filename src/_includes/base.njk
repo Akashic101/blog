@@ -9,6 +9,17 @@
       rel="pingback"
       href="https://webmention.io/blog.davidmoll.net/xmlrpc"
     />
+    <meta name="author" content="{{ author }}">
+    <meta property="dc:title" content="{{ author }}">
+    <meta property="dc:creator" content="{{ author }}">
+    <meta property="dc:subject" content="Web Development, HTML, Metadata"> <!-- TODO -->
+    <meta property="dc:date" content="{{ date | dateDisplay }}">
+    <meta property="dc:type" content="Text">
+    <meta property="dc:format" content="text/html">
+    <meta property="dc:identifier" content="{{ url }}">
+    <meta property="dc:language" content="en">
+    <meta property="dc:rights" content="© {{ 2024 | currentYear }} by {{ author }}">
+    <meta property="dc:description og:description" content="{{ description }}">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
