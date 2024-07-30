@@ -81,7 +81,13 @@ async function generateFiles() {
 		const { title, description, includeCode, coverImagePath } = answers;
 		const folderTitle = title.replace(/\s+/g, '-');
 		const blogFolderPath = path.resolve(currentDir, 'src', 'blog', `${currentDate}-${folderTitle}`);
-		const assetsFolderPath = path.resolve(currentDir, 'src', 'assets', 'images', `${currentDate}-${folderTitle}`);
+		const assetsFolderPath = path.resolve(
+			currentDir,
+			'src',
+			'assets',
+			'images',
+			`${currentDate}-${folderTitle}`,
+		);
 		const coverImageFileName = path.basename(coverImagePath);
 		const newCoverImagePath = path.join(assetsFolderPath, coverImageFileName);
 		const blogFilePath = path.join(blogFolderPath, `${currentDate}-${folderTitle}.md`);
@@ -108,10 +114,12 @@ hasCode: ${includeCode}
 
 		await writeMarkdownFile(blogFilePath, frontmatter);
 
-		console.log(`Blog folder "${currentDate}-${folderTitle}" and Markdown file created successfully.`);
+		console.log(
+			`Blog folder "${currentDate}-${folderTitle}" and Markdown file created successfully.`,
+		);
 	} catch (error) {
 		if (error.isTtyError) {
-			console.error('Prompt couldn\'t be rendered in the current environment.');
+			console.error("Prompt couldn't be rendered in the current environment.");
 		} else if (error.message && error.message.includes('User force closed the prompt')) {
 			console.log('Prompt was cancelled.');
 		} else {
