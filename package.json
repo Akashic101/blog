@@ -7,8 +7,8 @@
 		"build": "npx @11ty/eleventy",
 		"serve": "npx @11ty/eleventy --serve",
 		"format": "npx prettier --write .",
-		"eslint": "npx prettier .", 
-  "gnb": "node ./generateNewBlog.mjs"
+		"eslint": "npx prettier .",
+		"gnb": "node ./generateNewBlog.mjs"
 	},
 	"keywords": [],
 	"author": "",
