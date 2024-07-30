@@ -117,6 +117,7 @@ This website is continuously being worked on and there will always be new featur
 ### Footnotes
 
 [^1]: Here is the footnote.
+
 [^longnote]: Here's one with multiple blocks.
 
     Subsequent paragraphs are indented to show that they

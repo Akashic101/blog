@@ -3,14 +3,14 @@ layout: blog.njk
 title: Taking a closer look at my .gitconfig
 author: David Moll
 date: 2024-07-23
-tags: 
-- posts
-- development
-- git
+tags:
+  - posts
+  - development
+  - git
 description: Dissecting my .gitconfig I use on all of my devices
 folderName: 2024-07-23-Taking-a-closer-look-at-my-.gitconfig
 socialMediaPreviewImage: https://blog.davidmoll.net/assets/images/2024-07-23-Taking-a-closer-look-at-my-.gitconfig/cover.png
-socialMediaPreviewImageAlt: 
+socialMediaPreviewImageAlt:
 hasCode: true
 ---
 
@@ -29,7 +29,7 @@ There are three ways you can tell git where to operate. Each more specific gitco
 
 ## My .gitconfig
 
-```ini:.gitconfig 
+```ini:.gitconfig
 
 [user]
 	name = David Moll
@@ -88,7 +88,7 @@ Author: David Moll <david.leander.moll@gmail.com>
 Date:   Tue Jul 23 20:00:00 2024 +0200
 
     Added basic blog
-``` 
+```
 
 To make all of this work we have to tell git to use our signinkey, which program to use to sign the commits and if they should be automatically attached to every commit:
 
@@ -150,14 +150,14 @@ The [init]-section is very simple, in my case all it does is set the defaultBran
 
 Now let's get really fancy. [rerere] stands for "reuse recorded resolution". It allows you to ask Git to remember how you’ve resolved a hunk conflict so that the next time it sees the same conflict, Git can resolve it for you automatically. With rerere enabled, you can attempt the occasional merge, resolve the conflicts, then back out of the merge. If you do this continuously, then the final merge should be easy because rerere can just do everything for you automatically. To get a more detailed example you can read [this article about the tool](https://git-scm.com/book/en/v2/Git-Tools-Rerere) which features some neat examples.
 
-[core] is used in my case to point to a global .gitignore file that I have created. Since I switch between Ubuntu and Windows (and maybe even Mac in the future) I have created this global file to make sure that no files such as .DS_Store, Thumbs.db or .nfs* are commited. It also takes care of excluding node_modules, secrets such as .env-files since most of my work is done in JS and Node. [You can find my .gitignore here](https://github.com/Akashic101/git-stuff/blob/main/.gitignore) and also cobble your own together by taking whatever you need [from this repo](https://github.com/github/gitignore).
+[core] is used in my case to point to a global .gitignore file that I have created. Since I switch between Ubuntu and Windows (and maybe even Mac in the future) I have created this global file to make sure that no files such as .DS_Store, Thumbs.db or .nfs\* are commited. It also takes care of excluding node_modules, secrets such as .env-files since most of my work is done in JS and Node. [You can find my .gitignore here](https://github.com/Akashic101/git-stuff/blob/main/.gitignore) and also cobble your own together by taking whatever you need [from this repo](https://github.com/github/gitignore).
 
 ## Other examples
 
 I am not the first to write about this topic, if you want to see some other examples you can read them here:
 
 - [https://kiranrao.ca/2024/06/21/git-config.html](https://kiranrao.ca/2024/06/21/git-config.html)
-- [https://jvns.ca/blog/2024/02/16/popular-git-config-options/](https://jvns.ca/blog/2024/02/16/popular-git-config-options/) 
-- [https://github.com/artuross/dotfiles/blob/main/home/dot_config/git/config](https://github.com/artuross/dotfiles/blob/main/home/dot_config/git/config) 
+- [https://jvns.ca/blog/2024/02/16/popular-git-config-options/](https://jvns.ca/blog/2024/02/16/popular-git-config-options/)
+- [https://github.com/artuross/dotfiles/blob/main/home/dot_config/git/config](https://github.com/artuross/dotfiles/blob/main/home/dot_config/git/config)
 - [https://github.com/artuross/dotfiles/blob/main/home/dot_config/git/includes/aliases](https://github.com/artuross/dotfiles/blob/main/home/dot_config/git/includes/aliases)
 - [https://news.ycombinator.com/item?id=40806875](https://news.ycombinator.com/item?id=40806875)
