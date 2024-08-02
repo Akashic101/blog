@@ -111,7 +111,7 @@ If you want to go a bit more in-depth into this topic I recommend [this article 
 
 ### Alias
 
-An alias is very simple explained it is just another, often easier and shorter, word to use instead of another. Take PC for example which is an alias for Personal Computer. These can be used to shorten git-commands and create new commands that do a bunch of stuff at the same time. I use for example `cob` to automatically create a new branch and switch to it, which shortens `git checkout -b name-of-branch` to just `git cob name-of-branch`. You can go really vrazy with those aliases, a great example is shown in [this fantastic article](https://kiranrao.ca/2024/06/21/git-config.html) I found on Hacker News which formats a `git log` to also show a graph to each commit, showing how they relate and some other neat information in a really clean style:
+An alias is very simple explained it is just another, often easier and shorter, word to use instead of another. Take PC for example which is an alias for Personal Computer. These can be used to shorten git-commands and create new commands that do a bunch of stuff at the same time. I use for example `cob` to automatically create a new branch and switch to it, which shortens `git checkout -b name-of-branch` to just `git cob name-of-branch`. You can go really crazy with those aliases, a great example is shown in [this fantastic article](https://kiranrao.ca/2024/06/21/git-config.html) I found on Hacker News which formats a `git log` to also show a graph to each commit, showing how they relate and some other neat information in a really clean style:
 
 ```bash
 
