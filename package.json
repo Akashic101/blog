@@ -18,7 +18,7 @@
 		"@11ty/eleventy-fetch": "4.0.1",
 		"@11ty/eleventy-plugin-rss": "1.2.0",
 		"@11ty/eleventy-plugin-syntaxhighlight": "5.0.0",
-		"@chrisburnell/eleventy-cache-webmentions": "2.0.6",
+		"@chrisburnell/eleventy-cache-webmentions": "2.1.2",
 		"@rknightuk/eleventy-plugin-post-graph": "1.0.7",
 		"@sherby/eleventy-plugin-files-minifier": "1.1.1",
 		"@vidhill/fortawesome-brands-11ty-shortcode": "1.1.0",
