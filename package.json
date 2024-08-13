@@ -44,7 +44,7 @@
 		"remark-toc": "9.0.0",
 		"sanitize-html": "2.13.0",
 		"svgo": "3.3.2",
-		"terser": "5.31.5"
+		"terser": "5.31.6"
 	},
 	"dependencies": {
 		"@11ty/eleventy-img": "^4.0.0",
