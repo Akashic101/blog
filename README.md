@@ -12,13 +12,18 @@ This is the repo of my personal blog powered by 11ty. You can access it under ht
 
 ## Patch Notes
 
+**Version 2.0.0**
+
+- Updated to 11ty 3.0.0 🎉
+- Removed cloudflare stats for now
+
+ <details>
+  <summary>Previous versions</summary>
+
 **Version 1.0.2**
 
 - Added Atom feed
 - Added uptime-stats
-
- <details>
-  <summary>Previous versions</summary>
 
 **Version 1.0.1**
 
