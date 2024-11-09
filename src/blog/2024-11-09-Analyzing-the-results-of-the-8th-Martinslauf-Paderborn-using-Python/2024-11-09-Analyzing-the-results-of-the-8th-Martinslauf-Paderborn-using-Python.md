@@ -203,6 +203,96 @@ Let's have a look at the only time that was so fast it is marked as an outlier. 
 | 4   | 00:08:02 |
 | 5   | 00:07:53 |
 
+### Violin Plot
+
+With Davengo saving the result of each year we can easily compare the amount of runners per age-group to the results from last year. All that was needed to adjust the `resultParser.js` to fetch results from two years instead of just 2024. With this data now saved in the DB we can easily create a Violin Plot to compare the two years. A violin plot is a type of statistical chart used to compare the distribution of data across different categories. It is similar to a box plot, but with the added feature of a mirrored kernel density plot on either side, which shows the distribution's shape and density.[^4] The SQL-query to get this data looks like this:
+
+```sql:SQL
+
+WITH runners_per_year AS (
+    SELECT
+        ageGroupShort,
+        COUNT(*) AS runnerCount,
+        '2023' AS year
+    FROM
+        results_2023
+    WHERE
+        ageGroupShort IS NOT NULL
+    GROUP BY
+        ageGroupShort
+
+    UNION ALL
+
+    SELECT
+        ageGroupShort,
+        COUNT(*) AS runnerCount,
+        '2024' AS year
+    FROM
+        results_2024
+    WHERE
+        ageGroupShort IS NOT NULL
+    GROUP BY
+        ageGroupShort
+),
+runners_per_year_pivoted AS (
+    SELECT
+        ageGroupShort,
+        COALESCE(MAX(CASE WHEN year = '2023' THEN runnerCount END), 0) AS "2023",
+        COALESCE(MAX(CASE WHEN year = '2024' THEN runnerCount END), 0) AS "2024"
+    FROM
+        runners_per_year
+    GROUP BY
+        ageGroupShort
+)
+SELECT
+    ageGroupShort,
+    "2023",
+    "2024",
+    "2024" - "2023" AS difference
+FROM
+    runners_per_year_pivoted
+ORDER BY
+    difference DESC;
+```
+
+Plotting this data results into the following graph:
+
+<img src="https://raw.githubusercontent.com/Akashic101/8.-Martinslauf-Paderborn/refs/heads/master/results/population_pyramid.png" alt="A violin plot comparing the amount of runners per age group between 2023 and 2024" width=800>
+
+This plot shows the clear growth in this yearly event with an increase of 99 runners, most in the WHK, M30, W30 and M35 class. The biggest decline was in the W35 and M60 class, however in the later one a runner got promoted to the M65 class (happy birthday) so it's one less decline than shown.
+
+In total 126 runners ran in both years with 20 runners switching classes since last year with possible even more that ran the 6k last year and the 10k this year. A single runner somehow managed to go from M45 to M35, however since time-travel is not officially against the rules I assume this is allowed.
+
+### Grouped Bar Chart
+
+Since we now have access to all the data from the last two runs we can also compare the results of runners that competed in both years (looking forward to seeing mine next year). For this we can use a grouped bar chart which is perfect to compare two variables across difference points in time. We can query all runners from both years and see if their time improved like this:
+
+```sql:SQL
+
+SELECT
+    r2023.firstName,
+    r2023.lastName,
+    r2023.nettoTime AS time2023,
+    r2024.nettoTime AS time2024
+FROM
+    results_2023 r2023
+JOIN
+    results_2024 r2024
+ON
+    r2023.firstName = r2024.firstName
+    AND r2023.lastName = r2024.lastName
+ORDER BY
+    r2023.lastName, r2023.firstName;
+```
+
+Now plotting this into the grouped bar chart we get following results
+
+<img src="https://raw.githubusercontent.com/Akashic101/8.-Martinslauf-Paderborn/refs/heads/master/results/grouped_bar_time_comparison.png" alt="A grouped bar chart comparing all runners competing in 2023 and 2024 and their times in both years" width=800>
+
+This graph shows that a lot of runners not only competed in both years but also greatly improved their time compared to last year. The record by a single second is taken by a runner who improved his time by a total of 18:00min from 01:13:23 (P343) to 00:55:23 (P257). Amazing perfomance, I can only applaud this great improvement.
+
+In total 86 runners improved their time and 40 missed out on beating their lasts time, however this can also be because the track changed its layout compared to last year with a longer and steeper incline this year compared to last ones.
+
 ### Diverging Plot
 
 This last plot focuses on the teams. Each runner could note down a team during sign-up which 194/636 (30,50%) did. The SQL-query looks like this:
@@ -250,3 +340,5 @@ If you made it this far I want to thank you for reading this little experiment w
 [^2]: C., Dutoit, S. H. (2012). [Graphical exploratory data analysis](http://worldcat.org/oclc/1019645745). Springer. ISBN 978-1-4612-9371-2. OCLC [1019645745](https://dx.doi.org/10.1080/00401706.1969.10490657).
 
 [^3]: Grubbs, Frank E. (February 1969). "[Procedures for Detecting Outlying Observations in Samples](http://worldcat.org/oclc/940679163)". Technometrics. 11 (1): 1–21. doi:[10.1080/00401706.1969.10490657](https://doi.org/10.1080%2F00401706.1969.10490657). ISSN [0040-1706](https://search.worldcat.org/de/search?q=n2:0040-1706).
+
+[^4]: ["Violin Plot"](https://www.itl.nist.gov/div898/software/dataplot/refman1/auxillar/violplot.htm). NIST DataPlot. National Institute of Standards and Technology. 2015-10-13.
