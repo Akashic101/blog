@@ -10,7 +10,7 @@ tags:
 description: Dissecting my .gitconfig I use on all of my devices
 folderName: 2024-07-23-Taking-a-closer-look-at-my-.gitconfig
 socialMediaPreviewImage: https://blog.davidmoll.net/assets/images/2024-07-23-Taking-a-closer-look-at-my-.gitconfig/cover.png
-socialMediaPreviewImageAlt:
+socialMediaPreviewImageAlt: A laptop showing the git-logo
 hasCode: true
 ---
 

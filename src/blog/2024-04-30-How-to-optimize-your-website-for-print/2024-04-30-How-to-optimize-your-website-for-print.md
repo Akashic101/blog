@@ -9,7 +9,7 @@ tags:
 description: Neat little tricks on how to make your website looking better for print
 folderName: 2024-04-30-How-to-optimize-your-website-for-print
 socialMediaPreviewImage: https://blog.davidmoll.net/assets/images/2024-04-30-How-to-optimize-your-website-for-print/cover.png
-socialMediaPreviewImageAlt:
+socialMediaPreviewImageAlt: A printer with white paper on top of it
 hasCode: true
 ---
 
