@@ -1,4 +1,4 @@
-import fs from 'fs';
+import fs from 'fs/promises';
 import path from 'path';
 import url from 'url';
 import inquirer from 'inquirer';
@@ -8,14 +8,9 @@ const validateInput = (input) => {
 	return input.trim() !== '' ? true : 'This field is required.';
 };
 
-// Function to generate files based on user input
-async function generateFiles() {
-	const currentFileUrl = import.meta.url;
-	const currentDir = path.dirname(url.fileURLToPath(currentFileUrl));
-
-	const currentDate = new Date().toISOString().split('T')[0]; // Get today's date in the format YYYY-MM-DD
-
-	const answers = await inquirer.prompt([
+// Function to prompt user for inputs
+async function getUserInputs() {
+	return await inquirer.prompt([
 		{
 			type: 'input',
 			name: 'title',
@@ -34,29 +29,73 @@ async function generateFiles() {
 			message: 'Does the markdown file include code?',
 			default: false,
 		},
+		{
+			type: 'input',
+			name: 'coverImagePath',
+			message: 'Enter the path to the cover image:',
+			validate: validateInput,
+		},
 	]);
+}
 
-	// Create the variables from the supplied answers
-	let { title, description, includeCode } = answers;
+// Function to create necessary folders
+async function createFolders(blogFolderPath, assetsFolderPath) {
+	try {
+		await fs.mkdir(blogFolderPath, { recursive: true });
+		await fs.mkdir(assetsFolderPath, { recursive: true });
+	} catch (error) {
+		console.error('Error creating folders:', error);
+		throw error;
+	}
+}
 
-	// The title of the folder uses "-" instead of spaces, so we replace them all
-	let folderTitle = title.replace(/\s+/g, '-');
+// Function to copy cover image
+async function copyCoverImage(coverImagePath, newCoverImagePath) {
+	try {
+		await fs.copyFile(coverImagePath, newCoverImagePath);
+	} catch (error) {
+		console.error('Error copying cover image:', error);
+		throw error;
+	}
+}
 
-	// Create the paths for the blog and images
-	const blogFolderPath = path.join(currentDir, 'src', 'blog', `${currentDate}-${folderTitle}`);
-	const assetsFolderPath = path.join(
-		currentDir,
-		'src',
-		'assets',
-		'images',
-		`${currentDate}-${folderTitle}`,
-	);
+// Function to write markdown file
+async function writeMarkdownFile(blogFilePath, frontmatter) {
+	try {
+		await fs.writeFile(blogFilePath, frontmatter);
+	} catch (error) {
+		console.error('Error writing markdown file:', error);
+		throw error;
+	}
+}
 
-	// Create the folders
-	fs.mkdirSync(blogFolderPath, { recursive: true });
-	fs.mkdirSync(assetsFolderPath, { recursive: true });
+// Main function to generate files
+async function generateFiles() {
+	const currentFileUrl = import.meta.url;
+	const currentDir = path.dirname(url.fileURLToPath(currentFileUrl));
+	const currentDate = new Date().toISOString().split('T')[0];
 
-	const frontmatter = `---
+	try {
+		const answers = await getUserInputs();
+
+		const { title, description, includeCode, coverImagePath } = answers;
+		const folderTitle = title.replace(/\s+/g, '-');
+		const blogFolderPath = path.resolve(currentDir, 'src', 'blog', `${currentDate}-${folderTitle}`);
+		const assetsFolderPath = path.resolve(
+			currentDir,
+			'src',
+			'assets',
+			'images',
+			`${currentDate}-${folderTitle}`,
+		);
+		const coverImageFileName = path.basename(coverImagePath);
+		const newCoverImagePath = path.join(assetsFolderPath, coverImageFileName);
+		const blogFilePath = path.join(blogFolderPath, `${currentDate}-${folderTitle}.md`);
+
+		await createFolders(blogFolderPath, assetsFolderPath);
+		await copyCoverImage(coverImagePath, newCoverImagePath);
+
+		const frontmatter = `---
 layout: blog.njk
 title: ${title}
 author: David Moll
@@ -65,7 +104,7 @@ tags:
 - posts
 description: ${description}
 folderName: ${currentDate}-${folderTitle}
-socialMediaPreviewImage: https://blog.davidmoll.net/assets/images/${currentDate}-${folderTitle}/cover.png
+socialMediaPreviewImage: https://blog.davidmoll.net/assets/images/${currentDate}-${folderTitle}/${coverImageFileName}
 socialMediaPreviewImageAlt: 
 hasCode: ${includeCode}
 ---
@@ -73,12 +112,20 @@ hasCode: ${includeCode}
 ![{{ socialMediaPreviewImageAlt }}]({{ socialMediaPreviewImage }})
 `;
 
-	// Write the frontmatter-data in a file to the blog-path
-	fs.writeFileSync(path.join(blogFolderPath, `${currentDate}-${folderTitle}.md`), frontmatter);
+		await writeMarkdownFile(blogFilePath, frontmatter);
 
-	console.log(
-		`Blog folder "${currentDate}-${folderTitle}" and Markdown file created successfully.`,
-	);
+		console.log(
+			`Blog folder "${currentDate}-${folderTitle}" and Markdown file created successfully.`,
+		);
+	} catch (error) {
+		if (error.isTtyError) {
+			console.error("Prompt couldn't be rendered in the current environment.");
+		} else if (error.message && error.message.includes('User force closed the prompt')) {
+			console.log('Prompt was cancelled.');
+		} else {
+			console.error('An error occurred:', error);
+		}
+	}
 }
 
 generateFiles();

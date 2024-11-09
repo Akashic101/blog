@@ -9,7 +9,7 @@
     "url": "https://blog.davidmoll.net",
     "author": {
       "name": "David Moll",
-      "url": "david.leander.moll@gmail.com"
+      "url": "contact@davidmoll.net"
     }
   }
 }
@@ -23,8 +23,8 @@
     <description>{{ metadata.subtitle }}</description>
     <language>{{ metadata.language }}</language>
     <copyright>Copyright 2024, David Moll</copyright>
-    <managingEditor>david.leander.moll@gmail.com (David Moll)</managingEditor>
-    <webMaster>david.leander.moll@gmail.com (David Moll)</webMaster>
+    <managingEditor>contact@davidmoll.net (David Moll)</managingEditor>
+    <webMaster>contact@davidmoll.net (David Moll)</webMaster>
     <pubDate>{{ collections.posts.slice(-1)[0].date | dateToRfc822 }}</pubDate>
     <lastBuildDate>{{ lastBuildDate }}</lastBuildDate>
     <category>Blog</category>
@@ -48,6 +48,9 @@
       <pubDate>{{ post.date | dateToRfc822 }}</pubDate>
       <guid>{{ absolutePostUrl }}</guid>
       <source url="{{ metadata.url }}">{{ metadata.title }}</source>
+      {%- for tag in post.data.tags %}
+      <category>{{ tag }}</category>
+      {%- endfor %}
     </item>
     {%- endfor %}
   </channel>
