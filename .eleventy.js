@@ -3,6 +3,7 @@ const path = require('path');
 const htmlNano = require('htmlnano');
 const tocPlugin = require('eleventy-plugin-toc');
 const markdownItAnchor = require('markdown-it-anchor');
+const markdownItKatex = require('markdown-it-katex');
 const pluginRss = require('@11ty/eleventy-plugin-rss');
 const pluginStats = require('eleventy-plugin-post-stats');
 const markdownItFootnote = require('markdown-it-footnote');
@@ -101,6 +102,7 @@ module.exports = function (eleventyConfig) {
 	});
 
 	eleventyConfig.amendLibrary('md', (mdLib) => mdLib.use(markdownItFootnote));
+	eleventyConfig.amendLibrary('md', (mdLib) => mdLib.use(markdownItKatex));
 	eleventyConfig.amendLibrary('md', (mdLib) => mdLib.use(namedCodeBlocks));
 	eleventyConfig.amendLibrary('md', (mdLib) =>
 		mdLib.use(markdownItAnchor, {
