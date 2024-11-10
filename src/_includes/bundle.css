@@ -29,12 +29,25 @@ a {
 	color: #7eb6c9;
 }
 
+.main-title {
+	margin: 0;
+	font-weight: bold;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	-webkit-line-clamp: 2; /* Limits to 2 lines */
+	line-clamp: 2; /* Limits to 2 lines */
+	font-size: clamp(1.5rem, 4vw, 2.25rem); /* Adjusts font size based on viewport width */
+}
+
 .flex-container {
 	display: flex;
 	justify-content: flex-start;
 	gap: 1.5rem;
 	max-width: 800px;
 	margin-bottom: 1rem;
+	max-height: 200px;
 }
 
 .main-title {
@@ -49,7 +62,9 @@ a {
 }
 
 .description {
+	flex-grow: 1;
 	font-size: 1.125rem;
+	margin: 0px;
 }
 
 .read-more-link:hover {
@@ -106,6 +121,24 @@ tr td:nth-child(2n) {
 .named-fence-block {
 	position: relative;
 	padding-top: 2em;
+}
+
+.text-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	gap: 0.5rem;
+}
+
+.main-title {
+	margin: 0;
+	font-weight: bold;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	-webkit-line-clamp: 2;
+	line-clamp: 2;
 }
 
 .named-fence-filename {
