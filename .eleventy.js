@@ -71,7 +71,7 @@ module.exports = function (eleventyConfig) {
 		loggingLevel: 1,
 		excludeUrls: ['https://blog.davidmoll.net*', 'https://github.com/Akashic101/*'],
 		excludeInputs: [
-			'./src/blog/2024-04-05-A-small-collection-of-some-great-404-pages/2024-04-05-A-small-collection-of-some-great-404-pages.md',
+			'blog/2024-04-04-A-small-collection-of-some-great-404-pages/2024-04-04-A-small-collection-of-some-great-404-pages.md',
 		],
 		callback: null,
 	});
