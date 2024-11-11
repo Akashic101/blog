@@ -120,6 +120,7 @@
     <hr/>
   </body>
   <footer>
+  {% if credits %}
     <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
       <a property="dct:title" rel="cc:attributionURL" href="{{ url }}">{{ title }}</a> by 
     <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://blog.davidmoll.net/">{{ author }}</a> is licensed under 
@@ -133,6 +134,7 @@
         <img width="24" height="24" src="/assets/icons/sa.svg" alt="Share Alike Icon">
       </a>
     </p>
+  {% endif %}
     <a href="https://github.com/Akashic101/blog/blob/main/{{ page.inputPath }}"
       >Edit this page on GitHub</a
     >

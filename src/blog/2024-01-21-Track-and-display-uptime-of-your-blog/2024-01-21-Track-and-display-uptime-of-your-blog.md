@@ -11,6 +11,7 @@ folderName: 2024-01-21-Track-and-display-uptime-of-your-blog
 socialMediaPreviewImage: https://blog.davidmoll.net/assets/images/2024-01-21-Track-and-display-uptime-of-your-blog/cover.png
 socialMediaPreviewImageAlt: A plushy bear holding a raspberry
 hasCode: true
+credits: true
 ---
 
 ![{{ socialMediaPreviewImageAlt }}]({{ socialMediaPreviewImage }})
