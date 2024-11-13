@@ -19,11 +19,11 @@ hasCode: true
 
 ## Opening
 
-Paderborn, my hometown, has three big races, the Osterlauf, the Martinslauf and the BobbahnRun. Yesterday it was once again time for the Martinslauf, a yearly run on the Friday before the St. Martin's Day. I participated this year for the first time in the 10km-run (last year I took part in the 6k) and managed to beat [my target of < 1 hour](https://www.strava.com/activities/12854554602). I also took the opportunity to learn how to visualize data in nice looking plots using Python which this blog will be about. As a warning, Python is anything but my strongpoint and I am very much still a beginner so ChatGPT had to do quite some lifting, if there are any mistakes in the code or improvements please let me know :) You can find the entire code of the project here: [https://github.com/Akashic101/8.-Martinslauf-Paderborn](https://github.com/Akashic101/8.-Martinslauf-Paderborn)
+Paderborn, my hometown, has three big races, the Osterlauf, the Martinslauf and the BobbahnRun. LAst weekit was once again time for the Martinslauf, a yearly run on the Friday before St. Martin's Day. I participated this year for the first time in the 10km-run (last year I took part in the 6k) and managed to beat [my target of < 1 hour](https://www.strava.com/activities/12854554602). I also took the opportunity to learn how to visualize data in nice-looking plots using Python which this blog will be about. As a warning, Python is anything but my strong suit and I am very much still a beginner, so ChatGPT had to do quite some lifting. If there are any mistakes in the code or improvements, please let me know :) You can find the entire code of the project here: [https://github.com/Akashic101/8.-Martinslauf-Paderborn](https://github.com/Akashic101/8.-Martinslauf-Paderborn)
 
 ## Getting the data
 
-This race using Davengo as a registration- and tracking-platform which makes it really easy to get my hands on the official result in a way that fits my goal well. While there is an offical results-list available on the [official website](https://www.davengo.com/event/result/8-paderborner-martinslauf-2024/) I wanted to get the data into a database for easier querying. For that I had a look at the network-requests going out from Firefox and quickly found the correct one that supplies the result . From there I exported the request as a cUrl-adress, imported it into Postman and had a look at it there. The request was a POST with following body
+This race uses Davengo as a registration- and tracking- platform, which makes it really easy to get my hands on the official result in a way that fits my goal well. While there is an official results list available on the [official website](https://www.davengo.com/event/result/8-paderborner-martinslauf-2024/), I wanted to get the data into a database for easier querying. For that, I took a look at the network-requests going out from Firefox and quickly found the correct one that supplied the result. From there, I exported the request as a cUrl-adress, imported it into Postman and had a look at it there. The request was a POST with the following body
 
 ```json:body
 
@@ -121,7 +121,7 @@ And the response I get back looks like this
 }
 ```
 
-This format makes it really easy to get the data I need, with a simple JS-script I was able to gather all of the results-array and plug it into a DB using [better-sqlite3](https://www.npmjs.com/package/better-sqlite3). This script can be found at [https://github.com/Akashic101/8.-Martinslauf-Paderborn/blob/master/resultParser.js](https://github.com/Akashic101/8.-Martinslauf-Paderborn/blob/master/resultParser.js). One interesting catch is that on the last request where there is less than 125 results the response changes slightly and emits
+This format makes it really easy to get the data I need. With a simple JS-script I was able to gather all the results in the form of an Array and plug it into a DB using [better-sqlite3](https://www.npmjs.com/package/better-sqlite3). This script can be found at [https://github.com/Akashic101/8.-Martinslauf-Paderborn/blob/master/resultParser.js](https://github.com/Akashic101/8.-Martinslauf-Paderborn/blob/master/resultParser.js). One interesting catch is that on the last request, where there are less than 125 results, the response changes slightly and emits
 
 ```json: reponse
     "navigation": {
@@ -129,15 +129,15 @@ This format makes it really easy to get the data I need, with a simple JS-script
     },
 ```
 
-from the response which caught me off-guard for a bit until I noticed this.
+from the response, which caught me off-guard for a bit until I noticed this.
 
 ## Visualizing the data using Python
 
-Now that I have a SQLite DB with all the data we can get started with visualizing the data using Python. If you want to follow along I left detailed instructions on how to get everything running in the README of the repo for this blog which hosts all scripts and images. You can find it [here](https://github.com/Akashic101/8.-Martinslauf-Paderborn)
+Now that I have a SQLite DB with all the data, we can get started with visualizing the data using Python. If you want to follow along, I left detailed instructions on how to get everything running in the README of the repo for this blog, which hosts all scripts and images. You can find it [here](https://github.com/Akashic101/8.-Martinslauf-Paderborn)
 
 ### Scatter-Plot
 
-A scatter plot is a type of plot or mathematical diagram using Cartesian coordinates to display values for typically two variables for a set of data[^1]. With this type of plot I can generate an image showing the overall finishing-times of every runner. The SQL-query for this looks like this
+A scatter plot is a type of plot or mathematical diagram using Cartesian coordinates to display values for typically two variables for a set of data[^1]. With this type of plot, I can generate an image showing the overall finishing-times of every runner. The SQL-query for this looks like this
 
 ```sql:SQL
 
@@ -149,11 +149,11 @@ which when formatted correctly results in this:
 
 <img src="https://raw.githubusercontent.com/Akashic101/8.-Martinslauf-Paderborn/refs/heads/master/results/scatter_plot.png" alt="A scatter-plot comparing the total tank vs netto time" width=800>
 
-An interesting note on this graph is that the shape would be very similar no matter which run you plot, as long as there is a large enough amount of data. This very clearly shows that most runners run the 10km between 00:40:00 and 01:05:00, below and above that the times spread out much more to the extreme. With my time being 00:57:09 I am on the lower end of the average, however one important thing to remember is that with the run being 10km it is already a length that many cannot run at all. If you see your own time in this area do not get discouraged, you are still faster than anyone else that doesn't run at all. It doesn't matter how fast or long you run, it matters THAT you run!
+An interesting note on this graph is that the shape would be very similar no matter which run you plot, as long as there is a large enough amount of data. This very clearly shows that most runners run the 10km between 00:40:00 and 01:05:00, below and above that, the times spread out much more to the extreme. With my time being 00:57:09 I am on the lower end of the average, however one important thing to remember is that with the run being 10km it is already a length that many cannot run at all. If you see your own time in this area, do not get discouraged, you are still faster than anyone else who doesn't run at all. It doesn't matter how fast or long you run, it matters THAT you run!
 
 ### Circular Bar-Plot
 
-Let's take a look at the participants and in what age-group each ran. When you sign up to such an event you get automatically grouped in an age-group based on your date of birth. I am in the MHK (Männliche Hauptklasse / Male main class) which is for everyone from age 20-29. This class makes up the bulk of both male (97/405) and female (90/231). The SQL-query looks like this:
+Let's take a look at the participants and in what age-group each ran. When you sign up for such an event you are automatically grouped into an age-group based on your date of birth. I am in the MHK (Männliche Hauptklasse / Male main class) which is for everyone from age 20-29. This class makes up the bulk of both male (97/405) and female (90/231). The SQL-query looks like this:
 
 ```sql:SQL
 
@@ -175,9 +175,9 @@ ORDER BY
 <img src="https://raw.githubusercontent.com/Akashic101/8.-Martinslauf-Paderborn/refs/heads/master/results/circular_bar_women.png" alt="A circular bar-plot of all women showing their age-group" width=300>
 </div>
 
-This graph nicely shows how most runners where in the younger phase of their life with just three classes (MHK/M30/M45) making up 249/405 (61,48 %) of all male runners.
+This graph nicely shows how most runners were in the younger phase of their lives, with just three classes (MHK/M30/M45) making up 249/405 (61,48 %) of all male runners.
 
-There where only four age-groups who only had a single participant, that being M70, M75, W65 and WJ U14 (Women under 14), their times will be easily visible in the next graph.
+There were only four age-groups that had a single participant, namely M70, M75, W65 and WJ U14 (Women under 14). Their times will be easily visible in the next graph.
 
 ### Box Plot
 
@@ -193,7 +193,7 @@ The IQR (Interquartile Range) is the distance between the first quartile (Q1) an
 
 Outliers are times that fall outside the whiskers, specifically 1.5 times the IQR below Q1 or above Q3. These values are marked as red dots in the box plot.
 
-Let's have a look at the only time that was so fast it is marked as an outlier. The fastest women of the entire race was in the W30-class and ran a 00:39:40, putting her into 16th place overall. Her lap-times, each 2km long, where:
+Let's take a look at the only time that was so fast it is marked as an outlier. The fastest woman of the entire race was in the W30-class and ran a 00:39:40, putting her in 16th place overall. Her lap-times, each 2km long, were:
 
 | Lap | Time     |
 | --- | -------- |
@@ -205,7 +205,7 @@ Let's have a look at the only time that was so fast it is marked as an outlier. 
 
 ### Violin Plot
 
-With Davengo saving the result of each year we can easily compare the amount of runners per age-group to the results from last year. All that was needed to adjust the `resultParser.js` to fetch results from two years instead of just 2024. With this data now saved in the DB we can easily create a Violin Plot to compare the two years. A violin plot is a type of statistical chart used to compare the distribution of data across different categories. It is similar to a box plot, but with the added feature of a mirrored kernel density plot on either side, which shows the distribution's shape and density.[^4] The SQL-query to get this data looks like this:
+With Davengo saving the results from each year, we can easily compare the amount of runners per age-group to the results from last year. All that was needed was to adjust the `resultParser.js` to fetch results from two years instead of just 2024. With this data now saved in the DB we can easily create a Violin Plot to compare the two years. A violin plot is a type of statistical chart used to compare the distribution of data across different categories. It is similar to a box plot, but with the added feature of a mirrored kernel density plot on either side, which shows the distribution's shape and density.[^4] The SQL-query to get this data looks like this:
 
 ```sql:SQL
 
@@ -259,13 +259,13 @@ Plotting this data results into the following graph:
 
 <img src="https://raw.githubusercontent.com/Akashic101/8.-Martinslauf-Paderborn/refs/heads/master/results/population_pyramid.png" alt="A violin plot comparing the amount of runners per age group between 2023 and 2024" width=800>
 
-This plot shows the clear growth in this yearly event with an increase of 99 runners, most in the WHK, M30, W30 and M35 class. The biggest decline was in the W35 and M60 class, however in the later one a runner got promoted to the M65 class (happy birthday) so it's one less decline than shown.
+This plot shows the clear growth in this yearly event, with an increase of 99 runners, most in the WHK, M30, W30 and M35 classes. The biggest decline was in the W35 and M60 classes; however, in the later one, a runner got promoted to the M65 class (happy birthday), so it's one less decline than shown.
 
-In total 126 runners ran in both years with 20 runners switching classes since last year with possible even more that ran the 6k last year and the 10k this year. A single runner somehow managed to go from M45 to M35, however since time-travel is not officially against the rules I assume this is allowed.
+In total, 126 runners ran in both years, with 20 runners switching classes since last year, with possible even more that ran the 6k last year and the 10k this year. A single runner somehow managed to go from M45 to M35, however since time-travel is not officially against the rules, I assume this is allowed.
 
 ### Grouped Bar Chart
 
-Since we now have access to all the data from the last two runs we can also compare the results of runners that competed in both years (looking forward to seeing mine next year). For this we can use a grouped bar chart which is perfect to compare two variables across difference points in time. We can query all runners from both years and see if their time improved like this:
+Since we now have access to all the data from the last two runs, we can also compare the results of runners that competed in both years (looking forward to seeing mine next year). For this, we can use a grouped bar chart, which is perfect to compare two variables across different points in time. We can query all runners from both years and see if their time improved like this:
 
 ```sql:SQL
 
@@ -289,9 +289,9 @@ Now plotting this into the grouped bar chart we get following results
 
 <img src="https://raw.githubusercontent.com/Akashic101/8.-Martinslauf-Paderborn/refs/heads/master/results/grouped_bar_time_comparison.png" alt="A grouped bar chart comparing all runners competing in 2023 and 2024 and their times in both years" width=800>
 
-This graph shows that a lot of runners not only competed in both years but also greatly improved their time compared to last year. The record by a single second is taken by a runner who improved his time by a total of 18:00min from 01:13:23 (P343) to 00:55:23 (P257). Amazing perfomance, I can only applaud this great improvement.
+This graph shows that a lot of runners not only competed in both years, but also greatly improved their time compared to last year. The record by a single second is taken by a runner who improved his time by a total of 18:00 min from 01:13:23 (P343) to 00:55:23 (P257). Amazing performance! I can only applaud this great improvement.
 
-In total 86 runners improved their time and 40 missed out on beating their lasts time, however this can also be because the track changed its layout compared to last year with a longer and steeper incline this year compared to last ones.
+In total, 86 runners improved their time and 40 missed out on beating their last time, however this can also be because the track changed its layout compared to last year with a longer and steeper incline this year compared to last ones.
 
 ### Diverging Plot
 
@@ -318,7 +318,7 @@ Let's take a look how those teams were set up:
 
 <img src="https://raw.githubusercontent.com/Akashic101/8.-Martinslauf-Paderborn/refs/heads/master/results/diverging_plot_teams.png" alt="A diverging plot showing the set-up of each teams and how many men and women where in each" width=300>
 
-The biggest team was TSV Schloss Neuhaus with nine members, of which seven where male and two female. Team VfB Salzkotten is not only the team with the most women but also the biggest team with no men in it at all. Team SC Borchen is their counterpark with seven men and no women in their team. 75 teams had only one member, making up 38,66% of all teams. Four teams had more than five members, here is the list of them and their calculated average from their combined times:
+The biggest team was TSV Schloss Neuhaus with nine members, of whom seven were male and two were female. Team VfB Salzkotten is not only the team with the most women but also the biggest team with no men in it at all. Team SC Borchen is their counterpart, with seven men and no women in their team. 75 teams had only one member, making up 38,66% of all teams. Four teams had more than five members, here is the list of them and their calculated average from their combined times:
 
 | Lap                      | Time     |
 | ------------------------ | -------- |
@@ -331,7 +331,7 @@ The biggest team was TSV Schloss Neuhaus with nine members, of which seven where
 
 ## Closing remarks
 
-If you made it this far I want to thank you for reading this little experiment with python and data-visualization. Perhaps you felt inspired into making something similar, please let me know if you do, I'd love to see your results. This was also the first blog-post I have written using [11ty 3.0.0](https://www.11ty.dev/blog/eleventy-v3/) which went super well with the upgrade and also the first which utilizes [KaTeX](https://katex.org/). I wanted to add math typesetting for a while but never found a solution that I really liked until now.
+If you made it this far, I want to thank you for reading this little experiment with Python and data-visualization. Perhaps you felt inspired to make something similar, please let me know if you do. I'd love to see your results. This was also the first blog-post I have written using [11ty 3.0.0](https://www.11ty.dev/blog/eleventy-v3/) which went super well with the upgrade, and also the first that utilizes [KaTeX](https://katex.org/). I wanted to add math typesetting for a while, but I never found a solution that I really liked until now.
 
 ## Footnotes
 
