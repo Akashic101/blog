@@ -148,7 +148,7 @@ FROM results
 
 which when formatted correctly results in this:
 
-<img src="https://raw.githubusercontent.com/Akashic101/8.-Martinslauf-Paderborn/refs/heads/master/results/scatter_plot.png" alt="A scatter-plot comparing the total tank vs netto time" width=800>
+<img src="https://raw.githubusercontent.com/Akashic101/8.-Martinslauf-Paderborn/refs/heads/master/results/scatter_plot.png" alt="A scatter-plot comparing the total tank vs netto time" width=800 loading="lazy">
 
 An interesting note on this graph is that the shape would be very similar no matter which run you plot, as long as there is a large enough amount of data. This very clearly shows that most runners run the 10km between 00:40:00 and 01:05:00, below and above that the times spread out much more to the extreme. With my time being 00:57:09 I am on the lower end of the average, however one important thing to remember is that with the run being 10km it is already a length that many cannot run at all. If you see your own time in this area do not get discouraged, you are still faster than anyone else that doesn't run at all. It doesn't matter how fast or long you run, it matters THAT you run!
 
@@ -172,8 +172,8 @@ ORDER BY
 ```
 
 <div align="center">
-<img src="https://raw.githubusercontent.com/Akashic101/8.-Martinslauf-Paderborn/refs/heads/master/results/circular_bar_men.png" alt="A circular bar-plot of all men showing their age-group" width=300>
-<img src="https://raw.githubusercontent.com/Akashic101/8.-Martinslauf-Paderborn/refs/heads/master/results/circular_bar_women.png" alt="A circular bar-plot of all women showing their age-group" width=300>
+<img src="https://raw.githubusercontent.com/Akashic101/8.-Martinslauf-Paderborn/refs/heads/master/results/circular_bar_men.png" alt="A circular bar-plot of all men showing their age-group" width=300 loading="lazy" loading="lazy">
+<img src="https://raw.githubusercontent.com/Akashic101/8.-Martinslauf-Paderborn/refs/heads/master/results/circular_bar_women.png" alt="A circular bar-plot of all women showing their age-group" width=300 loading="lazy" loading="lazy">
 </div>
 
 This graph nicely shows how most runners where in the younger phase of their life with just three classes (MHK/M30/M45) making up 249/405 (61,48 %) of all male runners.
@@ -227,7 +227,7 @@ ORDER BY
 
 Let's take a look how those teams were set up:
 
-<img src="https://raw.githubusercontent.com/Akashic101/8.-Martinslauf-Paderborn/refs/heads/master/results/diverging_plot_teams.png" alt="A diverging plot showing the set-up of each teams and how many men and women where in each" width=300>
+<img src="https://raw.githubusercontent.com/Akashic101/8.-Martinslauf-Paderborn/refs/heads/master/results/diverging_plot_teams.png" alt="A diverging plot showing the set-up of each teams and how many men and women where in each" width=300 loading="lazy">
 
 The biggest team was TSV Schloss Neuhaus with nine members, of which seven where male and two female. Team VfB Salzkotten is not only the team with the most women but also the biggest team with no men in it at all. Team SC Borchen is their counterpark with seven men and no women in their team. 75 teams had only one member, making up 38,66% of all teams. Four teams had more than five members, here is the list of them and their calculated average from their combined times:
 

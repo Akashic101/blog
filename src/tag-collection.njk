@@ -15,7 +15,7 @@ eleventyExcludeFromCollections: true
 {% for post in taglist | reverse %}
 <div class="flex-container">
     <div class="image-container">
-        <img src="../../assets/images/{{ post.data.folderName }}/cover.png" alt="{{ post.data.description }}" class="image" width="200" height="200">
+        <img src="../../assets/images/{{ post.data.folderName }}/cover.png" alt="{{ post.data.description }}" class="image" width="200" height="200" loading="lazy">
     </div>
     <div class="text-container">
         <h1 class="main-title">{{ post.data.title }}</h1>
