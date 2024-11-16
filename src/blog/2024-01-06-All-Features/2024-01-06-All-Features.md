@@ -12,6 +12,7 @@ folderName: 2024-01-06-All-Features
 socialMediaPreviewImage: https://blog.davidmoll.net/assets/images/2024-01-06-All-Features/cover.png
 socialMediaPreviewImageAlt: A list placed on a clipboard laying on a table
 hasCode: true
+hasMath: false
 credits: true
 ---
 

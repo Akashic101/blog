@@ -12,6 +12,7 @@ folderName: 2023-12-21-Hello-World
 socialMediaPreviewImage: https://blog.davidmoll.net/assets/images/2023-12-21-Hello-World/cover.png
 socialMediaPreviewImageAlt: A child sitting in front of a PC with a CRT-monitor
 credits: true
+hasMath: false
 ---
 
 ![{{ socialMediaPreviewImageAlt }}]({{ socialMediaPreviewImage }})

@@ -13,6 +13,7 @@ folderName: 2024-11-09-Analyzing-the-results-of-the-8th-Martinslauf-Paderborn-us
 socialMediaPreviewImage: https://blog.davidmoll.net/assets/images/2024-11-09-Analyzing-the-results-of-the-8th-Martinslauf-Paderborn-using-Python/cover.png
 socialMediaPreviewImageAlt: An image of the author with his trophy after the race
 hasCode: true
+hasMath: true
 credits: true
 ---
 

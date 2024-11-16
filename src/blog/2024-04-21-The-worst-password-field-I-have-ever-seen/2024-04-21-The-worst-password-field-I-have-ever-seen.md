@@ -11,6 +11,7 @@ folderName: 2024-04-21-The-worst-password-field-I-have-ever-seen
 socialMediaPreviewImage: https://blog.davidmoll.net/assets/images/2024-04-21-The-worst-password-field-I-have-ever-seen/cover.png
 socialMediaPreviewImageAlt: A laptop secured with a padlock
 hasCode: true
+hasMath: false
 credits: true
 ---
 

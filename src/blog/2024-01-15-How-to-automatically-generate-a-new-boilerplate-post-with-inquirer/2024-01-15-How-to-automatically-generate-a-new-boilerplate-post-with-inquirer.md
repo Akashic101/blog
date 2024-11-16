@@ -11,6 +11,7 @@ folderName: 2024-01-15-How-to-automatically-generate-a-new-boilerplate-post-with
 socialMediaPreviewImage: https://blog.davidmoll.net/assets/images/2024-01-15-How-to-automatically-generate-a-new-boilerplate-post-with-inquirer/cover.png
 socialMediaPreviewImageAlt: A robot sitting on a laptop
 hasCode: true
+hasMath: false
 credits: true
 ---
 

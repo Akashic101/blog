@@ -11,6 +11,7 @@ folderName: 2024-04-30-How-to-optimize-your-website-for-print
 socialMediaPreviewImage: https://blog.davidmoll.net/assets/images/2024-04-30-How-to-optimize-your-website-for-print/cover.png
 socialMediaPreviewImageAlt: A printer with white paper on top of it
 hasCode: true
+hasMath: false
 credits: true
 ---
 

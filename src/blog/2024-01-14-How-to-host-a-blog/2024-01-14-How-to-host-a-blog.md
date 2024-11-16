@@ -11,6 +11,7 @@ folderName: 2024-01-14-How-to-host-a-blog
 socialMediaPreviewImage: https://blog.davidmoll.net/assets/images/2024-01-14-How-to-host-a-blog/cover.png
 socialMediaPreviewImageAlt: A cat looking at a motherboard
 hasCode: true
+hasMath: false
 credits: true
 ---
 
