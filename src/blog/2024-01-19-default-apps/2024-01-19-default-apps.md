@@ -10,6 +10,7 @@ folderName: 2024-01-19-default-apps
 socialMediaPreviewImage: https://blog.davidmoll.net/assets/images/2024-01-19-default-apps/cover.png
 socialMediaPreviewImageAlt: A phone laying on an open laptop
 hasCode: false
+credits: true
 ---
 
 ![{{ socialMediaPreviewImageAlt }}]({{ socialMediaPreviewImage }})

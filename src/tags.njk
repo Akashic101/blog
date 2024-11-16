@@ -9,7 +9,7 @@ filter:
 
 <ul>
 {% for tag in collections.all | getAllTags %}
-	{% set tagUrl %}/tags/{{ tag | slugify }}/{% endset %}
-	<li><a href="{{ tagUrl }}" class="post-tag">{{ tag }}</a></li>
+  {% set tagUrl %}/tags/{{ tag | slugify }}/{% endset %}
+  <li style="height: 24px; line-height: 24px;"><a href="{{ tagUrl }}" class="post-tag">{{ tag }}</a></li>
 {% endfor %}
 </ul>

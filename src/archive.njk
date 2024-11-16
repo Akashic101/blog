@@ -17,13 +17,16 @@ eleventyExcludeFromCollections: true
 
 <div class="flex-container">
     <div class="image-container">
-        <img src="../../assets/images/{{post.data.folderName}}/cover.png" alt="{{ post.data.description }}" class="image" width="200" height="200" loading="lazy">
+        <a href="{{ post.url }}">
+            <img src="../../assets/images/{{post.data.folderName}}/cover.png" alt="{{ post.data.description }}" class="image" width="200" height="200" loading="lazy">
+        </a>
     </div>
     <div class="text-container">
         <h1 class="main-title">{{ post.data.title }}</h1>
         <p class="date">{{post.date | dateDisplay}}</p>
         <p class="description">{{post.data.description}}</p>
-        <a class="read-more-link" href="{{ post.url }}">Read More</a>
+        <a class="read-more-link" href="{{ post.url }}">Read this post</a>
     </div>
 </div>
+
 {% endfor %}
