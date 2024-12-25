@@ -28,7 +28,7 @@ Zorin OS was very easy to install. With the latest version of the OS (17.2) beei
 
 ## First few minutes
 
-First on the agenda was installing the typical programs I need for work, those beeing VS Code, Slack, Teams and Firefox. Similar to Ubuntu I was quickly able to install most of them from the Software-Store. Here I also made the decision to test out a new Email-client called Betterbird, a new fork from Thunderbird which recently has gained a bit in popularity. The biggest problem there was getting my calender synced up but this was easily solved with [TbSync](https://addons.thunderbird.net/en-us/thunderbird/addon/tbsync/) and [Provider for Exchange ActiveSync](https://addons.thunderbird.net/en-us/thunderbird/addon/eas-4-tbsync/) which automatically import and sync all my calenders. 
+First on the agenda was installing the typical programs I need for work, those beeing VS Code, Slack, Teams and Firefox. Similar to Ubuntu I was quickly able to install most of them from the Software-Store. Here I also made the decision to test out a new Email-client called Betterbird, a new fork from Thunderbird which recently has gained a bit in popularity. The biggest problem there was getting my calender synced up but this was easily solved with [TbSync](https://addons.thunderbird.net/en-us/thunderbird/addon/tbsync/) and [Provider for Exchange ActiveSync](https://addons.thunderbird.net/en-us/thunderbird/addon/eas-4-tbsync/) which automatically import and sync all my calenders.
 
 The biggest problem was, not to any surprise to be honest, Teams. Microsoft did release a native version (native meaning the website in an Electron-wrapper) in 2019 but discontinued it just three years later in 2022. The following PWA was, is and always be a complete mess which I would bet money on Microsoft will never really be bothered enough to properly fix. The best version I was able to find is [teams-for-linux](https://github.com/IsmaelMartinez/teams-for-linux) which works well enough but is also not perfect due to Microsoft putting roadblocks into the way.
 
@@ -67,28 +67,28 @@ Core is the base version which is free and what I am personally using right now.
 
 Now the third version is where the problems start. Zorin Pro costs at the time of writing 47,99€ as a one-time payment. For that you get the before-mentioned additional desktop-layouts (six on top of the already included four), a preinstalled "professional-grade creative suite of apps" and "advanced productivity tools". Oh and of course the additional artwork you can use for your desktop-background. But here is where the problem lies. All of those apps, as far as I can tell, are just free apps that you can download yourself. And Zorin knows that which is why they do not have the apps that you actually get listed anywhere, just that they include alternatives to other paid applications in other operating-systems. Through various videos, articles and screenshots I was able to collect following list of applications that come preinstalled in the pro-version and the program they replace according to Zorin's website:
 
-| Program                   | Alternative to |
-| ---------------------- | --------- |
-| Program               | Alternative to |
-| Blender               | Autodesk Maya |
-| Darktable | AfterShot Pro    |
-| GIMP               | Adobe Photoshop     |
-| Inkscape       | Affinity Designer     |
-| Krita   | Procreate    |
-| LibreCAD     | Autodesk AutoCAD     |
-| LibreOffice     | Microsoft Office Suit    |
-| Scribus     | Affinity Publisher   |
-| Minder     | iThoughts    |
-| Denaro     | GreenBooks    |
-| Planify, Xournal++    |   Things  |
-| Ardour 8, Audacity   |   FL Studio  |
-| Handbrake   |   Adobe Media Encoder  |
-| KdenLive   |   Adobe Premiere Pro  |
-| Mixxx   |   Traktor Pro |
-| OBS Studio   |   |
-| VirtualBox   |   |
-| Foliate     |     |
-| Feeds     |     |
-| OpenToonz     |      |
+| Program            | Alternative to        |
+| ------------------ | --------------------- |
+| Program            | Alternative to        |
+| Blender            | Autodesk Maya         |
+| Darktable          | AfterShot Pro         |
+| GIMP               | Adobe Photoshop       |
+| Inkscape           | Affinity Designer     |
+| Krita              | Procreate             |
+| LibreCAD           | Autodesk AutoCAD      |
+| LibreOffice        | Microsoft Office Suit |
+| Scribus            | Affinity Publisher    |
+| Minder             | iThoughts             |
+| Denaro             | GreenBooks            |
+| Planify, Xournal++ | Things                |
+| Ardour 8, Audacity | FL Studio             |
+| Handbrake          | Adobe Media Encoder   |
+| KdenLive           | Adobe Premiere Pro    |
+| Mixxx              | Traktor Pro           |
+| OBS Studio         |                       |
+| VirtualBox         |                       |
+| Foliate            |                       |
+| Feeds              |                       |
+| OpenToonz          |                       |
 
 Now the first thought for many readers would be "oh wow, the developers are so slimy, they want money for software I can easily download myself, how dare they?". And with a "pro"-edition this thought isn't crazy to think considering you pay a lot of money for free software. But that is not why the developers want you to buy this version of the OS. This version exists as a thank-you to the developers, a way of supporting them and the hard work they do. They went through all of the work of testing all of those applications and making sure they work with no issues at all which is for linux not always given. But they named it pro, and thats where the real issue lies. In my personal opinion the version should carry a different name, something like "support-version" or "licensed version". Immich, a very popular selfhosted alternative to Google Photos went through [exactly the same problem this year](https://www.reddit.com/r/selfhosted/comments/1e6hsn4/immich_introduces_licensing_options_to_support/) and they solved it the same way, [renaming the paid version and clarifiyng what you get](https://www.reddit.com/r/selfhosted/comments/1ea8iim/wording_change_and_clarification_for_purchasing/). This is in no way hate towards the developers but right now the only real feature you get are six different screen-layouts and a bit of saved time which does not deserve the pro-name. Also please add the list of pre-installed software, hiding that to make the user think he gets the deal of a lifetime for a bundle of free software is plainly not ok.
