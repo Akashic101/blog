@@ -1,6 +1,6 @@
 ---
 layout: blog.njk
-title: default apps
+title: Default Apps
 author: David Moll
 date: 2024-01-19
 tags:
