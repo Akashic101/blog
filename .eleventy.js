@@ -81,6 +81,8 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addPassthroughCopy('src/assets/');
 	eleventyConfig.addPassthroughCopy('src/_data/');
 
+	eleventyConfig.addShortcode('currentDate', require('./src/_filters/currentDate.js'));
+
 	eleventyConfig.addFilter('RFC3339', require('./src/_filters/RFC3339.js'));
 	eleventyConfig.addFilter('cssmin', require('./src/_filters/cssmin.js'));
 	eleventyConfig.addFilter('slugify', require('./src/_filters/slugify.js'));
