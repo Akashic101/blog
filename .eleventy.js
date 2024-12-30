@@ -1,9 +1,12 @@
 const fs = require('fs');
+require('dotenv').config()
 const path = require('path');
+const moment = require("moment");
 const htmlNano = require('htmlnano');
 const tocPlugin = require('eleventy-plugin-toc');
-const markdownItAnchor = require('markdown-it-anchor');
+const umamiPlugin = require('eleventy-plugin-umami');
 const markdownItKatex = require('markdown-it-katex');
+const markdownItAnchor = require('markdown-it-anchor');
 const pluginRss = require('@11ty/eleventy-plugin-rss');
 const pluginStats = require('eleventy-plugin-post-stats');
 const markdownItFootnote = require('markdown-it-footnote');
@@ -44,6 +47,16 @@ function getFolderSize(folderPath) {
 }
 
 module.exports = function (eleventyConfig) {
+
+	eleventyConfig.addPlugin(umamiPlugin, {
+		url: process.env.UMAMI_URL,
+		username: process.env.UMAMI_USERNAME,
+		password: process.env.UMAMI_PASSWORD,
+		websiteId: process.env.UMAMI_WEBSITE_ID,
+		start: moment().subtract(1, 'month').valueOf(),
+		end: moment().valueOf(),
+	});
+
 	eleventyConfig.addPlugin(directoryOutputPlugin, {
 		columns: {
 			filesize: true,
