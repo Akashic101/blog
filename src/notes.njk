@@ -1,0 +1,23 @@
+---
+layout: base.njk
+title: Notes
+permalink: /notes/index.html
+author: David Moll
+date: 2025-01-01
+tags:
+- notes
+description: All notes in one page
+eleventyExcludeFromCollections: true
+---
+
+<h1>Notes</h1>
+
+{% for post in collections.notes | reverse %}
+<div class="flex-container">
+    <div class="text-container">
+        <h1 class="main-title">{{ post.data.title }}</h1>
+        <p class="date">{{post.date | dateDisplay}}</p>
+        <a class="read-more-link" href="{{ post.url }}">Read the article</a>
+    </div>
+</div>
+{% endfor %}

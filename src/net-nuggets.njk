@@ -1,0 +1,24 @@
+---
+layout: base.njk
+title: Net Nuggets
+permalink: /net-nuggets/index.html
+author: David Moll
+date: 2025-01-01
+tags:
+- net-nuggets
+description: All net-nuggets in one page
+eleventyExcludeFromCollections: true
+---
+
+<h1>Net Nuggets</h1>
+
+{% for post in collections['net nuggets'] | reverse  %}
+<div class="flex-container">
+    <div class="text-container">
+        <h1 class="main-title">{{ post.data.title }}</h1>
+        <p class="date">{{post.date | dateDisplay}}</p>
+        <p class="description">{{post.data.description}}</p>
+        <a class="read-more-link" href="{{ post.url }}">Read the article</a>
+    </div>
+</div>
+{% endfor %}
