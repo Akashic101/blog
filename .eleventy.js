@@ -1,7 +1,7 @@
 const fs = require('fs');
-require('dotenv').config()
+require('dotenv').config();
 const path = require('path');
-const moment = require("moment");
+const moment = require('moment');
 const htmlNano = require('htmlnano');
 const tocPlugin = require('eleventy-plugin-toc');
 const umamiPlugin = require('eleventy-plugin-umami');
@@ -47,7 +47,6 @@ function getFolderSize(folderPath) {
 }
 
 module.exports = function (eleventyConfig) {
-
 	eleventyConfig.addPlugin(umamiPlugin, {
 		url: process.env.UMAMI_URL,
 		username: process.env.UMAMI_USERNAME,
