@@ -33,7 +33,7 @@
 		"eleventy-plugin-unified": "2.0.0",
 		"eslint": "9.18.0",
 		"eslint-config-prettier": "9.1.0",
-		"eslint-plugin-prettier": "5.2.1",
+		"eslint-plugin-prettier": "5.2.3",
 		"graphql-request": "7.1.2",
 		"htmlnano": "2.1.1",
 		"inquirer": "12.3.1",
