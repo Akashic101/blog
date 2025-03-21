@@ -31,7 +31,7 @@
 		"eleventy-plugin-reading-time": "0.0.1",
 		"eleventy-plugin-toc": "1.1.5",
 		"eleventy-plugin-unified": "2.0.0",
-		"eslint": "9.22.0",
+		"eslint": "9.23.0",
 		"eslint-config-prettier": "9.1.0",
 		"eslint-plugin-prettier": "5.2.3",
 		"graphql-request": "7.1.2",
