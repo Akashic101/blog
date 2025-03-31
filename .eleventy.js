@@ -4,6 +4,7 @@ const path = require('path');
 const moment = require('moment');
 const htmlNano = require('htmlnano');
 const tocPlugin = require('eleventy-plugin-toc');
+const skiplink = require('eleventy-plugin-skiplink');
 const umamiPlugin = require('eleventy-plugin-umami');
 const markdownItKatex = require('markdown-it-katex');
 const markdownItAnchor = require('markdown-it-anchor');
@@ -64,6 +65,7 @@ module.exports = function (eleventyConfig) {
 		warningFileSize: 25 * 1000,
 	});
 
+	eleventyConfig.addPlugin(skiplink);
 	eleventyConfig.addPlugin(postGraph, { only: [2024] });
 	eleventyConfig.addPlugin(pluginRss);
 	eleventyConfig.addPlugin(pluginStats, { tags: ['posts', 'net nuggets'] });

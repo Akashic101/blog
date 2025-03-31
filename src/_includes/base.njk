@@ -101,6 +101,7 @@
   </head>
   <body>
     <header class="index">
+      {% skiplink %}
       <div class="left_div">
         <h1 id="titleName">David Moll's blog</h1>
         <i> You can't downvote me here</i>
@@ -118,7 +119,7 @@
     {% block blog %}{% endblock %}
     <main>
       <aside>{{ content | toc | safe }}</aside>
-      {{ content | safe }}
+      <div id="main-content">{{ content | safe }}</div>
     </main>
     <hr/>
   </body>
