@@ -54,7 +54,7 @@
 		"@inframanufaktur/eleventy-plugin-clean-urls": "^1.0.2",
 		"cheerio": "^1.0.0-rc.12",
 		"clean-css": "^5.3.3",
-		"eleventy-plugin-skiplink": "^1.1.1",
+		"eleventy-plugin-skiplink": "^1.2.1",
 		"eleventy-plugin-umami": "^2.0.0",
 		"markdown-it-named-code-blocks": "^1.0.6",
 		"speedlify-score": "^4.0.4"

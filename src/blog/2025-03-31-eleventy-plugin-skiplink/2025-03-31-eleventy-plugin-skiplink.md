@@ -60,7 +60,58 @@ module.exports = function (eleventyConfig) {
 }
 ```
 
-and in your template-file place the shortCode like this at the earliest point, preferably at the first point in the `<header>`:
+There are two ways of styling the button. First is with inline styling like this:
+
+```js:.eleventy.js
+
+eleventyConfig.addPlugin(skiplink, {
+  customStyles: {
+    base: "position:absolute; left:50%; transform:translateX(-50%); background:#6200ee; color:white; padding:12px 24px; border-radius:4px; text-decoration:none; z-index:1000; box-shadow:0 2px 5px rgba(0,0,0,0); transition:top 0.2s ease, box-shadow 0.2s ease;",
+    hidden: "top:-60px;",
+    visible: "top:20px; box-shadow:0 8px 17px rgba(0,0,0,0.2); outline:none;",
+  },
+});
+```
+
+or by defining a custom class and styling it via CSS like this:
+
+```js:.eleventy.js
+
+const skipLink = require("eleventy-plugin-skiplink");
+
+module.exports = function (eleventyConfig) {
+  eleventyConfig.addPlugin(skipLink, {
+    styling: false,
+    className: "my-custom-skiplink",
+  });
+};
+```
+
+and in your CSS-file:
+
+```css:styling.css
+
+.my-custom-skiplink {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	background: #ffff00;
+	color: #000000;
+	font-weight: bold;
+	padding: 15px 25px;
+	border: 3px solid #000000;
+	z-index: 9999;
+	transition: top 0.3s ease;
+	top: -100px; /* Hidden state */
+}
+
+.my-custom-skiplink:focus {
+	top: 0; /* Visible state */
+	outline: 3px solid #000000;
+}
+```
+
+Last but not least you need to place the shortCode like this at the earliest point in your template-file, preferably at the first point in the `<header>`:
 
 ```njk
 {% raw %}{% skipLink %}{% endraw %} {# This is an example for Nunjuck or Liquid #}
@@ -68,31 +119,18 @@ and in your template-file place the shortCode like this at the earliest point, p
 
 As the last step, you need to give the container where your content starts the id you declared in your config. If you didn't provide a custom one, you need to use `main-content`.
 
-And that's it. Now if you press Tab, the button will become visible, and if you click on it or press Enter, you will instantly jump to the main content. You can see that by pressing Tab again, it should for example skip the navigation. And just with these small extra steps, you already made the internet a little bit better for everyone.
+```html:index.html
 
-If you are unable to use this shortcode, do not want to install another dependency or change the styling of the button, all you need to do is insert this styling and html into your `<header>` instead of using my plugin:
-
-```html
-<style>
-	.skip-link {
-		position: absolute;
-		top: -40px;
-		left: 10px;
-		background: #000;
-		color: #fff;
-		padding: 8px;
-		z-index: 100;
-	}
-
-	.skip-link:focus {
-		top: 10px;
-	}
-</style>
-
-<a href="#main-content" class="skip-link">Jump to main content</a>
+<main id="main-content">
+  <h1>Your super awesome blog made with 11ty</h1>
+  ...
 ```
 
-The only really important feature is that the inital `skip-link`-class is not visible, for example with `position: absolute` and `top: -40px` and becomes visible when using the `:focus` pseudo-class with for example `top: 10px`. Besides that you can style it to your hearts content.
+And that's it. Now if you press Tab, the button will become visible, and if you click on it or press Enter, you will instantly jump to the main content. You can see that by pressing Tab again, it should for example skip the navigation. And just with these small extra steps, you already made the internet a little bit better for everyone.
+
+**EDIT**
+
+darth_mall on the 11ty-Discord made a great observation that my original approach resulted in non-valid generated HTML since `<style>` is only allowed in the `<head>`, not the `<header>`. Together with vrugtehagel we workshopped an idea that works for everyone while making the component even more customizable and rendering valid html. With their help we build an approach that enables both styling via inline and class-based CSS making the plugin as adaptable as possible to everyone project out there. I can't thank the two of them enough, they where a massive help ❤️.
 
 ## Final words
 
