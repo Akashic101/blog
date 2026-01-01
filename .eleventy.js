@@ -9,6 +9,7 @@ import { promises as fs } from "node:fs";
 import path from "node:path";
 import syntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 import namedCodeBlocks from "markdown-it-named-code-blocks";
+import markdownIt from "markdown-it";
 
 export default function (eleventyConfig) {
   // Plugins
@@ -30,6 +31,14 @@ export default function (eleventyConfig) {
       ],
     },
   });
+
+  // Configure markdown-it with HTML enabled
+  eleventyConfig.setLibrary(
+    "md",
+    markdownIt({
+      html: true,
+    })
+  );
 
   // Markdown extensions
   eleventyConfig.amendLibrary("md", (mdLib) => mdLib.use(markdownItFootnote));
