@@ -25,10 +25,22 @@
   
   {% set site_url = "https://blog.davidmoll.net" %}
   {% set page_url = site_url + page.url %}
-  {% set page_title = title ? title + " - David Moll's Blog" : "David Moll's Blog" %}
+  {% if title %}
+  {% set page_title = title + " - David Moll's Blog" %}
+  {% else %}
+  {% set page_title = "David Moll's Blog" %}
+  {% endif %}
   {% set page_description = description or "I am writing about whatever is on my mind" %}
-  {% set page_type = date ? "article" : "website" %}
-  {% set og_image_url = socialMediaPreviewImage ? site_url + socialMediaPreviewImage : site_url + "/images/assets/android-chrome-512x512.png" %}
+  {% if date %}
+  {% set page_type = "article" %}
+  {% else %}
+  {% set page_type = "website" %}
+  {% endif %}
+  {% if socialMediaPreviewImage %}
+  {% set og_image_url = site_url + socialMediaPreviewImage %}
+  {% else %}
+  {% set og_image_url = site_url + "/images/assets/android-chrome-512x512.png" %}
+  {% endif %}
   {% set og_image_alt = socialMediaPreviewImageAlt or title or "David Moll's Blog" %}
   
   <!-- Open Graph / Facebook -->
