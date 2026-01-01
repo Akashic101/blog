@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if title %}{{ title }} - {% endif %}David Moll's Blog</title>
+  
+  <!-- Favicons and Icons -->
+  <link rel="icon" type="image/x-icon" href="/images/assets/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/assets/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/assets/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/assets/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/images/assets/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/images/assets/android-chrome-512x512.png">
+  <link rel="manifest" href="/images/assets/site.webmanifest">
+  <link rel="mask-icon" href="/images/assets/safari-pinned-tab.svg" color="#224679">
+  <meta name="msapplication-TileColor" content="#224679">
+  <meta name="msapplication-TileImage" content="/images/assets/mstile-150x150.png">
+  <meta name="theme-color" content="#224679">
+  <meta name="msapplication-config" content="/images/assets/browserconfig.xml">
+  
+  <link rel="preload" href="/fonts/Lato-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/fonts/Lato-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/output.css">
+  {% if socialMediaPreviewImage and title %}
+  {% set image_path = socialMediaPreviewImage | replace("/images/", "images/") %}
+  {% ogImage "./og-image.og.njk", { title: title, image_path: image_path } %}
+  {% endif %}
+</head>
+<body class="bg-gradient-to-br from-purple-100 via-pink-50 to-orange-50 min-h-screen font-sans flex flex-col">
+  <header>
+    <nav class="container mx-auto px-4 py-6">
+      <div class="flex justify-between items-center">
+        <div class="grid">
+        <a href="/" class="text-2xl font-bold text-black hover:text-gray-600 transition-colors">
+          David Moll's Blog
+        </a>
+        <i class="text-black">
+        You can't downvote me here
+        </i>
+        </div>
+        <div class="flex gap-4">
+          <a href="/about-me" class="text-black hover:text-gray-400 font-medium transition-colors">
+            About Me
+          </a>
+          <a href="/blog/" class="text-black hover:text-gray-400 font-medium transition-colors">
+            Archive
+          </a>
+          <a href="/tags/" class="text-black hover:text-gray-400 font-medium transition-colors">
+            Tags
+          </a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="grow">
+    {{ content | safe }}
+  </main>
+
+  <footer class="bg-linear-to-r from-cyan-500 via-blue-500 to-indigo-500 mt-auto">
+    <div class="container mx-auto px-4 py-6">
+      <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-4 text-white">
+        <div class="text-center md:text-left">
+          <p>&copy; {{ 2025 | currentYear }} David Moll's Blog. All rights reserved.</p>
+          <p>Made with ❤️ and 11ty</p>
+        </div>
+        <div class="text-center md:text-right">
+          <a href="https://github.com/akashic101" class="text-white hover:text-gray-200 transition-colors">Github</a>
+          <a href="https://bsky.app/profile/davidmoll.net" class="text-white hover:text-gray-200 transition-colors">Bluesky</a>
+          <a href="https://www.linkedin.com/in/david-leander-moll/" class="text-white hover:text-gray-200 transition-colors">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
+

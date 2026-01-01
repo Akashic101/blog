@@ -1,15 +1,14 @@
 ---
 layout: layouts/base.njk
+title: Archive
 ---
 
 <div class="container mx-auto px-4 py-8">
-  <h1 class="text-4xl font-bold mb-8">Blog Posts</h1>
+  <h1 class="text-4xl font-bold mb-8">Archive</h1>
   
   {% if collections.posts %}
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-12">
-    {% set posts = collections.posts | reverse %}
-    {% for post in posts %}
-      {% if loop.index <= 3 %}
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+    {% for post in collections.posts | reverse %}
     <article class="bg-white rounded-lg overflow-hidden flex flex-col">
       <a href="{{ post.url }}" class="flex flex-col flex-1 no-underline">
         {% if post.data.socialMediaPreviewImage %}
@@ -21,7 +20,7 @@ layout: layouts/base.njk
           >
           <div class="absolute bottom-0 left-0 p-1 md:p-2">
             <h2 class="font-bold">
-              <span class="bg-white px-2 py-2 inline-block text-3xl sm:text-xl md:text-lg lg:text-lg xl:text-xl">
+              <span class="bg-white px-2 py-1 md:py-2 inline-block text-4xl sm:text-xl md:text-lg lg:text-lg xl:text-xl">
                 {{ post.data.title }}
               </span>
             </h2>
@@ -64,48 +63,9 @@ layout: layouts/base.njk
         </div>
       </a>
     </article>
-      {% endif %}
-    {% endfor %}
-    <a href="/blog/" class="text-indigo-600 hover:text-indigo-800 font-medium inline-block">View all posts</a>
-  </div>
-  {% endif %}
-
-
-
-  <h1 class="text-4xl font-bold mb-8">Latest from me across the web</h1>
-  {% if bluesky and bluesky.length > 0 %}
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-    {% for post in bluesky %}
-    <article class="bg-white p-6 rounded-lg flex flex-col">
-      <div class="mb-2">
-        <h2 class="text-xl font-bold text-gray-900 leading-tight">
-          <a href="{{ post.url }}"
-             class="hover:text-indigo-600 transition-colors"
-             target="_blank"
-             rel="noopener noreferrer">
-          </a>
-        </h2>
-        <span class="text-xs text-gray-500 block mt-1">
-          {{ post.date.toLocaleDateString() }}
-        </span>
-      </div>
-
-      {% if post.content %}
-      <div class="text-gray-700 mb-4 flex-grow">
-        {{ post.content | safe }}
-      </div>
-      {% endif %}
-
-      <a href="{{ post.url }}"
-         class="text-indigo-600 hover:text-indigo-800 text-sm font-medium mt-auto inline-block"
-         target="_blank"
-         rel="noopener noreferrer">
-        View on Bluesky →
-      </a>
-    </article>
     {% endfor %}
   </div>
   {% else %}
-  <p class="text-gray-600">No posts available at the moment.</p>
+  <p class="text-gray-600">No posts found.</p>
   {% endif %}
 </div>

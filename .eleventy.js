@@ -1,168 +1,118 @@
-const fs = require('fs');
-require('dotenv').config();
-const path = require('path');
-const moment = require('moment');
-const htmlNano = require('htmlnano');
-const tocPlugin = require('eleventy-plugin-toc');
-const skiplink = require('eleventy-plugin-skiplink');
-const umamiPlugin = require('eleventy-plugin-umami');
-const markdownItKatex = require('markdown-it-katex');
-const markdownItAnchor = require('markdown-it-anchor');
-const pluginRss = require('@11ty/eleventy-plugin-rss');
-const pluginStats = require('eleventy-plugin-post-stats');
-const markdownItFootnote = require('markdown-it-footnote');
-const readingTime = require('eleventy-plugin-reading-time');
-const namedCodeBlocks = require('markdown-it-named-code-blocks');
-const brokenLinksPlugin = require('eleventy-plugin-broken-links');
-const fileSizePlugin = require('./src/_transforms/addFileSize.js');
-const postGraph = require('@rknightuk/eleventy-plugin-post-graph');
-const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
-const pluginCleanUrls = require('@inframanufaktur/eleventy-plugin-clean-urls');
-const directoryOutputPlugin = require('@11ty/eleventy-plugin-directory-output');
-const eleventyPluginFilesMinifier = require('@sherby/eleventy-plugin-files-minifier');
-const { fortawesomeBrandsPlugin } = require('@vidhill/fortawesome-brands-11ty-shortcode');
-const {
-	fortawesomeFreeRegularPlugin,
-} = require('@vidhill/fortawesome-free-regular-11ty-shortcode');
+import pluginRss from '@11ty/eleventy-plugin-rss';
+import markdownItFootnote from "markdown-it-footnote";
+import markdownItAnchor from "markdown-it-anchor";
+import htmlmin from 'html-minifier-next';
+import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
+import EleventyPluginOgImage from 'eleventy-plugin-og-image';
+import { readFileSync } from 'fs';
+import { promises as fs } from 'node:fs';
+import path from 'node:path';
+import syntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
+import namedCodeBlocks from "markdown-it-named-code-blocks";
 
-function getFolderSize(folderPath) {
-	let totalSize = 0;
+export default function (eleventyConfig) {
+  // Plugins
+  eleventyConfig.addPlugin(pluginRss);
+  eleventyConfig.addPlugin(syntaxHighlight);
+  eleventyConfig.addPlugin(eleventyImageTransformPlugin);
 
-	function traverseDirectory(currentPath) {
-		const files = fs.readdirSync(currentPath);
+  eleventyConfig.addPlugin(EleventyPluginOgImage, {
+    satoriOptions: {
+      width: 1200,
+      height: 630,
+      fonts: [
+        {
+          name: 'Lato',
+          data: readFileSync('src/fonts/Lato-Black.ttf'),
+          weight: 900,
+          style: 'normal',
+        },
+      ],
+    },
+  });
+  
+  // Markdown extensions
+  eleventyConfig.amendLibrary("md", (mdLib) => mdLib.use(markdownItFootnote));
+  eleventyConfig.amendLibrary('md', (mdLib) => mdLib.use(namedCodeBlocks));
+  eleventyConfig.amendLibrary("md", (mdLib) =>
+    mdLib.use(markdownItAnchor, {
+      permalink: markdownItAnchor.permalink.ariaHidden({ placement: "after" }),
+    })
+  );
 
-		files.forEach((file) => {
-			const filePath = path.join(currentPath, file);
-			const stats = fs.statSync(filePath);
+  // Static assets
+  eleventyConfig.addPassthroughCopy({
+    "src/css/output.css": "css/output.css",
+    "src/css/input.css": "css/input.css",
+    "src/images": "images",
+  });
+  eleventyConfig.addPassthroughCopy("src/fonts/**/*");
+  eleventyConfig.addPassthroughCopy("src/js");
+  eleventyConfig.addPassthroughCopy("src/robots.txt");
 
-			if (stats.isDirectory()) {
-				traverseDirectory(filePath);
-			} else {
-				totalSize += stats.size;
-			}
-		});
-	}
+  // Filters
+  eleventyConfig.addFilter("currentDate", () => new Date());
+  eleventyConfig.addFilter("currentYear", () => new Date().getFullYear());
+  
+  eleventyConfig.addFilter("age", () => {
+    const birthDate = new Date(1998, 2, 3);
+    const today = new Date();
+    let age = today.getFullYear() - birthDate.getFullYear();
+    if (today < new Date(today.getFullYear(), birthDate.getMonth(), birthDate.getDate())) {
+      age--;
+    }
+    return age;
+  });
+  
+  eleventyConfig.addFilter("isOlderThanOneYear", (date) => {
+    if (!date) return false;
+    const oneYearAgo = new Date();
+    oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
+    return date < oneYearAgo;
+  });
+  
+  eleventyConfig.addFilter("getAllTags", (collection) => {
+    const tagSet = new Set();
+    for (const item of collection) {
+      (item.data.tags || []).forEach((tag) => tagSet.add(tag));
+    }
+    return Array.from(tagSet);
+  });
 
-	traverseDirectory(folderPath);
-	return totalSize;
+  eleventyConfig.addNunjucksAsyncShortcode('inlineImage', async function(imagePath) {
+    const fullPath = path.join('src', imagePath);
+    const base64Image = await fs.readFile(fullPath, 'base64');
+    return `data:image/png;base64,${base64Image}`;
+  });
+
+  eleventyConfig.addTransform('htmlmin', async function(content) {
+    if (this.page.outputPath && this.page.outputPath.endsWith('.html')) {
+      let minified = await htmlmin.minify(content, {
+        // Options: https://github.com/j9t/html-minifier-next?tab=readme-ov-file#options-quick-reference
+        collapseBooleanAttributes: true,
+        collapseWhitespace: true,
+        decodeEntities: true,
+        minifyCSS: true,
+        minifyJS: true,
+        preventAttributesEscaping: true,
+        removeComments: true,
+        removeOptionalTags: true,
+        removeRedundantAttributes: true,
+      });
+      return minified;
+    }
+    return content;
+  });
+
+  return {
+    dir: {
+      input: "src",
+      output: "_site",
+      includes: "_includes",
+      data: "_data",
+    },
+    templateFormats: ["md", "njk", "html"],
+    markdownTemplateEngine: "njk",
+    htmlTemplateEngine: "njk",
+  };
 }
-
-module.exports = function (eleventyConfig) {
-	eleventyConfig.addPlugin(umamiPlugin, {
-		url: process.env.UMAMI_URL,
-		username: process.env.UMAMI_USERNAME,
-		password: process.env.UMAMI_PASSWORD,
-		websiteId: process.env.UMAMI_WEBSITE_ID,
-		start: moment().subtract(1, 'month').valueOf(),
-		end: moment().valueOf(),
-	});
-
-	eleventyConfig.addPlugin(directoryOutputPlugin, {
-		columns: {
-			filesize: true,
-			benchmark: true,
-		},
-		warningFileSize: 25 * 1000,
-	});
-
-	eleventyConfig.addPlugin(skiplink);
-	eleventyConfig.addPlugin(postGraph, { only: [2024] });
-	eleventyConfig.addPlugin(pluginRss);
-	eleventyConfig.addPlugin(pluginStats, { tags: ['posts', 'net nuggets'] });
-	eleventyConfig.addPlugin(readingTime);
-	eleventyConfig.addPlugin(fileSizePlugin);
-	eleventyConfig.addPlugin(syntaxHighlight);
-	eleventyConfig.addPlugin(pluginCleanUrls);
-	eleventyConfig.addPlugin(fortawesomeBrandsPlugin);
-	eleventyConfig.addPlugin(eleventyPluginFilesMinifier);
-	eleventyConfig.addPlugin(fortawesomeFreeRegularPlugin);
-	eleventyConfig.addPlugin(tocPlugin, { tags: ['h2', 'h3'] });
-	eleventyConfig.addPlugin(brokenLinksPlugin, {
-		forbidden: 'warn',
-		redirect: 'warn',
-		broken: 'warn',
-		cacheDuration: '1d',
-		loggingLevel: 1,
-		excludeUrls: ['https://blog.davidmoll.net*', 'https://github.com/Akashic101/*'],
-		excludeInputs: [
-			'blog/2024-04-04-A-small-collection-of-some-great-404-pages/2024-04-04-A-small-collection-of-some-great-404-pages.md',
-		],
-		callback: null,
-	});
-
-	eleventyConfig.addPassthroughCopy('src/bundle.css');
-	eleventyConfig.addPassthroughCopy('src/prism-vsc-dark-plus.css');
-	eleventyConfig.addPassthroughCopy('src/assets/');
-	eleventyConfig.addPassthroughCopy('src/_data/');
-
-	eleventyConfig.addShortcode('currentDate', require('./src/_filters/currentDate.js'));
-
-	eleventyConfig.addFilter('RFC3339', require('./src/_filters/RFC3339.js'));
-	eleventyConfig.addFilter('cssmin', require('./src/_filters/cssmin.js'));
-	eleventyConfig.addFilter('slugify', require('./src/_filters/slugify.js'));
-	eleventyConfig.addFilter('readtime', require('./src/_filters/readtime.js'));
-	eleventyConfig.addFilter('joinedTags', require('./src/_filters/joinedTags.js'));
-	eleventyConfig.addFilter('getAllTags', require('./src/_filters/getAllTags.js'));
-	eleventyConfig.addFilter('currentYear', require('./src/_filters/currentYear.js'));
-	eleventyConfig.addFilter('dateDisplay', require('./src/_filters/dateDisplay.js'));
-	eleventyConfig.addFilter('webmentionsByUrl', require('./src/_filters/webmentionsbyurl.js'));
-
-	eleventyConfig.addCollection('randomArticle', require('./src/_collections/randomArticle.js'));
-	eleventyConfig.addCollection(
-		'lastThreeArticles',
-		require('./src/_collections/lastThreeArticles.js'),
-	);
-
-	eleventyConfig.addGlobalData('lastBuildDate', () => {
-		return new Date().toUTCString();
-	});
-
-	eleventyConfig.amendLibrary('md', (mdLib) => mdLib.use(markdownItFootnote));
-	eleventyConfig.amendLibrary('md', (mdLib) => mdLib.use(markdownItKatex));
-	eleventyConfig.amendLibrary('md', (mdLib) => mdLib.use(namedCodeBlocks));
-	eleventyConfig.amendLibrary('md', (mdLib) =>
-		mdLib.use(markdownItAnchor, {
-			permalink: markdownItAnchor.permalink.ariaHidden({
-				placement: 'after',
-			}),
-		}),
-	);
-
-	eleventyConfig.on('eleventy.after', async ({ dir, results }) => {
-		const folderPath = dir.output;
-		const sizeInBytes = getFolderSize(folderPath);
-		const filePath = `${dir.output}/stats/index.html`;
-
-		for (let i = 0; i < results.length; i++) {
-			if (results[i].content.includes('TOTALBUILDSIZE')) {
-				results[i].content = results[i].content.replace(
-					'TOTALBUILDSIZE',
-					Math.round((sizeInBytes / 1024) * 100) / 100,
-				);
-				fs.writeFileSync(filePath, results[i].content);
-			}
-		}
-	});
-
-	eleventyConfig.addTransform('addFileSize', require('./src/_transforms/addFileSize.js'));
-	eleventyConfig.addTransform('htmlnano', async (content, outputPath) => {
-		if (outputPath.endsWith('.html')) {
-			const { html } = await htmlNano.process(content, {
-				collapseBooleanAttributes: true,
-				collapseWhitespace: true,
-				removeComments: true,
-				removeEmptyAttributes: true,
-				removeRedundantAttributes: true,
-			});
-			return html;
-		}
-		return content;
-	});
-
-	return {
-		dir: {
-			input: 'src',
-			output: '_site',
-		},
-	};
-};

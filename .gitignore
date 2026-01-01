@@ -1,6 +1,4 @@
-/node_modules
-/_site
-/._drafts
-/.cache/
-/src/_drafts
-/.env
+node_modules
+.cache
+.cursor
+_site

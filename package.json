@@ -1,62 +1,49 @@
 {
-	"name": "blog",
-	"version": "2.0.0",
-	"description": "",
-	"main": "index.js",
-	"scripts": {
-		"build": "npx @11ty/eleventy",
-		"serve": "npx @11ty/eleventy --serve",
-		"format": "npx prettier --write .",
-		"eslint": "npx prettier .",
-		"gnb": "node ./generateNewBlog.mjs"
-	},
-	"keywords": [],
-	"author": "",
-	"license": "ISC",
-	"devDependencies": {
-		"@11ty/eleventy": "3.0.0",
-		"@11ty/eleventy-fetch": "4.0.1",
-		"@11ty/eleventy-plugin-rss": "2.0.3",
-		"@11ty/eleventy-plugin-syntaxhighlight": "5.0.0",
-		"@chrisburnell/eleventy-cache-webmentions": "2.1.8",
-		"@rknightuk/eleventy-plugin-post-graph": "1.0.8",
-		"@sherby/eleventy-plugin-files-minifier": "1.1.1",
-		"@vidhill/fortawesome-brands-11ty-shortcode": "1.1.0",
-		"@vidhill/fortawesome-free-regular-11ty-shortcode": "1.0.3",
-		"cssnano": "7.0.6",
-		"dotenv": "16.5.0",
-		"eleventy-plugin-broken-links": "2.2.1",
-		"eleventy-plugin-phosphoricons": "1.3.0",
-		"eleventy-plugin-post-stats": "0.2.13",
-		"eleventy-plugin-reading-time": "0.0.1",
-		"eleventy-plugin-toc": "1.1.5",
-		"eleventy-plugin-unified": "2.0.0",
-		"eslint": "9.25.1",
-		"eslint-config-prettier": "9.1.0",
-		"eslint-plugin-prettier": "5.2.6",
-		"graphql-request": "7.1.2",
-		"htmlnano": "2.1.1",
-		"inquirer": "12.6.0",
-		"markdown-it-anchor": "9.2.0",
-		"markdown-it-footnote": "4.0.0",
-		"markdown-it-katex": "2.0.3",
-		"node-fetch": "3.3.2",
-		"prettier": "3.5.3",
-		"remark-toc": "9.0.0",
-		"sanitize-html": "2.16.0",
-		"svgo": "3.3.2",
-		"terser": "5.39.0"
-	},
-	"dependencies": {
-		"@11ty/eleventy-img": "^5.0.0",
-		"@11ty/eleventy-plugin-directory-output": "^1.0.1",
-		"@11ty/eleventy-plugin-webc": "^0.11.2",
-		"@inframanufaktur/eleventy-plugin-clean-urls": "^1.0.2",
-		"cheerio": "^1.0.0-rc.12",
-		"clean-css": "^5.3.3",
-		"eleventy-plugin-skiplink": "^1.2.1",
-		"eleventy-plugin-umami": "^2.0.0",
-		"markdown-it-named-code-blocks": "^1.0.6",
-		"speedlify-score": "^4.0.4"
-	}
+  "name": "blog",
+  "type": "module",
+  "version": "3.0.0",
+  "private": true,
+  "dependencies": {
+    "@11ty/eleventy": "^3.1.2",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.2"
+  },
+  "devDependencies": {
+    "@11ty/eleventy-activity-feed": "^2.0.0",
+    "@11ty/eleventy-img": "^6.0.4",
+    "@11ty/eleventy-plugin-rss": "^2.0.4",
+    "@tailwindcss/cli": "^4.1.18",
+    "@tailwindcss/postcss": "^4.1.18",
+    "@tailwindcss/typography": "^0.5.19",
+    "@types/bun": "latest",
+    "autoprefixer": "^10.4.19",
+    "cssnano": "^7.1.2",
+    "eleventy-plugin-og-image": "^4.2.1",
+    "html-minifier-next": "^4.16.3",
+    "knip": "^5.78.0",
+    "markdown-it": "^14.1.0",
+    "markdown-it-anchor": "^9.2.0",
+    "markdown-it-footnote": "^4.0.0",
+    "markdown-it-named-code-blocks": "^1.0.6",
+    "postcss": "^8.5.6",
+    "prettier": "^3.7.4",
+    "tailwindcss": "^4.1.18",
+    "turndown": "^7.2.2"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "scripts": {
+    "11ty:build": "eleventy",
+    "11ty:serve": "eleventy --serve",
+    "css:build": "tailwindcss -i ./src/css/input.css -o ./src/css/output.css",
+    "css:watch": "tailwindcss -i ./src/css/input.css -o ./src/css/output.css --watch",
+    "knip": "knip",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "knip": {
+    "ignore": [
+      "_site/**"
+    ]
+  }
 }

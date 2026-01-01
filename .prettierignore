@@ -1,4 +1,3 @@
-_site
-.cache
-.github
-node_modules
+_site/
+node_modules/
+

@@ -1,0 +1,68 @@
+---
+pagination:
+  data: collections
+  size: 1
+  alias: tag
+  filter:
+    - posts
+permalink: /tags/{{ tag | slugify }}/
+layout: layouts/base.njk
+eleventyExcludeFromCollections: true
+---
+<div class="container mx-auto px-4 py-8">
+  <h1 class="text-4xl font-bold mb-8">Tagged "{{ tag }}"</h1>
+  
+  {% set taglist = collections[ tag ] %}
+  {% if taglist and taglist.length > 0 %}
+  <div class="grid grid-cols-1 lg:grid-cols-4 sm:grid-cols-2 md:grid-cols-3 gap-6">
+    {% for post in taglist | reverse %}
+    <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow flex flex-col">
+      <a href="{{ post.url }}" class="flex flex-col flex-1 no-underline">
+        {% if post.data.socialMediaPreviewImage %}
+        <div class="w-full relative">
+          <img 
+            src="{{ post.data.socialMediaPreviewImage }}" 
+            alt="{{ post.data.socialMediaPreviewImageAlt or post.data.title }}"
+            class="w-full h-64 md:h-40 lg:h-32 object-cover"
+          >
+          <div class="absolute bottom-0 left-0 p-1 md:p-2">
+            <h2 class="font-bold">
+              <span class="bg-white px-2 py-1 md:py-2 inline-block text-4xl sm:text-xl md:text-lg lg:text-lg xl:text-xl">
+                {{ post.data.title }}
+              </span>
+            </h2>
+          </div>
+        </div>
+        {% else %}
+        <div class="p-6 pb-0">
+          <h2 class="text-xl font-bold mb-2 text-indigo-600">
+            {{ post.data.title }}
+          </h2>
+        </div>
+        {% endif %}
+        
+        <div class="p-6 flex flex-col flex-1">
+          
+          {% if post.data.description %}
+          <p class="text-gray-600 mb-4 text-sm flex-1">{{ post.data.description }}</p>
+          {% endif %}
+          
+          <div class="flex flex-col gap-2 text-sm text-gray-500 mt-auto">
+            {% if post.data.author %}
+            <span>By {{ post.data.author }}</span>
+            {% endif %}
+            
+            {% if post.data.date %}
+            <span>{{ post.data.date.toLocaleDateString() }}</span>
+            {% endif %}
+          </div>
+        </div>
+      </a>
+    </article>
+    {% endfor %}
+  </div>
+  {% else %}
+  <p class="text-gray-600">No posts found with this tag.</p>
+  {% endif %}
+</div>
+

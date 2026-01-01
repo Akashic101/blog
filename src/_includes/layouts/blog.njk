@@ -1,0 +1,102 @@
+---
+layout: layouts/base.njk
+---
+
+{% if socialMediaPreviewImage %}
+<div class="relative w-full m-0 p-0">
+  <img
+    src="{{ socialMediaPreviewImage }}"
+    alt="{{ socialMediaPreviewImageAlt or title }}"
+    class="w-full h-64 object-cover block m-0 p-0"
+  />
+  <div
+    class="absolute bottom-0 left-2 sm:left-4 md:left-12 bg-white px-3 py-2 sm:px-4 sm:py-3 md:px-6 md:py-4 m-2 sm:m-3 md:m-4"
+  >
+    <h1
+      class="text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl font-bold text-black"
+    >
+      {{ title }}
+    </h1>
+  </div>
+</div>
+{% endif %}
+
+<div class="bg-pink-100 w-full">
+  <div class="container mx-auto px-4 py-8">
+    <div class="grid grid-cols-3 gap-8 mb-8">
+      <div class="col-span-2">
+        {% if description %}
+        <p class="text-lg mb-4">{{ description }}</p>
+        {% endif %} {% if author %}
+        <p class="text-sm text-gray-600 mb-1">Written by: {{ author }}</p>
+        {% endif %} {% if date %}
+        <p class="text-sm text-gray-600">
+          {{ date.toLocaleDateString() }}
+        </p>
+        {% endif %}
+      </div>
+      <div class="col-span-1">
+        {% if tags %}
+        <div class="flex flex-col text-right">
+          {% for tag in tags %}
+            {% if tag != "posts" %}
+              {% set tagUrl %}/tags/{{ tag | slugify }}/{% endset %}
+              <a href="{{ tagUrl }}" class="text-sm mb-2 text-right underline hover:text-indigo-800 transition-colors">{{ tag }}</a>
+            {% endif %}
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+    </div>
+
+    {% if date | isOlderThanOneYear %}
+    <div class="mt-8 p-4 bg-yellow-50 border-l-4 border-yellow-400 rounded-r-lg">
+      <div class="flex items-start">
+        <div class="flex-shrink-0">
+          <svg
+            class="h-5 w-5 text-yellow-400"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </div>
+        <div class="ml-3 flex-1">
+          <p class="text-sm text-yellow-800 font-medium mb-2">
+            This post is over one year old and may contain outdated information.
+          </p>
+          <p class="text-sm text-yellow-700">
+            If you have questions or encounter problems, please reach out to me
+            via
+            <a
+              href="https://bsky.app/profile/davidmoll.net"
+              class="text-yellow-900 hover:text-yellow-600 underline font-medium"
+              >Bluesky</a
+            >,
+            <a
+              href="https://www.linkedin.com/in/david-leander-moll/"
+              class="text-yellow-900 hover:text-yellow-600 underline font-medium"
+              >LinkedIn</a
+            >, or
+            <a
+              href="https://github.com/akashic101"
+              class="text-yellow-900 hover:text-yellow-600 underline font-medium"
+              >GitHub</a
+            >.
+          </p>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</div>
+
+<div class="container mx-auto px-4 py-8">
+  <div class="prose prose-lg max-w-none">
+    {{ content | safe }}
+  </div>
+</div>
