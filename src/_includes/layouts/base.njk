@@ -36,10 +36,17 @@
   {% else %}
   {% set page_type = "website" %}
   {% endif %}
+  {% set use_og_image_shortcode = socialMediaPreviewImage and title %}
+  {% if use_og_image_shortcode %}
+  {% set image_path = socialMediaPreviewImage | replace("/images/", "images/") %}
+  {% ogImage "./og-image.og.njk", { title: title, image_path: image_path } %}
+  {% else %}
   {% if socialMediaPreviewImage %}
   {% set og_image_url = site_url + socialMediaPreviewImage %}
   {% else %}
   {% set og_image_url = site_url + "/images/assets/android-chrome-512x512.png" %}
+  {% endif %}
+  {% set og_image_alt = socialMediaPreviewImageAlt or title or "David Moll's Blog" %}
   {% endif %}
   
   <!-- Open Graph / Facebook -->
@@ -47,12 +54,14 @@
   <meta property="og:url" content="{{ page_url }}">
   <meta property="og:title" content="{{ page_title }}">
   <meta property="og:description" content="{{ page_description }}">
+  {% if not use_og_image_shortcode %}
   <meta property="og:image" content="{{ og_image_url }}">
   <meta property="og:image:secure_url" content="{{ og_image_url }}">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="{{ og_image_alt }}">
   <meta property="og:image:type" content="image/png">
+  {% endif %}
   <meta property="og:site_name" content="David Moll's Blog">
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="en_GB">
@@ -75,8 +84,10 @@
   <meta name="twitter:url" content="{{ page_url }}">
   <meta name="twitter:title" content="{{ page_title }}">
   <meta name="twitter:description" content="{{ page_description }}">
+  {% if not use_og_image_shortcode %}
   <meta name="twitter:image" content="{{ og_image_url }}">
   <meta name="twitter:image:alt" content="{{ og_image_alt }}">
+  {% endif %}
   <meta name="twitter:creator" content="@davidmoll">
   <meta name="twitter:site" content="@davidmoll">
   
@@ -84,11 +95,6 @@
   <meta name="description" content="{{ page_description }}">
   <meta name="author" content="{{ author or 'David Moll' }}">
   <meta name="generator" content="11ty">
-  
-  {% if socialMediaPreviewImage and title %}
-  {% set image_path = socialMediaPreviewImage | replace("/images/", "images/") %}
-  {% ogImage "./og-image.og.njk", { title: title, image_path: image_path } %}
-  {% endif %}
 </head>
 <body class="bg-linear-to-br from-purple-100 via-pink-50 to-orange-50 min-h-screen font-sans flex flex-col">
   <header>
