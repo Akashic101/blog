@@ -22,12 +22,64 @@
   <link rel="preload" href="/fonts/Lato-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
   <link rel="preload" href="/fonts/Lato-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
   <link rel="stylesheet" href="/css/output.css">
+  
+  {% set site_url = "https://blog.davidmoll.net" %}
+  {% set page_url = site_url + page.url %}
+  {% set page_title = title ? title + " - David Moll's Blog" : "David Moll's Blog" %}
+  {% set page_description = description or "I am writing about whatever is on my mind" %}
+  {% set page_type = date ? "article" : "website" %}
+  {% set og_image_url = socialMediaPreviewImage ? site_url + socialMediaPreviewImage : site_url + "/images/assets/android-chrome-512x512.png" %}
+  {% set og_image_alt = socialMediaPreviewImageAlt or title or "David Moll's Blog" %}
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="{{ page_type }}">
+  <meta property="og:url" content="{{ page_url }}">
+  <meta property="og:title" content="{{ page_title }}">
+  <meta property="og:description" content="{{ page_description }}">
+  <meta property="og:image" content="{{ og_image_url }}">
+  <meta property="og:image:secure_url" content="{{ og_image_url }}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="{{ og_image_alt }}">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:site_name" content="David Moll's Blog">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="en_GB">
+  
+  {% if page_type == "article" %}
+  <meta property="article:author" content="{{ author or 'David Moll' }}">
+  <meta property="article:published_time" content="{{ date.toISOString() }}">
+  <meta property="article:section" content="Blog">
+  {% if tags %}
+  {% for tag in tags %}
+  {% if tag != "posts" %}
+  <meta property="article:tag" content="{{ tag }}">
+  {% endif %}
+  {% endfor %}
+  {% endif %}
+  {% endif %}
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="{{ page_url }}">
+  <meta name="twitter:title" content="{{ page_title }}">
+  <meta name="twitter:description" content="{{ page_description }}">
+  <meta name="twitter:image" content="{{ og_image_url }}">
+  <meta name="twitter:image:alt" content="{{ og_image_alt }}">
+  <meta name="twitter:creator" content="@davidmoll">
+  <meta name="twitter:site" content="@davidmoll">
+  
+  <!-- Additional Meta Tags -->
+  <meta name="description" content="{{ page_description }}">
+  <meta name="author" content="{{ author or 'David Moll' }}">
+  <meta name="generator" content="11ty">
+  
   {% if socialMediaPreviewImage and title %}
   {% set image_path = socialMediaPreviewImage | replace("/images/", "images/") %}
   {% ogImage "./og-image.og.njk", { title: title, image_path: image_path } %}
   {% endif %}
 </head>
-<body class="bg-gradient-to-br from-purple-100 via-pink-50 to-orange-50 min-h-screen font-sans flex flex-col">
+<body class="bg-linear-to-br from-purple-100 via-pink-50 to-orange-50 min-h-screen font-sans flex flex-col">
   <header>
     <nav class="container mx-auto px-4 py-6">
       <div class="flex justify-between items-center">
