@@ -1,6 +1,8 @@
 ---
 layout: layouts/base.njk
 title: About Me
+socialMediaPreviewImage: /images/645eff2b83d92f85db3187dd3389df35_1920x300_light.png
+socialMediaPreviewImageAlt: About Me - David Moll
 ---
 
 <div class="container mx-auto px-4 py-8">

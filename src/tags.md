@@ -4,6 +4,8 @@ layout: layouts/base.njk
 eleventyExcludeFromCollections: true
 filter:
   - posts
+socialMediaPreviewImage: /images/27a8398f0173e557c93bad1f910375e7_1920x300_light.png
+socialMediaPreviewImageAlt: Tags - David Moll's Blog
 ---
 
 <div class="container mx-auto px-4 py-8">
