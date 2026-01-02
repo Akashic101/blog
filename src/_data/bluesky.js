@@ -12,7 +12,6 @@ export default async function () {
     "Bluesky",
     "https://bsky.app/profile/davidmoll.net/rss",
   );
-  feed.addSource("rss", "Blog", "https://blog.davidmoll.net/feed.xml");
 
   // Get the feed entries
   const entries = await feed.getEntries();
