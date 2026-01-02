@@ -2,6 +2,7 @@
 permalink: /tags/
 layout: layouts/base.njk
 eleventyExcludeFromCollections: true
+title: All Tags
 filter:
   - posts
 socialMediaPreviewImage: /images/27a8398f0173e557c93bad1f910375e7_1920x300_light.png
