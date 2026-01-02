@@ -14,7 +14,6 @@ socialMediaPreviewImage: /images/154152facabeb2a69a8e82766a5e5246.png
 
 Hope you had a good 2026 (feels weird typing this on the first day of the year). You still happy with the redesign of the blog? At least current me is very happy with it, even if the website is a tiny bit larger than the old layout, but oh well. Let's talk plans for this year shall we?
 
-
 ## Plans for 2026
 
 One big plan that I hope you fullfilled was photopgraphing the solar-eclipse in A Coruña. The first full solar-eclipse over Europe of our life is something you should definitly not miss, especially considering the next one over West-Europe is in 2081. I am very curious if I upgraded our camera and lens for this photoshoot. I am 95% sure the Sony A6000 and 70-350mm lens I have currently will not be enough. Also this will be the first holiday completely on your own of your life, so I will make sure it will be special.

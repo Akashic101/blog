@@ -184,4 +184,11 @@ h6 {
   padding-top: 1em;
 }
 
-
+main {
+  background: linear-gradient(
+    to bottom right,
+    #f3e8ff,
+    /* purple-100 */ #fdf2f8,
+    /* pink-50 */ #fff7ed /* orange-50 */
+  );
+}
