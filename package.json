@@ -19,7 +19,7 @@
     "cssnano": "^7.1.2",
     "eleventy-plugin-og-image": "^4.2.1",
     "html-minifier-next": "^4.17.0",
-    "knip": "^5.78.0",
+    "knip": "^6.0.0",
     "markdown-it": "^14.1.0",
     "markdown-it-anchor": "^9.2.0",
     "markdown-it-footnote": "^4.0.0",
